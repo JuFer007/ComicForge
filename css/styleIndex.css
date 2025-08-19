@@ -12,141 +12,42 @@
     --color-accent: #c6252b;
 }
 
-header {
-    background: var(--bg-header-footer);
-    color: var(--color-text);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    border-bottom: 2px solid var(--color-accent);
-}
-
-header .logo {
-    background: transparent;
-    border: none;
-    cursor: pointer;
+*{
+    margin: 0;
     padding: 0;
 }
 
-header .logo button {
-    background: transparent;
-    border: none;
+/*CSS PARA EL HEADER*/
+header .navbar {
+  background-color: #b30000 !important;
 }
 
-header .logo img {
-    height: 65px;
-    cursor: pointer;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    transition: transform 0.2s;
+.logoheader{
+  width: 8rem;
+  margin-left: 0.5rem;
 }
 
-header .logo img:hover {
+header img .logoheader:hover {
     transform: scale(1.04);
 }
 
-nav .menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+/*CSS PARA EL DROPDOWN*/
+.custom-dropdown {
+  background-color: #000; /* negro */
 }
 
-nav .menu li {
-    position: relative;
+.custom-dropdown .dropdown-item {
+  color: #fff; /* blanco */
 }
 
-nav .menu a {
-    text-decoration: none;
-    color: var(--color-text);
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: 0.3s;
-    background: transparent;
+.custom-dropdown .dropdown-item:hover {
+  background-color: #cc0000; /* rojo intenso */
+  color: #fff; /* blanco */
 }
 
-nav .menu a:hover {
-    color: #ffffff;
-    background: black;
-}
+/*FINALIZACION DEL HEADER*/
 
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: black;
-    list-style: none;
-    min-width: 160px;
-    border: 1px solid var(--color-accent);
-    border-radius: 6px;
-    z-index: 1000;
-}
 
-.submenu li a {
-    display: block;
-    padding: 10px;
-    color: #ffffff;
-    border-radius: 0 0 6px 6px;
-}
-
-.submenu li a:hover {
-    background: var(--color-accent);
-    color: var(--color-white);
-}
-
-.dropdown:hover .submenu {
-    display: block;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.icons button {
-    background: transparent;
-    border: none;
-}
-
-.busqueda {
-    position: relative;
-}
-
-.busqueda input {
-    padding: 10px 200px 10px 10px;
-    border: 2px solid var(--color-text);
-    border-radius: 20px;
-    background: #fff5f5;
-    color: var(--color-text);
-}
-
-.busqueda input::placeholder {
-    color: black;
-    font-size: 14px;
-}
-
-.busqueda i {
-    position: absolute;
-    right: 10px;
-    top: 8px;
-    color: var(--color-accent);
-    cursor: pointer;
-}
-
-.icons i {
-    font-size: 1.3rem;
-    cursor: pointer;
-    color: var(--color-text);
-    transition: 0.3s;
-}
-
-.icons i:hover {
-    color: #ffffff;
-}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
