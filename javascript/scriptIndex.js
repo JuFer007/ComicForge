@@ -1,8 +1,3 @@
-//CAMBIAR EL CONTENIDO SEGÚN EL BOTON DONDE SE HACE CLICK
-const botonMarvel = document.getElementById('btn-marvel');
-const botonDC = document.getElementById('btn-dc');
-const botonDB = document.getElementById('btn-db');
-
 const contenidoMarvel = document.getElementById('marvel');
 const contenidoDC = document.getElementById('dc');
 const contenidoDragonBall = document.getElementById('dragon-ball');
@@ -21,6 +16,9 @@ function mostrarSeccion(seccion) {
         }
     });
 }
-botonMarvel.addEventListener('click', () => mostrarSeccion(contenidoMarvel));
-botonDC.addEventListener('click', () => mostrarSeccion(contenidoDC));
-botonDB.addEventListener('click', () => mostrarSeccion(contenidoDragonBall));
+
+document.getElementById('btn-marvel')?.addEventListener('click', () => mostrarSeccion(contenidoMarvel));
+document.getElementById('btn-dc')?.addEventListener('click', () => mostrarSeccion(contenidoDC));
+document.getElementById('btn-db')?.addEventListener('click', () => mostrarSeccion(contenidoDragonBall));
+
+mostrarSeccion(contenidoMarvel);

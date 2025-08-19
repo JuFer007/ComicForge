@@ -29,7 +29,7 @@
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="RECURSOS/ComicForge logo.png" class="logoheader" alt="logo">
+                    <img src="recursos/ComicForge logo.png" class="logoheader" alt="logo">
                 </a>
 
                 <!-- Botón hamburguesa -->
@@ -45,21 +45,21 @@
                     <!-- LINKS centrados -->
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-white" aria-current="page" href="index.html">Inicio</a>
+                            <a class="nav-link text-white" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-list"></i>
                                 Categorías
                             </a>
                             <ul class="dropdown-menu bg-dark custom-dropdown">
-                                <li><a class="dropdown-item" href="#">Marvel Comics</a></li>
-                                <li><a class="dropdown-item" href="#">DC Comics</a></li>
-                                <li><a class="dropdown-item" href="#">Mangas</a></li>
+                                <li><a class="dropdown-item" href="#section-comics" onclick="mostrarSeccion(contenidoMarvel)"><i class="fa-solid fa-fire"></i> Marvel Comics</a></li>
+                                <li><a class="dropdown-item" href="#section-comics" onclick="mostrarSeccion(contenidoDC)"><i class="fa-solid fa-shield-halved"></i> DC Comics</a></li>
+                                <li><a class="dropdown-item" href="#section-comics" onclick="mostrarSeccion(contenidoDragonBall)"><i class="fa-solid fa-bolt"></i> Mangas</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Descuentos</a>
+                            <a class="nav-link text-white" href="#"><i class="fa-solid fa-tags"></i> Descuentos</a>
                         </li>
                     </ul>
 
@@ -163,7 +163,6 @@
             </div>
         </section>
 
-<<<<<<< HEAD
         <section>
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <button class="btn-video" id="btn-marvel">
@@ -182,712 +181,523 @@
                 </button>
             </div>
 
-            <!-- Seccion de marvel -->
-            <div class="marvel-comics" id="marvel">
-                <h1>Marvel Cómics</h1>
-                <!-- Seccion Spiderman-->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - Spider Punk-->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/spiderman/photo_4917961266337786754_y.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Spider-Punk</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+            <section id="section-comics">
+                <!-- Seccion de marvel -->
+                <div class="marvel-comics" id="marvel">
+                    <h1>Marvel Cómics</h1>
+                    <!-- Seccion Spiderman-->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - Spider Punk-->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/spiderman/photo_4917961266337786754_y.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Spider-Punk</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card 2 - Spider Man 2099 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/spiderman/photo_5035358807189991169_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Spider-Man 2009 Vol.1</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                            <!-- Card 2 - Spider Man 2099 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/spiderman/photo_5035358807189991169_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Spider-Man 2009 Vol.1</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card 3 - Spider Man Miles Morales -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/spiderman/photo_5049085097466244912_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Spider-Man: Miles Morales Vol.1</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                            <!-- Card 3 - Spider Man Miles Morales -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/spiderman/photo_5049085097466244912_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Spider-Man: Miles Morales Vol.1</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card 4 - Scarlet Spider -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/spiderman/photo_5154894941107891602_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ben Rilley: Scarlet Spider</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-=======
-        <!-- Los Más Destacados de Marvel -->
-        <section class="destacados">
-            <h1>Marvel Cómics</h1>
-            <div class="marvel-comics">
-                <div class="principales-marvel">
-                    <!-- Spiderman -->
-                    <div class="contenedor-comics">
-                        <h4>Spider-Man</h4>
-                        <p>Revisa toda la colección de Spider-Man en sus diferentes variantes en el multiverso.</p>
-                        <!--
-                        <button class="prev-btn">&#10094;</button>
-                        <button class="next-btn">&#10095;</button> -->
-                        <div class="carrusel-comics">
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/spiderman/photo_5049085097466244912_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Spider-Man: Miles Morales Vol.1</h3>
-                                    <p>Después de los eventos que sacuden el universo de Spider-Man, Miles Morales, un
-                                        adolescente de Brooklyn, recibe poderes sorprendentes tras la mordida de una
-                                        araña genéticamente alterada. Con la habilidad de trepar muros, lanzar telarañas
-                                        y un poder único de camuflaje, Miles enfrenta la difícil tarea de proteger su
-                                        ciudad mientras aprende qué significa ser un verdadero héroe.</p>
-                                    <div class="precio">S/. 115.90</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/spiderman/photo_5012949987121802506_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Spider-Man Vol.1</h3>
-                                    <p>En este primer número, conocemos a Peter Parker, un joven estudiante tímido con
-                                        una vida ordinaria hasta que un accidente con una araña radiactiva cambia su
-                                        destino para siempre. Descubre sus poderes extraordinarios, desde la fuerza
-                                        sobrehumana hasta la capacidad de trepar paredes y lanzar telarañas. Pero con
-                                        grandes poderes vienen grandes responsabilidades.</p>
-                                    <div class="precio">S/. 130.00</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/spiderman/photo_5035358807189991169_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Spider-Man 2099 Vol.1</h3>
-                                    <p>En un mundo futurista dominado por corporaciones poderosas, Miguel O’Hara, un
-                                        brillante científico, sufre un experimento fallido que le otorga habilidades
-                                        sobrehumanas similares a las de Spider-Man. Con garras afiladas, velocidad
-                                        mejorada y la capacidad de adherirse a las paredes, Miguel asume el manto de
-                                        Spider-Man 2099.</p>
-                                    <div class="precio">S/. 99.00</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/spiderman/photo_5154894941107891602_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Ben Rilley: Scarlet Spider</h3>
-                                    <p>En este primer número, conocemos a Ben Reilly, el clon de Peter Parker, quien
-                                        adopta la identidad de Scarlet Spider. Con habilidades similares a Spider-Man,
-                                        Ben lucha por encontrar su lugar en un mundo donde su existencia es un secreto y
-                                        enfrenta villanos peligrosos que amenazan la ciudad. Este cómic nos sumerge en
-                                        su conflicto interno, sus desafíos como héroe.</p>
-                                    <div class="precio">S/. 225.30</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/spiderman/photo_4917961266337786754_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Spider-Punk</h3>
-                                    <p>En un universo alternativo, Hobart “Hobie” Brown se convierte en Spider-Punk, un
-                                        héroe con habilidades arácnidas al estilo de Spider-Man, pero con una actitud
-                                        rebelde y espíritu anárquico. Con su chaqueta de cuero, guitarra y sentido del
-                                        humor irreverente, Hobie lucha contra la opresión de un gobierno corrupto y
-                                        corporaciones poderosas, inspirando a la gente a levantarse por la justicia.</p>
-                                    <div class="precio">S/. 75.50</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
->>>>>>> b15114343408a7b5038bd6d19a1cec2cb0240e6d
+                            <!-- Card 4 - Scarlet Spider -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/spiderman/photo_5154894941107891602_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ben Rilley: Scarlet Spider</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                </div>
 
-                <!-- Seccion 4 Fantasticos -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - Los 4 fantasticos: negative zone-->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/4fantasticos/photo_4942934619968350778_y.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Los 4 Fantásticos: Negative Zone</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                    <!-- Seccion 4 Fantasticos -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - Los 4 fantasticos: negative zone-->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/4fantasticos/photo_4942934619968350778_y.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Los 4 Fantásticos: Negative Zone</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 - Los 4 Fantasticos: Road Trip -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/4fantasticos/photo_4958791153893879460_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Los 4 Fantásticos: Road Trip</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 - Los 4 Fantasticos: La Muerte de la Antorcha Humana -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/4fantasticos/photo_5012949987121802585_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Los 4 Fantásticos: La Muerte de la Antorcha Humana</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 - Los 4 Fantasticos 100° Aniversario -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/4fantasticos/photo_5143628296997678853_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Los 4 Fantásticos 100° Aniversario</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Card 2 - Los 4 Fantasticos: Road Trip -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/4fantasticos/photo_4958791153893879460_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Los 4 Fantásticos: Road Trip</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                    </div>
+
+                    <!-- Seccion Xmen-->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - Xmen first class finales -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Xmen/xmenFinalesPrimeraGeneracion.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">X-Men: First Class Finales</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 - Xmen 97 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Xmen/xmen97.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">X-Men 97'</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 - Xmen house of XCII -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Xmen/xmenHouseOfXCII.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">X-Men House Of XCII</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 - Xmen y Wolverine -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Xmen/xmenAndTheWolverine.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">X-Men and The Wolverine</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Card 3 - Los 4 Fantasticos: La Muerte de la Antorcha Humana -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/4fantasticos/photo_5012949987121802585_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Los 4 Fantásticos: La Muerte de la Antorcha Humana</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                    </div>
+
+                    <!-- Seccion Avengers -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - Avengers Vol 7 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/avengers/AvengersVol7.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Avengers: Los Heroés más Poderosos del Planeta</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card 4 - Los 4 Fantasticos 100° Aniversario -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/4fantasticos/photo_5143628296997678853_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Los 4 Fantásticos 100° Aniversario</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-=======
-
-                    <!-- Los 4 fantasticos -->
-                    <div class="contenedor-comics">
-                        <h4>Los 4 Fantásticos</h4>
-                        <p>Explora los cómics más destacados de una de las principales familias de Marvel.</p>
-                        <div class="carrusel-comics">
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/b/40/6826085850694/clean.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Los 4 Fantásticos: La Llegada de Galactus</h3>
-                                    <p>En esta épica saga cósmica creada por Stan Lee y Jack Kirby, Los 4 Fantásticos
-                                        deben enfrentarse a Galactus, un devorador de mundos que amenaza con consumir la
-                                        Tierra, acompañado de su heraldo Silver Surfer. La historia marcó un antes y un
-                                        después en los cómics al introducir amenazas universales y mostrar que la
-                                        familia Richards podía enfrentarse a dioses cósmicos.</p>
-                                    <div class="precio">S/. 120.00</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
+                            <!-- Card 2 - Avengers Rage of Ultron -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/avengers/avengersRageOfUltron.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Avengers: Rage of Ultron</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/4fantasticos/photo_4942934619968350778_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Los 4 Fantásticos: Zona Negativa</h3>
-                                    <p>Nos lleva a una de las dimensiones más peligrosas y misteriosas del universo
-                                        Marvel: la Zona Negativa. En esta aventura, Reed Richards (Mr. Fantástico)
-                                        lidera al equipo hacia un territorio lleno de fenómenos cósmicos extraños,
-                                        criaturas hostiles y secretos que podrían alterar el equilibrio entre universos.
-                                    </p>
-                                    <div class="precio">S/. 150.00</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
+                            <!-- Card 3 - Avengers Milenium -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/avengers/avengersMilenium.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Avengers Milenium</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/4fantasticos/photo_5012949987121802585_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Los 4 Fantásticos: La Muerte de la Antorcha Humana</h3>
-                                    <p>Narra uno de los momentos más impactantes y emotivos en la historia del equipo.
-                                        En esta saga, Johnny Storm, la Antorcha Humana, se sacrifica para proteger a su
-                                        familia y al mundo de una amenaza interdimensional. La historia explora no solo
-                                        el heroísmo y la valentía de Johnny.</p>
-                                    <div class="precio">S/. 115.00</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="comic">
-                                <div class="img-comic">
-                                    <img src="/recursos/4fantasticos/photo_4958791153893879460_y.jpg">
-                                </div>
-                                <div class="info-comic">
-                                    <h3>Los 4 Fantásticos: Road Trip</h3>
-                                    <p>Es una historia especial que combina aventura y humor con un giro oscuro. Lo que
-                                        comienza como unas vacaciones familiares para Reed, Sue, Johnny y Ben
-                                        rápidamente se convierte en una pesadilla cuando un misterioso evento altera sus
-                                        cuerpos de formas aterradoras. Lejos de los combates cósmicos habituales, este
-                                        cómic explora el lado más humano y vulnerable de los héroes.</p>
-                                    <div class="precio">S/. 95.00</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
->>>>>>> b15114343408a7b5038bd6d19a1cec2cb0240e6d
+                            <!-- Card 4 - Secret Avengers vol1 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/avengers/secretAvengersVol1.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Secret Avengers Vol. 1</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Seccion Xmen-->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - Xmen first class finales -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Xmen/xmenFinalesPrimeraGeneracion.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">X-Men: First Class Finales</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-<<<<<<< HEAD
-                            </div>
-                        </div>
-                        <!-- Card 2 - Xmen 97 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Xmen/xmen97.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">X-Men 97'</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                <!-- Seccion de DC -->
+                <div class="dc-comics" id="dc" style="display: none">
+                    <h1>DC Cómics</h1>
+                    <!-- Seccion The Flash -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - FlashPoint-->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/the flash/photo_5132069642355976623_y.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">The Flash: Flashpoint</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card 3 - Xmen house of XCII -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Xmen/xmenHouseOfXCII.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">X-Men House Of XCII</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                            <!-- Card 2 - The Flash: The Fastest -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/the flash/photo_5183661712933497268_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">The Flash: The Fastest Man Alive</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 - The flash: the flash war vol.8 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/the flash/photo_4902577668441090547_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">The Flash: Flash War Vol.8</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 - The flash la guerra de un minuto -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/the flash/photo_4909055965182143464_y.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">The Flash: La Guerra de un Minuto</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Card 4 - Xmen y Wolverine -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Xmen/xmenAndTheWolverine.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">X-Men and The Wolverine</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                    </div>
+
+                    <!-- Seccion Superman -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - la muerte de superman -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/superman/la muerte de superman.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">La Muerte de Superman</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 - Superman erradicacion -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/superman/superman erradicacion.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Superman: Erradicación</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 - Superman new krypton -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/superman/superman new Krypton vol3.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Superman: New Krypton Vol. 3</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 - Superman tierra 1 vol 3 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/superman/superman tierra 1 vol3.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Superman: Tierra 1 Vol. 3</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seccion Lintera verde -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - Linterna verde tierra 1 vol 1 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Linterna verde/linterna verde tierra 1 vol 1.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Linterna Verde: Tierra 1 Vol. 1</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 - Linterna verde tierra 1 vol 2 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Linterna verde/linterna verde tierra 1 vol 2.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Linterna Verde: Tierra 1 Vol. 2</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 - Linterna verde vol 4 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Linterna verde/linterna verde vol 4.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Linterna Verde Vol. 4</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 - Guy garden -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/Linterna verde/guy garden daño colateral.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Guy Garden: Daño Colateral</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seccion Batman -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 - Batman archivos secretos -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/batman/batman archivos secretos.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Batman: Archivos Secretos</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 - Batman beyond -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/batman/batman beyond.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Batman Beyond Vol. 1</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 - Batman regreso -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/batman/batman el regreso del seños de la noche.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Batman: El Regreso del Señor de la Noche</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 - Batman joker war -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/batman/batman joker war.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Batman: Joker War</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Seccion Avengers -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - Avengers Vol 7 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/avengers/AvengersVol7.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Avengers: Los Heroés más Poderosos del Planeta</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                <!-- Seccion de Manga -->
+                <div class="dragonball-manga" id="dragon-ball" style="display: none">
+                    <h1>Dragón Ball Súper - Manga</h1>
+                    <!-- Seccion Dragon Ball -->
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 4.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 4</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 5.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 5</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 7.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 7</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 9.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 8</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Card 2 - Avengers Rage of Ultron -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/avengers/avengersRageOfUltron.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Avengers: Rage of Ultron</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                    </div>
+
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 12.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 12</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 13.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 13</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 15.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 15</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 16.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 16</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Card 3 - Avengers Milenium -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/avengers/avengersMilenium.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Avengers Milenium</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                    </div>
+
+                    <div class="container my-5">
+                        <div class="row g-3">
+                            <!-- Card 1 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 17.jpg" class="card-img-top" alt="Imagen 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 17</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Card 4 - Secret Avengers vol1 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/avengers/secretAvengersVol1.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Secret Avengers Vol. 1</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-=======
-                                <div class="info-comic">
-                                    <h3>Los 4 Fantásticos 100° Aniversario</h3>
-                                    <p>Es un cómic especial que imagina cómo sería la historia del equipo en el
-                                        hipotético centenario de Marvel. Ambientado en un futuro alternativo, presenta
-                                        una visión única de Reed, Sue, Johnny y Ben enfrentando nuevas amenazas cósmicas
-                                        y desafíos familiares en un contexto diferente al habitual. Con un estilo
-                                        narrativo experimental y giros inesperados.</p>
-                                    <div class="precio">S/. 180.50</div>
-                                    <button class="buy-btn-comic">
-                                        <i class="fas fa-shopping-cart"></i> Comprar
-                                    </button>
->>>>>>> b15114343408a7b5038bd6d19a1cec2cb0240e6d
+                            <!-- Card 2 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 18.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 18</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 23.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 23</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="col-md-3">
+                                <div class="card h-100">
+                                    <img src="recursos/dragon ball/tomo 24.jpg" class="card-img-top" alt="Imagen 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dragón Ball Super Tomo N° 24</h5>
+                                        <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
-            <!-- Seccion de DC -->
-            <div class="dc-comics" id="dc" style="display: none">
-                <h1>DC Cómics</h1>
-                <!-- Seccion The Flash -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - FlashPoint-->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/the flash/photo_5132069642355976623_y.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">The Flash: Flashpoint</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 - The Flash: The Fastest -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/the flash/photo_5183661712933497268_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">The Flash: The Fastest Man Alive</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 - The flash: the flash war vol.8 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/the flash/photo_4902577668441090547_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">The Flash: Flash War Vol.8</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 - The flash la guerra de un minuto -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/the flash/photo_4909055965182143464_y.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">The Flash: La Guerra de un Minuto</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seccion Superman -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - la muerte de superman -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/superman/la muerte de superman.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">La Muerte de Superman</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 - Superman erradicacion -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/superman/superman erradicacion.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Superman: Erradicación</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 - Superman new krypton -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/superman/superman new Krypton vol3.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Superman: New Krypton Vol. 3</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 - Superman tierra 1 vol 3 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/superman/superman tierra 1 vol3.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Superman: Tierra 1 Vol. 3</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seccion Lintera verde -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - Linterna verde tierra 1 vol 1 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Linterna verde/linterna verde tierra 1 vol 1.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Linterna Verde: Tierra 1 Vol. 1</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 - Linterna verde tierra 1 vol 2 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Linterna verde/linterna verde tierra 1 vol 2.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Linterna Verde: Tierra 1 Vol. 2</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 - Linterna verde vol 4 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Linterna verde/linterna verde vol 4.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Linterna Verde Vol. 4</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 - Guy garden -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/Linterna verde/guy garden daño colateral.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Guy Garden: Daño Colateral</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seccion Batman -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 - Batman archivos secretos -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/batman/batman archivos secretos.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Batman: Archivos Secretos</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 - Batman beyond -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/batman/batman beyond.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Batman Beyond Vol. 1</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 - Batman regreso -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/batman/batman el regreso del seños de la noche.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Batman: El Regreso del Señor de la Noche</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 - Batman joker war -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/batman/batman joker war.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Batman: Joker War</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Seccion de Manga -->
-            <div class="dragonball-manga" id="dragon-ball" style="display: none">
-                <h1>Dragón Ball Súper - Manga</h1>
-                <!-- Seccion Dragon Ball -->
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 4.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 4</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 5.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 5</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 7.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 7</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 9.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 8</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 12.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 12</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 13.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 13</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 15.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 15</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 16.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 16</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container my-5">
-                    <div class="row g-3">
-                        <!-- Card 1 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 17.jpg" class="card-img-top" alt="Imagen 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 17</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 18.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 18</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 23.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 23</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 -->
-                        <div class="col-md-3">
-                            <div class="card h-100">
-                                <img src="recursos/dragon ball/tomo 24.jpg" class="card-img-top" alt="Imagen 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dragón Ball Super Tomo N° 24</h5>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-circle-info"></i> Más Información</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </section>
     </main>
 
@@ -931,9 +741,5 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 </body>
-<<<<<<< HEAD
 <script src="javascript/scriptIndex.js"></script>
-=======
-
->>>>>>> b15114343408a7b5038bd6d19a1cec2cb0240e6d
 </html>

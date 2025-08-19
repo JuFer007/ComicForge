@@ -5,6 +5,10 @@
 @import url('https://fonts.cdnfonts.com/css/jember-sketch');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Orbitron:wght@500&family=Press+Start+2P&family=Russo+One&family=Carter+One&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --bg-header-footer: #c6252b;
     --color-text: #181818;
