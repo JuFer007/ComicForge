@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,45 +11,73 @@
     <link rel="stylesheet" href="css/styleIndex.css">
 
     <!--CONEXION CON BOOTSTRAP-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!--CONEXION CON LOS ICONOS DE GOOGLE-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <title>Comic Forge</title>
 
 </head>
+
 <body>
     <!-- Encabezado -->
     <header>
-        <!-- Logo -->
-        <div class="logo">
-            <button onclick="location.href='index.html'">
-                <img src="/recursos/ComicForge%20logo.png" alt="logo">
-            </button>
-        </div>
-        <!-- Navegación -->
-        <nav>
-            <ul class="menu">
-                <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#"><i class="fa-solid fa-layer-group"></i> Categorías ▾</a>
-                    <ul class="submenu">
-                        <li><a href="#"><i class="fa-solid fa-bolt"></i> Marvel</a></li>
-                        <li><a href="#"><i class="fa-solid fa-shield-halved"></i> DC</a></li>
-                        <li><a href="#"><i class="fa-solid fa-fire"></i> Manga</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="fa-solid fa-sack-dollar"></i> Ofertas</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="RECURSOS/ComicForge logo.png" class="logoheader" alt="logo">
+                </a>
 
-        <!-- Iconos de carrito. usuario y búsqueda -->
-        <div class="icons">
-            <div class="busqueda">
-                <input type="text" placeholder="Buscar cómic...">
-                <i class="fas fa-search"></i>
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Contenido -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- LINKS centrados -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu bg-dark custom-dropdown">
+                                <li><a class="dropdown-item" href="#">Marvel Comics</a></li>
+                                <li><a class="dropdown-item" href="#">DC Comics</a></li>
+                                <li><a class="dropdown-item" href="#">Mangas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Descuentos</a>
+                        </li>
+                    </ul>
+
+                    <!-- Buscador + Carrito alineados a la derecha -->
+                    <form class="d-flex align-items-center" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar Comic" aria-label="Search" />
+                        <button class="btn btn-outline-light me-2" type="submit">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                        <a class="btn btn-outline-light me-2" href="#">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </a>
+                        <a href="#" class="btn btn-outline-light me-2">
+                            <span class="material-symbols-outlined">person</span>
+                        </a>
+                    </form>
+                </div>
             </div>
-            <button><i class="fas fa-shopping-cart"></i></button>
-            <button><i class="fas fa-user"></i></button>
-        </div>
+        </nav>
     </header>
 
     <!-- Cuerpo -->
@@ -60,7 +89,8 @@
             <div class="comics-principales">
                 <!-- The Scarlet Spider -->
                 <div class="comic">
-                    <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/4/40/593991f482d4c/clean.jpg" alt="Scarlet Spider">
+                    <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/4/40/593991f482d4c/clean.jpg"
+                        alt="Scarlet Spider">
                     <div class="comic-hover">
                         <div class="description-comic">
                             <h2>Ben Reilly: The Scarlet Spider</h2>
@@ -88,7 +118,8 @@
 
                 <!-- X-Men primera generacion -->
                 <div class="comic">
-                    <img src="https://www.geekmi.news/export/sites/debate/img/2023/11/13/clean-504.jpg_1318211660.jpg" alt="Xmen primera generacion">
+                    <img src="https://www.geekmi.news/export/sites/debate/img/2023/11/13/clean-504.jpg_1318211660.jpg"
+                        alt="Xmen primera generacion">
                     <div class="comic-hover">
                         <div class="description-comic">
                             <h2>X-Men: Primera Generación</h2>
@@ -116,7 +147,8 @@
 
                 <!-- Guardianes de la galaxia -->
                 <div class="comic">
-                    <img src="https://sm.ign.com/ign_es/screenshot/default/guardians-of-the-galaxy-1-new-lineup-cover-1253384_4m33.jpg" alt="Guardianes de la galaxia">
+                    <img src="https://sm.ign.com/ign_es/screenshot/default/guardians-of-the-galaxy-1-new-lineup-cover-1253384_4m33.jpg"
+                        alt="Guardianes de la galaxia">
                     <div class="comic-hover">
                         <div class="description-comic">
                             <h2>Guardianes de la galaxia</h2>
@@ -149,7 +181,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Spider-Man: Miles Morales Vol.1</h3>
-                                    <p>Después de los eventos que sacuden el universo de Spider-Man, Miles Morales, un adolescente de Brooklyn, recibe poderes sorprendentes tras la mordida de una araña genéticamente alterada. Con la habilidad de trepar muros, lanzar telarañas y un poder único de camuflaje, Miles enfrenta la difícil tarea de proteger su ciudad mientras aprende qué significa ser un verdadero héroe.</p>
+                                    <p>Después de los eventos que sacuden el universo de Spider-Man, Miles Morales, un
+                                        adolescente de Brooklyn, recibe poderes sorprendentes tras la mordida de una
+                                        araña genéticamente alterada. Con la habilidad de trepar muros, lanzar telarañas
+                                        y un poder único de camuflaje, Miles enfrenta la difícil tarea de proteger su
+                                        ciudad mientras aprende qué significa ser un verdadero héroe.</p>
                                     <div class="precio">S/. 115.90</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -162,7 +198,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Spider-Man Vol.1</h3>
-                                    <p>En este primer número, conocemos a Peter Parker, un joven estudiante tímido con una vida ordinaria hasta que un accidente con una araña radiactiva cambia su destino para siempre. Descubre sus poderes extraordinarios, desde la fuerza sobrehumana hasta la capacidad de trepar paredes y lanzar telarañas. Pero con grandes poderes vienen grandes responsabilidades.</p>
+                                    <p>En este primer número, conocemos a Peter Parker, un joven estudiante tímido con
+                                        una vida ordinaria hasta que un accidente con una araña radiactiva cambia su
+                                        destino para siempre. Descubre sus poderes extraordinarios, desde la fuerza
+                                        sobrehumana hasta la capacidad de trepar paredes y lanzar telarañas. Pero con
+                                        grandes poderes vienen grandes responsabilidades.</p>
                                     <div class="precio">S/. 130.00</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -175,7 +215,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Spider-Man 2099 Vol.1</h3>
-                                    <p>En un mundo futurista dominado por corporaciones poderosas, Miguel O’Hara, un brillante científico, sufre un experimento fallido que le otorga habilidades sobrehumanas similares a las de Spider-Man. Con garras afiladas, velocidad mejorada y la capacidad de adherirse a las paredes, Miguel asume el manto de Spider-Man 2099.</p>
+                                    <p>En un mundo futurista dominado por corporaciones poderosas, Miguel O’Hara, un
+                                        brillante científico, sufre un experimento fallido que le otorga habilidades
+                                        sobrehumanas similares a las de Spider-Man. Con garras afiladas, velocidad
+                                        mejorada y la capacidad de adherirse a las paredes, Miguel asume el manto de
+                                        Spider-Man 2099.</p>
                                     <div class="precio">S/. 99.00</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -188,7 +232,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Ben Rilley: Scarlet Spider</h3>
-                                    <p>En este primer número, conocemos a Ben Reilly, el clon de Peter Parker, quien adopta la identidad de Scarlet Spider. Con habilidades similares a Spider-Man, Ben lucha por encontrar su lugar en un mundo donde su existencia es un secreto y enfrenta villanos peligrosos que amenazan la ciudad. Este cómic nos sumerge en su conflicto interno, sus desafíos como héroe.</p>
+                                    <p>En este primer número, conocemos a Ben Reilly, el clon de Peter Parker, quien
+                                        adopta la identidad de Scarlet Spider. Con habilidades similares a Spider-Man,
+                                        Ben lucha por encontrar su lugar en un mundo donde su existencia es un secreto y
+                                        enfrenta villanos peligrosos que amenazan la ciudad. Este cómic nos sumerge en
+                                        su conflicto interno, sus desafíos como héroe.</p>
                                     <div class="precio">S/. 225.30</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -201,7 +249,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Spider-Punk</h3>
-                                    <p>En un universo alternativo, Hobart “Hobie” Brown se convierte en Spider-Punk, un héroe con habilidades arácnidas al estilo de Spider-Man, pero con una actitud rebelde y espíritu anárquico. Con su chaqueta de cuero, guitarra y sentido del humor irreverente, Hobie lucha contra la opresión de un gobierno corrupto y corporaciones poderosas, inspirando a la gente a levantarse por la justicia.</p>
+                                    <p>En un universo alternativo, Hobart “Hobie” Brown se convierte en Spider-Punk, un
+                                        héroe con habilidades arácnidas al estilo de Spider-Man, pero con una actitud
+                                        rebelde y espíritu anárquico. Con su chaqueta de cuero, guitarra y sentido del
+                                        humor irreverente, Hobie lucha contra la opresión de un gobierno corrupto y
+                                        corporaciones poderosas, inspirando a la gente a levantarse por la justicia.</p>
                                     <div class="precio">S/. 75.50</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -210,7 +262,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Los 4 fantasticos -->
                     <div class="contenedor-comics">
                         <h4>Los 4 Fantásticos</h4>
@@ -222,7 +274,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Los 4 Fantásticos: La Llegada de Galactus</h3>
-                                    <p>En esta épica saga cósmica creada por Stan Lee y Jack Kirby, Los 4 Fantásticos deben enfrentarse a Galactus, un devorador de mundos que amenaza con consumir la Tierra, acompañado de su heraldo Silver Surfer. La historia marcó un antes y un después en los cómics al introducir amenazas universales y mostrar que la familia Richards podía enfrentarse a dioses cósmicos.</p>
+                                    <p>En esta épica saga cósmica creada por Stan Lee y Jack Kirby, Los 4 Fantásticos
+                                        deben enfrentarse a Galactus, un devorador de mundos que amenaza con consumir la
+                                        Tierra, acompañado de su heraldo Silver Surfer. La historia marcó un antes y un
+                                        después en los cómics al introducir amenazas universales y mostrar que la
+                                        familia Richards podía enfrentarse a dioses cósmicos.</p>
                                     <div class="precio">S/. 120.00</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -236,7 +292,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Los 4 Fantásticos: Zona Negativa</h3>
-                                    <p>Nos lleva a una de las dimensiones más peligrosas y misteriosas del universo Marvel: la Zona Negativa. En esta aventura, Reed Richards (Mr. Fantástico) lidera al equipo hacia un territorio lleno de fenómenos cósmicos extraños, criaturas hostiles y secretos que podrían alterar el equilibrio entre universos.</p>
+                                    <p>Nos lleva a una de las dimensiones más peligrosas y misteriosas del universo
+                                        Marvel: la Zona Negativa. En esta aventura, Reed Richards (Mr. Fantástico)
+                                        lidera al equipo hacia un territorio lleno de fenómenos cósmicos extraños,
+                                        criaturas hostiles y secretos que podrían alterar el equilibrio entre universos.
+                                    </p>
                                     <div class="precio">S/. 150.00</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -250,7 +310,10 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Los 4 Fantásticos: La Muerte de la Antorcha Humana</h3>
-                                    <p>Narra uno de los momentos más impactantes y emotivos en la historia del equipo. En esta saga, Johnny Storm, la Antorcha Humana, se sacrifica para proteger a su familia y al mundo de una amenaza interdimensional. La historia explora no solo el heroísmo y la valentía de Johnny.</p>
+                                    <p>Narra uno de los momentos más impactantes y emotivos en la historia del equipo.
+                                        En esta saga, Johnny Storm, la Antorcha Humana, se sacrifica para proteger a su
+                                        familia y al mundo de una amenaza interdimensional. La historia explora no solo
+                                        el heroísmo y la valentía de Johnny.</p>
                                     <div class="precio">S/. 115.00</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -264,7 +327,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Los 4 Fantásticos: Road Trip</h3>
-                                    <p>Es una historia especial que combina aventura y humor con un giro oscuro. Lo que comienza como unas vacaciones familiares para Reed, Sue, Johnny y Ben rápidamente se convierte en una pesadilla cuando un misterioso evento altera sus cuerpos de formas aterradoras. Lejos de los combates cósmicos habituales, este cómic explora el lado más humano y vulnerable de los héroes.</p>
+                                    <p>Es una historia especial que combina aventura y humor con un giro oscuro. Lo que
+                                        comienza como unas vacaciones familiares para Reed, Sue, Johnny y Ben
+                                        rápidamente se convierte en una pesadilla cuando un misterioso evento altera sus
+                                        cuerpos de formas aterradoras. Lejos de los combates cósmicos habituales, este
+                                        cómic explora el lado más humano y vulnerable de los héroes.</p>
                                     <div class="precio">S/. 95.00</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -278,7 +345,11 @@
                                 </div>
                                 <div class="info-comic">
                                     <h3>Los 4 Fantásticos 100° Aniversario</h3>
-                                    <p>Es un cómic especial que imagina cómo sería la historia del equipo en el hipotético centenario de Marvel. Ambientado en un futuro alternativo, presenta una visión única de Reed, Sue, Johnny y Ben enfrentando nuevas amenazas cósmicas y desafíos familiares en un contexto diferente al habitual. Con un estilo narrativo experimental y giros inesperados.</p>
+                                    <p>Es un cómic especial que imagina cómo sería la historia del equipo en el
+                                        hipotético centenario de Marvel. Ambientado en un futuro alternativo, presenta
+                                        una visión única de Reed, Sue, Johnny y Ben enfrentando nuevas amenazas cósmicas
+                                        y desafíos familiares en un contexto diferente al habitual. Con un estilo
+                                        narrativo experimental y giros inesperados.</p>
                                     <div class="precio">S/. 180.50</div>
                                     <button class="buy-btn-comic">
                                         <i class="fas fa-shopping-cart"></i> Comprar
@@ -351,5 +422,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
