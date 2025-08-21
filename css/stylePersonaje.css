@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
 /*CSS PARA EL HEADER*/
-header .navbar {
-    background-color: #b30000 !important;
-}
 
 .logoheader{
     width: 8rem;
@@ -16,21 +13,19 @@ header img .logoheader:hover {
 
 /*CSS PARA EL DROPDOWN*/
 .custom-dropdown {
-    background-color: #000; /* negro */
+    background-color: #000; 
 }
 
 .custom-dropdown .dropdown-item {
-    color: #fff; /* blanco */
+    color: #fff; 
 }
 
 .custom-dropdown .dropdown-item:hover {
-    background-color: #cc0000; /* rojo intenso */
-    color: #fff; /* blanco */
+    background-color: #cc0000; 
+    color: #fff; 
 }
 
 /*FINALIZACION DEL HEADER*/
-
-
 
 
 
