@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,85 +85,116 @@
 
     <!-- Cuerpo -->
     <main>
-        <div class="toast-container" id="toast"></div>
-        <section class="home">
-            <h1>Nuestros Cómics Más Vendidos</h1>
-            <!-- Comics principales -->
-            <div class="comics-principales">
-                <!-- The Scarlet Spider -->
-                <div class="comic">
-                    <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/4/40/593991f482d4c/clean.jpg"
-                        alt="Scarlet Spider">
-                    <div class="comic-hover">
-                        <div class="description-comic">
-                            <h2>Ben Reilly: The Scarlet Spider</h2>
-                            <div class="precio">S/. 80.50</div>
-                            <button class="buy-btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Nuestros Cómis Más Vendidos</h2>
+
+            <div id="comicCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Primer slide -->
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center gap-3">
+                            <!-- Scarlet Spider -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/4/40/593991f482d4c/clean.jpg" alt="Scarlet Spider">
+                                <div class="comic-info">
+                                    <h5>Ben Rilley: Scarlet Spider Vol. 2</h5>
+                                    <p>S/. 184. 40</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- Los 4 fantasticos -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="/recursos/4fantasticos/4 fantasticos.jpg" alt="Los4Fantasticos">
+                                <div class="comic-info">
+                                    <h5>Los 4 Fantásticos vs Dr. Doom</h5>
+                                    <p>S/. 75.50</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- xmen primera generacion -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://www.geekmi.news/export/sites/debate/img/2023/11/13/clean-504.jpg_1318211660.jpg" alt="Iron Man">
+                                <div class="comic-info">
+                                    <h5>X-Men: Primera Generación</h5>
+                                    <p>S/. 70.00</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- moon knight -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/7/03/667c7744d0240/clean.jpg" alt="moon kgniht">
+                                <div class="comic-info">
+                                    <h5>Moon Knight: Puño de Khonshu</h5>
+                                    <p>S/. 120.00</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- guardianes de la galaxia -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://sm.ign.com/ign_es/screenshot/default/guardians-of-the-galaxy-1-new-lineup-cover-1253384_4m33.jpg" alt="guardianes de la galaxia">
+                                <div class="comic-info">
+                                    <h5>Guardianes de la Galaxia Vol. 1</h5>
+                                    <p>S/. 120.00</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Los 4 fantasticos -->
-                <div class="comic">
-                    <img src="/recursos/4fantasticos/4 fantasticos.jpg" alt="Los 4 fantasticos">
-                    <div class="comic-hover">
-                        <div class="description-comic">
-                            <h2>Los 4 Fantásticos</h2>
-                            <div class="precio">S/. 110.20</div>
-                            <button class="buy-btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- X-Men primera generacion -->
-                <div class="comic">
-                    <img src="https://www.geekmi.news/export/sites/debate/img/2023/11/13/clean-504.jpg_1318211660.jpg"
-                        alt="Xmen primera generacion">
-                    <div class="comic-hover">
-                        <div class="description-comic">
-                            <h2>X-Men: Primera Generación</h2>
-                            <div class="precio">S/. 70.00</div>
-                            <button class="buy-btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Moon Knight -->
-                <div class="comic">
-                    <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/7/03/667c7744d0240/clean.jpg" alt="Moon Knight">
-                    <div class="comic-hover">
-                        <div class="description-comic">
-                            <h2>Moon Knight: Puño de Khonshu</h2>
-                            <div class="precio">S/. 170.00</div>
-                            <button class="buy-btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guardianes de la galaxia -->
-                <div class="comic">
-                    <img src="https://sm.ign.com/ign_es/screenshot/default/guardians-of-the-galaxy-1-new-lineup-cover-1253384_4m33.jpg"
-                        alt="Guardianes de la galaxia">
-                    <div class="comic-hover">
-                        <div class="description-comic">
-                            <h2>Guardianes de la galaxia</h2>
-                            <div class="precio">S/. 120.00</div>
-                            <button class="buy-btn">
-                                <i class="fas fa-shopping-cart"></i> Comprar
-                            </button>
+                    <!-- Segundo slide -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center gap-3">
+                            <!-- superiror spiderman -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://m.media-amazon.com/images/I/817DOuhaNFL._UF1000,1000_QL80_.jpg" alt="the superior spiderman">
+                                <div class="comic-info">
+                                    <h5>Superior Spider-Man Vol. 1</h5>
+                                    <p>S/. 114.40</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- Deaadppol -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/6/40/62d04547da35f/clean.jpg" alt="Wonder Woman">
+                                <div class="comic-info">
+                                    <h5>Deadpool: Bad Blood Vol. 3</h5>
+                                    <p>S/. 73.30</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- Nova -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="https://cdn.marvel.com/u/prod/marvel/i/mg/e/d0/66797569517d4/clean.jpg" alt="Superman">
+                                <div class="comic-info">
+                                    <h5>Nova: Annihilation 2099</h5>
+                                    <p>S/. 200.00</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- punisher -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="/recursos/the punisher.jpg" alt="Superman">
+                                <div class="comic-info">
+                                    <h5>The Punisher Vol. 12</h5>
+                                    <p>S/. 70.50</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                            <!-- Nova -->
+                            <div class="comic-card" style="width: 200px;">
+                                <img src="recursos/ant-man vol2.jpg" alt="Superman">
+                                <div class="comic-info">
+                                    <h5>Ant-Man Vol. 2</h5>
+                                    <p>S/. 145.00</p>
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Seccion de los botones para cambiar los contenidos -->
         <section>
@@ -227,7 +257,7 @@
                                 <div class="card h-100">
                                     <img src="recursos/spiderman/photo_5154894941107891602_y.jpg" class="card-img-top" alt="Imagen 2">
                                     <div class="card-body">
-                                        <h5 class="card-title">Ben Rilley: Scarlet Spider</h5>
+                                        <h5 class="card-title">Ben Rilley: Scarlet Spider Vol. 1</h5>
                                         <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-scarletspider"><i class="fa-solid fa-circle-info"></i> Más Información</a>
                                     </div>
                                 </div>
