@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Personajes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.cdnfonts.com/css/jember-sketch" rel="stylesheet">
+    <!--CONEXION CON EL CSS-->
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <!--CONEXION CON BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!--CONEXION CON LOS ICONOS DE GOOGLE-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- ENLACE PARA LAS HOJAS DE ESTILO -->
+    <link href="/css/stylePersonaje.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="/recursos/ComicForge logo.png" class="logoheader" alt="logo">
+                </a>
+
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Contenido -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- LINKS centrados -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-list"></i>
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu bg-dark custom-dropdown">
+                                <li><a class="dropdown-item" href="#section-comics" onclick="mostrarSeccion(contenidoMarvel)"><i class="fa-solid fa-fire"></i> Marvel Comics</a></li>
+                                <li><a class="dropdown-item" href="#section-comics" onclick="mostrarSeccion(contenidoDC)"><i class="fa-solid fa-shield-halved"></i> DC Comics</a></li>
+                                <li><a class="dropdown-item" href="#section-comics" onclick="mostrarSeccion(contenidoDragonBall)"><i class="fa-solid fa-bolt"></i> Mangas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><i class="fa-solid fa-tags"></i> Descuentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><i class="fa-solid fa-ghost"></i> Personajes</a>
+                        </li>
+                    </ul>
+
+                    <!-- Buscador + Carrito alineados a la derecha -->
+                    <form class="d-flex align-items-center" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar Comic" aria-label="Search" />
+                        <button class="btn btn-outline-light me-2" type="submit">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                        <a class="btn btn-outline-light me-2" href="#">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </a>
+                        <a href="#" class="btn btn-outline-light me-2">
+                            <span class="material-symbols-outlined">person</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Personajes de Marvel-->
+    <section>
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Personajes de Marvel Cómics</h2>
+
+            <div id="carouselMARVEL" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Personaje 1 - Spiderman -->
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/2a/25/de/2a25de24b45816bd07db73899e3f6d67.jpg"
+                                             alt="Spider-Man">
+                                    </div>
+
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Spider-Man (Peter Parker)</h3>
+                                        <p>Peter Parker, un joven estudiante apasionado por la ciencia, obtuvo sus poderes tras ser mordido por una araña radiactiva.</p>
+
+                                        <!-- Tabla -->
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Peter Benjamin Parker</td></tr>
+                                            <tr><th>Alias</th><td>Spider-Man</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Amazing Fantasy #15 (1962)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza sobrehumana, agilidad, telarañas</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Avengers, Fantastic Four</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 2 - Deadpool -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/17/84/18/178418b75cfdc35aaf81957e95772cf3.jpg"
+                                             alt="Deadpool">
+                                    </div>
+
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Deadpool (Wade Wilson)</h3>
+                                        <p>Wade Wilson, un mercenario sarcástico, adquirió habilidades regenerativas tras un fallido experimento.</p>
+
+                                        <!-- Tabla -->
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Wade Winston Wilson</td></tr>
+                                            <tr><th>Alias</th><td>Deadpool, "Merc with a Mouth"</td></tr>
+                                            <tr><th>Primera Aparición</th><td>The New Mutants #98 (1991)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Factor curativo, agilidad, experto en armas</td></tr>
+                                            <tr><th>Afiliaciones</th><td>X-Force, X-Men, ocasionalmente Avengers</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 3 - Capitán América -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/60/7b/15/607b15e9eef20f404da3b4fecf055993.jpg"
+                                             alt="Captain America">
+                                    </div>
+
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Capitán América (Steve Rogers)</h3>
+                                        <p>Steve Rogers fue transformado en el supersoldado Capitán América gracias a un suero experimental.</p>
+
+                                        <!-- Tabla -->
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Steven Grant Rogers</td></tr>
+                                            <tr><th>Alias</th><td>Captain America</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Captain America Comics #1 (1941)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza mejorada, resistencia, escudo indestructible</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Avengers, Invaders</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 4 - Cyclops -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/1a/58/4c/1a584c10c8828cecb3d9a774d66aa528.jpg" alt="Cyclops">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Cyclops (Scott Summers)</h3>
+                                        <p>Scott Summers, líder de los X-Men, proyecta potentes rayos de energía óptica que solo controla con sus gafas de rubí.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Scott Summers</td></tr>
+                                            <tr><th>Alias</th><td>Cyclops</td></tr>
+                                            <tr><th>Primera Aparición</th><td>X-Men #1 (1963)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Rayo óptico de energía, líder táctico</td></tr>
+                                            <tr><th>Afiliaciones</th><td>X-Men</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 5 - Antorcha Humana -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/c0/6b/65/c06b6598aee6a35d193be139da49e151.jpg" alt="Antorcha Humana">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Antorcha Humana (Johnny Storm)</h3>
+                                        <p>Johnny Storm puede envolverse en llamas, volar y manipular el fuego tras ser expuesto a rayos cósmicos.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Jonathan Lowell Spencer Storm</td></tr>
+                                            <tr><th>Alias</th><td>Human Torch</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Fantastic Four #1 (1961)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Piromancia, vuelo, absorción de calor</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Fantastic Four</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 6 - Reed Richards -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/60/0d/ba/600dba40815fe46585b2eaeadcbe5976.jpg" alt="Reed Richards">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Mr. Fantastic (Reed Richards)</h3>
+                                        <p>Reed Richards posee una mente prodigiosa y la habilidad de estirar y deformar su cuerpo gracias a la radiación cósmica.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Reed Richards</td></tr>
+                                            <tr><th>Alias</th><td>Mr. Fantastic</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Fantastic Four #1 (1961)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Elasticidad extrema, intelecto de genio</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Fantastic Four, Illuminati</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 7 - Beast -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/16/72/e1/1672e1038aedf803c8e31e732167ef4d.jpg" alt="Beast">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Beast (Hank McCoy)</h3>
+                                        <p>Hank McCoy combina su fuerza y agilidad sobrehumanas con un intelecto brillante, además de su distintivo aspecto azul.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Henry "Hank" McCoy</td></tr>
+                                            <tr><th>Alias</th><td>Beast</td></tr>
+                                            <tr><th>Primera Aparición</th><td>X-Men #1 (1963)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza, agilidad, regeneración parcial</td></tr>
+                                            <tr><th>Afiliaciones</th><td>X-Men, Avengers</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 8 - Gambit -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/ca/18/56/ca1856bb4404af6d6b7be5424b868ed9.jpg" alt="Gambit">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Gambit (Remy LeBeau)</h3>
+                                        <p>Remy LeBeau puede cargar objetos con energía cinética explosiva, usando cartas como su arma distintiva.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Remy Etienne LeBeau</td></tr>
+                                            <tr><th>Alias</th><td>Gambit</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Uncanny X-Men Annual #14 (1990)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Manipulación de energía cinética, agilidad</td></tr>
+                                            <tr><th>Afiliaciones</th><td>X-Men</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 9 - Spider-Man (Miles Morales) -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/9b/5a/8a/9b5a8a4d35445419da61d0331cb9f0f4.jpg" alt="Miles Morales">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Spider-Man (Miles Morales)</h3>
+                                        <p>Miles Morales heredó el legado de Spider-Man tras obtener poderes similares, además de habilidades únicas como la invisibilidad.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Miles Gonzalo Morales</td></tr>
+                                            <tr><th>Alias</th><td>Spider-Man</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Ultimate Fallout #4 (2011)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza, agilidad, invisibilidad, veneno bioeléctrico</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Young Avengers, Spider-Verse</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 10 - Spider-Man 2099 (Miguel O'Hara) -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/fa/72/b6/fa72b6742c3dce2ffa55be12feab12d1.jpg" alt="Spider-Man 2099">
+                                    </div>
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Spider-Man 2099 (Miguel O'Hara)</h3>
+                                        <p>Miguel O'Hara, un genetista del futuro, obtuvo poderes arácnidos tras manipular su ADN en un experimento fallido.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Miguel O'Hara</td></tr>
+                                            <tr><th>Alias</th><td>Spider-Man 2099</td></tr>
+                                            <tr><th>Primera Aparición</th><td>The Amazing Spider-Man #365 (1992)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza, garras, visión mejorada, planeo</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Spider-Verse, Alchemax</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 11 - Wolverine -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <!-- Imagen izquierda -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/27/53/68/275368427b97a2193b8b2aea91fcdce6.jpg"
+                                             alt="Wolverine">
+                                    </div>
+
+                                    <!-- Info derecha -->
+                                    <div class="col-md-8">
+                                        <h3>Wolverine (Logan)</h3>
+                                        <p>Logan, conocido como Wolverine, es un mutante con factor curativo, sentidos agudos y garras retráctiles de adamantium.</p>
+
+                                        <!-- Tabla -->
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>James Howlett (Logan)</td></tr>
+                                            <tr><th>Alias</th><td>Wolverine, Weapon X</td></tr>
+                                            <tr><th>Primera Aparición</th><td>The Incredible Hulk #180 (1974)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Factor curativo, garras de adamantium, sentidos aumentados</td></tr>
+                                            <tr><th>Afiliaciones</th><td>X-Men, Avengers, Alpha Flight</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje 12 - La Mole -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <!-- Imagen -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/e1/d0/14/e1d014faa39f918eeb9645261dc94a78.jpg" alt="La Mole">
+                                    </div>
+
+                                    <!-- Info -->
+                                    <div class="col-md-8">
+                                        <h3>La Mole (Ben Grimm)</h3>
+                                        <p>Ben Grimm se transformó en un ser rocoso con fuerza sobrehumana tras un accidente cósmico con los 4 Fantásticos.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Benjamin Grimm</td></tr>
+                                            <tr><th>Alias</th><td>The Thing</td></tr>
+                                            <tr><th>Primera Aparición</th><td>The Fantastic Four #1 (1961)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza y resistencia sobrehumanas</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Los 4 Fantásticos</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Personaje - Iron Man -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/04/71/06/04710669b0fc7c25a7a86389ad1e16ef.jpg" alt="Iron Man">
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <h3>Iron Man</h3>
+                                        <p>Tony Stark, un genio multimillonario, usa su armadura tecnológica para combatir amenazas globales como Iron Man.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Tony Stark</td></tr>
+                                            <tr><th>Alias</th><td>Iron Man</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Tales of Suspense #39 (1963)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Armadura con armas, vuelo, inteligencia superior</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Avengers, S.H.I.E.L.D.</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje - Magneto -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/c2/a3/e8/c2a3e8fa992714cd0997b70ee37c501d.jpg" alt="Magneto">
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <h3>Magneto</h3>
+                                        <p>Magneto es un mutante capaz de manipular campos magnéticos, considerado tanto villano como protector de los suyos.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Max Eisenhardt (Erik Lehnsherr)</td></tr>
+                                            <tr><th>Alias</th><td>Magneto</td></tr>
+                                            <tr><th>Primera Aparición</th><td>X-Men #1 (1963)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Manipulación del magnetismo y metales</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Hermandad de Mutantes, X-Men</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje - Tormenta -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/1200x/2d/e9/8e/2de98eb14a73b4b7fb4f1dbf9bcb8429.jpg" alt="Tormenta">
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <h3>Tormenta (Storm)</h3>
+                                        <p>Ororo Munroe, mutante africana, puede manipular el clima y es una de las líderes más importantes de los X-Men.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Ororo Munroe</td></tr>
+                                            <tr><th>Alias</th><td>Storm</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Giant-Size X-Men #1 (1975)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Manipulación climática</td></tr>
+                                            <tr><th>Afiliaciones</th><td>X-Men, Avengers</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personaje - Thor -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+
+                                    <div class="col-md-4 text-center">
+                                        <img src="https://i.pinimg.com/736x/af/9f/bd/af9fbd59800784d8447a24b07a053841.jpg" alt="Thor">
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <h3>Thor</h3>
+                                        <p>Dios del Trueno de Asgard, porta el martillo Mjolnir y lucha como héroe en la Tierra y los Nueve Reinos.</p>
+                                        <table class="tabla">
+                                            <tbody>
+                                            <tr><th>Nombre Real</th><td>Thor Odinson</td></tr>
+                                            <tr><th>Alias</th><td>God of Thunder</td></tr>
+                                            <tr><th>Primera Aparición</th><td>Journey into Mystery #83 (1962)</td></tr>
+                                            <tr><th>Editorial</th><td>Marvel Comics</td></tr>
+                                            <tr><th>Poderes</th><td>Fuerza divina, control del trueno, vuelo</td></tr>
+                                            <tr><th>Afiliaciones</th><td>Avengers, Asgard</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMARVEL" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMARVEL" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section DC Comics -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Personajes de DC Cómics</h2>
+
+        <div id="carouselDC" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Personaje - Batman -->
+                <div class="carousel-item active">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <!-- Imagen -->
+                                <div class="col-md-4 text-center">
+                                    <img src="https://i.pinimg.com/736x/9c/61/2d/9c612d3e8c6003c26df07ace49499414.jpg" alt="Batman">
+                                </div>
+                                <!-- Info -->
+                                <div class="col-md-8">
+                                    <h3>Batman</h3>
+                                    <p>El Caballero Oscuro de Gotham, un héroe que lucha contra el crimen usando su intelecto, tecnología y habilidades físicas.</p>
+                                    <table class="tabla">
+                                        <tbody>
+                                        <tr><th>Nombre Real</th><td>Bruce Wayne</td></tr>
+                                        <tr><th>Alias</th><td>Batman</td></tr>
+                                        <tr><th>Primera Aparición</th><td>Detective Comics #27 (1939)</td></tr>
+                                        <tr><th>Editorial</th><td>DC Comics</td></tr>
+                                        <tr><th>Poderes</th><td>Intelecto de genio, artes marciales, gadgets</td></tr>
+                                        <tr><th>Afiliaciones</th><td>Justice League, Bat-Family</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje - Superman -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center">
+                                    <img src="https://i.pinimg.com/1200x/65/57/eb/6557eb08534368f1f4fc01003a27e865.jpg" alt="Superman">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Superman</h3>
+                                    <p>El último hijo de Krypton, defensor de la Tierra con poderes sobrehumanos que inspiran esperanza.</p>
+                                    <table class="tabla">
+                                        <tbody>
+                                        <tr><th>Nombre Real</th><td>Kal-El / Clark Kent</td></tr>
+                                        <tr><th>Alias</th><td>Superman</td></tr>
+                                        <tr><th>Primera Aparición</th><td>Action Comics #1 (1938)</td></tr>
+                                        <tr><th>Editorial</th><td>DC Comics</td></tr>
+                                        <tr><th>Poderes</th><td>Fuerza, vuelo, visión láser, invulnerabilidad</td></tr>
+                                        <tr><th>Afiliaciones</th><td>Justice League</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje - Wonder Woman -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center">
+                                    <img src="https://i.pinimg.com/736x/07/bd/6e/07bd6eda7907ce853a0b3fce0e6ac764.jpg" alt="Wonder Woman">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Wonder Woman</h3>
+                                    <p>Princesa amazona y diosa guerrera que lucha por la paz, la justicia y la igualdad en el mundo.</p>
+                                    <table class="tabla">
+                                        <tbody>
+                                        <tr><th>Nombre Real</th><td>Diana Prince</td></tr>
+                                        <tr><th>Alias</th><td>Wonder Woman</td></tr>
+                                        <tr><th>Primera Aparición</th><td>All Star Comics #8 (1941)</td></tr>
+                                        <tr><th>Editorial</th><td>DC Comics</td></tr>
+                                        <tr><th>Poderes</th><td>Fuerza divina, combate, Lazo de la Verdad</td></tr>
+                                        <tr><th>Afiliaciones</th><td>Justice League, Amazons</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje - Flash -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center">
+                                    <img src="https://i.pinimg.com/736x/83/35/70/8335704160cf69ea51603f76ac88c838.jpg" alt="Flash">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Flash</h3>
+                                    <p>El hombre más rápido del mundo, capaz de manipular la Speed Force y viajar a través del tiempo y dimensiones.</p>
+                                    <table class="tabla">
+                                        <tbody>
+                                        <tr><th>Nombre Real</th><td>Barry Allen</td></tr>
+                                        <tr><th>Alias</th><td>The Flash</td></tr>
+                                        <tr><th>Primera Aparición</th><td>Showcase #4 (1956)</td></tr>
+                                        <tr><th>Editorial</th><td>DC Comics</td></tr>
+                                        <tr><th>Poderes</th><td>Super velocidad, curación acelerada, viaje temporal</td></tr>
+                                        <tr><th>Afiliaciones</th><td>Justice League</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje - Green Lantern -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center">
+                                    <img src="https://i.pinimg.com/736x/fe/c5/02/fec502e80207749e4484e6bb3ae00a5e.jpg" alt="Green Lantern">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Green Lantern</h3>
+                                    <p>Portador del anillo de poder, miembro de la corporación intergaláctica que protege la paz en el universo.</p>
+                                    <table class="tabla">
+                                        <tbody>
+                                        <tr><th>Nombre Real</th><td>Hal Jordan</td></tr>
+                                        <tr><th>Alias</th><td>Green Lantern</td></tr>
+                                        <tr><th>Primera Aparición</th><td>Showcase #22 (1959)</td></tr>
+                                        <tr><th>Editorial</th><td>DC Comics</td></tr>
+                                        <tr><th>Poderes</th><td>Anillo de poder, creación de construcciones de energía</td></tr>
+                                        <tr><th>Afiliaciones</th><td>Justice League, Green Lantern Corps</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Personaje - Blue Beetle -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+
+                                <!-- Imagen izquierda -->
+                                <div class="col-md-4 text-center">
+                                    <img src="https://i.pinimg.com/736x/f4/44/14/f444149111cb2262eccd4e1879c05b2c.jpg"
+                                         alt="Blue Beetle">
+                                </div>
+
+                                <!-- Info derecha -->
+                                <div class="col-md-8">
+                                    <h3>Blue Beetle (Jaime Reyes)</h3>
+                                    <p>Jaime Reyes, un adolescente de El Paso, Texas, obtiene poderes al fusionarse con un escarabajo alienígena que le otorga una armadura avanzada y armas de energía.</p>
+
+                                    <!-- Tabla -->
+                                    <table class="tabla">
+                                        <tbody>
+                                        <tr><th>Nombre Real</th><td>Jaime Reyes</td></tr>
+                                        <tr><th>Alias</th><td>Blue Beetle</td></tr>
+                                        <tr><th>Primera Aparición</th><td>Infinite Crisis #3 (2006)</td></tr>
+                                        <tr><th>Editorial</th><td>DC Comics</td></tr>
+                                        <tr><th>Poderes</th><td>Armadura alienígena, vuelo, armas energéticas, fuerza sobrehumana</td></tr>
+                                        <tr><th>Afiliaciones</th><td>Teen Titans, Justice League</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDC" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDC" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-topbar">
+                <span>¡Síguenos en nuestras redes sociales!</span>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h6>Cómic Forge</h6>
+                    <p>Cómics que conectan contigo. 📖<br>
+                </div>
+                <div class="footer-col">
+                    <h6>Métodos de Pago</h6>
+                    <p><i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito</p>
+                    <p><i class="fas fa-university"></i> Transferencia Bancaria</p>
+                    <p><i class="fas fa-money-bill-wave"></i> Pago en Efectivo</p>
+                </div>
+                <div class="footer-col">
+                    <h6>Contáctanos</h6>
+                    <p><i class="fas fa-home"></i> Chiclayo, Perú</p>
+                    <p><i class="fas fa-envelope"></i> comicforge@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 999 999 999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cómic Forge. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+    <!-- JAVASCRIPT DE BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>

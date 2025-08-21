@@ -22,3 +22,24 @@ document.getElementById('btn-dc')?.addEventListener('click', () => mostrarSeccio
 document.getElementById('btn-db')?.addEventListener('click', () => mostrarSeccion(contenidoDragonBall));
 
 mostrarSeccion(contenidoMarvel);
+
+
+//Obtener modales
+document.addEventListener("DOMContentLoaded", () => {
+    const modales = [
+        "html/modalesMarvel.html",
+        "html/modalesDC.html",
+    ];
+
+    const contenedor = document.getElementById("modales-container");
+
+    modales.forEach(ruta => {
+        fetch(ruta)
+            .then(res => res.text())
+            .then(data => {
+                // Inserta cada modal al final del contenedor
+                document.body.insertAdjacentHTML("beforeend", data);
+            })
+            .catch(err => console.error("Error cargando modal:", ruta, err));
+    });
+});

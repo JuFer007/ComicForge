@@ -51,8 +51,6 @@ header img .logoheader:hover {
 
 /*FINALIZACION DEL HEADER*/
 
-
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -264,67 +262,6 @@ main {
 
 .btn-video:hover video {
     opacity: 1;
-}
-
-.modal {
-    justify-content: center !important;
-    align-items: center !important;
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 1050;
-}
-
-.modal-dialog {
-    max-width: 580px !important;
-    overflow-y: auto;
-}
-
-.modal-content {
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.modal-header {
-    border-bottom: 2px solid #000000 !important;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold !important;
-    font-size: 1.2rem;
-}
-
-.modal-header .close {
-    font-size: 1.5rem;
-    border: none;
-    background: none;
-}
-
-.modal-body img {
-    border-radius: 10px;
-    max-width: 200px;
-}
-
-.modal-body p {
-    text-align: justify;
-    line-height: 1.5;
-}
-
-.modal-footer {
-    border-top: 2px solid black !important;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.25rem;
-}
-
-.modal-footer span {
-    color: red;
-    font-weight: bold;
-    font-size: 1rem;
 }
 
 footer {
