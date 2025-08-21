@@ -22,32 +22,30 @@ html {
 }
 
 /*CSS PARA EL HEADER*/
-header .navbar {
-  background-color: #b30000 !important;
+.logoheader {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    width: 8rem;
+    margin-left: 0.5rem;
 }
 
-.logoheader{
-  width: 8rem;
-  margin-left: 0.5rem;
+.logoheader:hover {
+    transform: scale(1.1); 
 }
-
-header img .logoheader:hover {
-    transform: scale(1.04);
-}
-
 /*CSS PARA EL DROPDOWN*/
 .custom-dropdown {
-  background-color: #000; /* negro */
+  background-color: #000; 
 }
 
 .custom-dropdown .dropdown-item {
-  color: #fff; /* blanco */
+  color: #fff; 
 }
 
 .custom-dropdown .dropdown-item:hover {
-  background-color: #cc0000; /* rojo intenso */
-  color: #fff; /* blanco */
+  background-color: #c6252b; 
+  color: #fff; 
 }
+
 
 /*FINALIZACION DEL HEADER*/
 
