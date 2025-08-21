@@ -25,7 +25,7 @@ body{
 
 
 .bg-danger{
-    background-color: #b30000 !important;
+    background-color: #c6252b !important;
 }
 
 .bg-dark{
@@ -33,7 +33,7 @@ body{
 }
 
 .bg-danger-x{
-    background-color: #d71225;
+    background-color: #ef2539;
 }
 
 .form-control, .btn{
