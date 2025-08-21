@@ -7,10 +7,16 @@
     <title>Iniciar Sesion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/login.css">
+    <!--CONEXION CON EL CSS DEL LOGIN-->
+    <link rel="stylesheet" href="/css/login.css">
+
+    <!--CONEXION CON LOS ICONOS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--CONEXION CON LOS ICONOS DE GOOGLE-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 </head>
 
@@ -18,7 +24,7 @@
     <section>
         <div class="row g-0">
             <!--PARTE DE LA IZQUIERDA-->
-            <div class="col-lg-7">
+            <div class="col-lg-7 d-none d-lg-block">
                 <div id="carouselExampleIndicators" class="carousel slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -30,13 +36,14 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="RECURSOS/img1.jpg" class="d-block w-100" alt="...">
+                            <img src="/recursos/4fantasticos/4 fantasticos.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="RECURSOS/img2.jpg" class="d-block w-100" alt="...">
+                            <img src="/recursos/avengers/avengersRageOfUltron.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="RECURSOS/img3.jpg" class="d-block w-100" alt="...">
+                            <img src="/recursos/batman/batman el regreso del seños de la noche.jpg"
+                                class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -51,15 +58,24 @@
                     </button>
                 </div>
             </div>
+
+
             <!--PARTE DE LA DERECHA-->
             <div class="col-lg-5 d-flex flex-column justify-content-center">
-                <div class="px-lg-5 pt-lg-4 pb-lg-3 p-4">
-                    <img src="RECURSOS/ComicForge logo.png" class="logoheader" alt="">
+                <div class="px-lg-5 pt-lg-4 pb-lg-3 p-3 d-flex justify-content-between align-items-center">
+                    <a href="/index.html" class="btn btn-outline-light">
+                        <span class="material-symbols-outlined">
+                            arrow_back
+                        </span>
+                    </a>
+
+                    <!-- Logo alineado a la derecha -->
+                    <img src="/recursos/ComicForge logo.png" class="logoheader" alt="">
                 </div>
                 <!--PARTE INFERIOR DEL LOGO-->
                 <div class="px-lg-5 py-lg-4 p-4">
                     <h1 class="fw-bold mb-4">Bienvenido de vuelta</h1>
-                    <form class="mb-5">
+                    <form class="mb-4">
                         <div class="mb-4">
                             <label for="exampleInputEmail1" class="form-label fw-bold">Email</label>
                             <input type="email" class="form-control bg-danger-x border-0" placeholder="Ingresa tu Email"
@@ -83,7 +99,7 @@
                     </div>
 
                 </div>
-                <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4">
+                <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-3">
                     <p class="d-inline-block mb-0">¿Todavia no tienes cuenta?</p> <a href="#"
                         class="text-light fw-bold text-decoration-none">Crea una cuenta</a>
                 </div>

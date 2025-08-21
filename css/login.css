@@ -42,5 +42,6 @@ body{
 }
 .carousel-inner img {
     max-height: 100vh; 
-    object-fit: cover;
+    object-fit:cover;
 }
+
