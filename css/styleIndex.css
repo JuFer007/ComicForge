@@ -192,6 +192,7 @@ main {
 
 .card img {
     height: 450px;
+    cursor: pointer;
 }
 
 .card-body {
@@ -238,6 +239,7 @@ main {
 .btn-video img {
     width: 90%;
     height: 100%;
+    cursor: pointer;
 }
 
 .btn-video video {
