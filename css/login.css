@@ -32,8 +32,13 @@ body{
     background-color: #16191c !important;
 }
 
+.bg-dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+}
+
 .bg-danger-x{
-    background-color: #ef2539;
+    background-color: whitesmoke !important;
 }
 
 .form-control, .btn{
@@ -41,7 +46,6 @@ body{
     line-height: initial;
 }
 .carousel-inner img {
-    max-height: 100vh; 
+    max-height: 730px !important;
     object-fit:cover;
 }
-
