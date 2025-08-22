@@ -60,7 +60,7 @@ body {
 .container h2 {
     font-family: 'Concert One', sans-serif;
     font-size: 40px;
-    color: #ffffff;
+    color: #050000;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-decoration: underline !important;
@@ -117,7 +117,7 @@ body {
 }
 
 .card p {
-    color: #e0e0e0;
+    color: #ffffff;
     font-size: 17px;
     margin-bottom: 1.1em;
     line-height: 1.7;
