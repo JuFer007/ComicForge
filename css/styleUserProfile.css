@@ -115,6 +115,7 @@ body {
     z-index: 2;
     margin-left: 110px;
     margin-top: 100px;
+    text-align: justify !important;
 }
 
 .profile-info h3 {
