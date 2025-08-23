@@ -17,14 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (email === validEmail && password === validPass) {
                 localStorage.setItem("isLoggedIn", "true");
 
-                //Mensjae de alerta para iniciar sesion
-                document.getElementById('alert-inicioSesion').classList.remove('d-none');
-
-                //Mostrar la alerta
-                setTimeout(() => {
-                    document.getElementById('alert-inicioSesion').classList.add('d-none');
-                    window.location.href = "/html/userProfile.html";
-                }, 2500);
+                window.location.href = "/html/userProfile.html";
             } else {
                 alert("Usuario o contraseña incorrectos");
             }
