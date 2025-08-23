@@ -24,6 +24,12 @@ html {
 
 /*CSS PARA EL HEADER*/
 
+header.bg-danger{
+    background-color: #c6252b !important;
+}
+
+
+
 .logoheader{
   width: 8rem;
   margin-left: 0.5rem;
@@ -177,6 +183,10 @@ main {
     font-weight: bold;
 }
 
+.comic-card{
+    width: 200px;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -262,105 +272,5 @@ main {
 
 .btn-video:hover video {
     opacity: 1;
-}
-
-footer {
-    background: black;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    width: 100.5%;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-.footer-container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    border-radius: 0;
-    overflow: hidden;
-    background: #f4f6fb;
-    box-shadow: none;
-}
-
-.footer-topbar {
-    background: #c6252b;
-    padding: 18px 5vw 12px 5vw;
-    color: #eafaf2;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.footer-socials a {
-    margin: 0 9px;
-    color: #fff;
-    font-size: 1.25rem;
-    transition: color 0.2s;
-    text-decoration: none;
-}
-
-.footer-socials a:hover {
-    color: #232323;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 35px 2vw 25px 5vw;
-    background: black;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 210px;
-    margin: 0 10px;
-}
-
-.footer-col h6 {
-    font-weight: bold;
-    margin-bottom: 11px;
-    font-size: 1.09rem;
-    letter-spacing: 1px;
-    color: white;
-    border-bottom: 2px solid #c6252b;
-    display: inline-block;
-    padding-bottom: 2px;
-}
-
-.footer-col p,
-.footer-col a {
-    color: white;
-    font-size: 0.99rem;
-    margin: 8px 0;
-    line-height: 1.6;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-col a:hover {
-    text-decoration: underline;
-    color: #c6252b;
-}
-
-.footer-col i {
-    margin-right: 6px;
-    color: #c6252b;
-}
-
-.footer-bottom {
-    border-top: 1px solid #c6252b;
-    background: black;
-    text-align: center;
-    color: #ffffff;
-    padding: 12px 10px;
-    font-size: 0.98rem;
-    letter-spacing: 0.5px;
 }
 

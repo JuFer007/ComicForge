@@ -17,6 +17,14 @@ html {
 }
 
 /*CSS PARA EL HEADER*/
+header.bg-danger{
+    background-color: #c6252b !important;
+}
+
+.bg-danger{
+    background-color: #c6252b !important;
+}
+
 
 .logoheader{
     width: 8rem;
