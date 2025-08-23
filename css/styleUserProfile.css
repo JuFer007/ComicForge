@@ -421,28 +421,6 @@ body {
     font-weight: 600;
 }
 
-/* ------------------ RESPONSIVE ------------------ */
-@media (max-width: 991px) {
-    .cover-container .profile-img {
-        width: 140px;
-        height: 140px;
-        top: 180px;
-    }
-    .cover-container .cover-img {
-        height: 250px;
-    }
-}
-@media (max-width: 575px) {
-    .cover-container .profile-img {
-        width: 100px;
-        height: 100px;
-        top: 130px;
-    }
-    .cover-container .cover-img {
-        height: 180px;
-    }
-}
-
 footer {
     background: black;
     margin: 0;
@@ -541,4 +519,43 @@ footer {
     padding: 12px 10px;
     font-size: 0.98rem;
     letter-spacing: 0.5px;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 575px) {
+    .cover-container .profile-img {
+        margin-left: 90px;
+    }
+
+    .profile-info {
+        margin-right: -265px;
+        width: 100%;
+    }
+
+    .tabs-contenedor {
+        margin-left: 190px !important;
+        width: 100%;
+    }
+
+    .tabs-contenido {
+        width: 100%;
+    }
+
+    .card {
+        width: 300px;
+        height: 100%;
+        margin: auto;
+    }
+
+    .card img {
+        height: 80%;
+    }
+
+    #editProfileModal .modal-dialog {
+        margin-top: 160px;
+    }
+
+    .profile-btn {
+        margin-left: 24px;
+    }
 }

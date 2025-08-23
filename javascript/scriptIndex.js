@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(ruta)
             .then(res => res.text())
             .then(data => {
-                // Inserta cada modal al final del contenedor
                 document.body.insertAdjacentHTML("beforeend", data);
             })
             .catch(err => console.error("Error cargando modal:", ruta, err));
