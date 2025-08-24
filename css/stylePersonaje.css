@@ -210,6 +210,33 @@ body {
     transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+    .col-md-4 img {
+        margin-bottom: 20px !important;
+        height: 300px !important;
+        width: 300px !important;
+    }
+
+    .col-md-8 h3 {
+        margin-top: 15px !important;
+        font-size: 25px !important;
+    }
+
+    .col-md-8 p {
+        text-align: justify !important;
+        font-size: 18px !important;
+    }
+
+    .tabla {
+        margin-bottom: 15px !important;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
+    }
+}
+
 footer {
     background: black;
     margin: 0;
