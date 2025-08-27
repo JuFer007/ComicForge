@@ -559,3 +559,8 @@ footer {
         margin-left: 24px;
     }
 }
+.toast{
+    bottom: 15px;
+    right: 15px;
+    z-index: 9999;
+}

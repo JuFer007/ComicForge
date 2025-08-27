@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styleUserProfile.css">
+    
 </head>
 <body>
     <!-- Encabezado -->
@@ -57,13 +58,26 @@
         </nav>
     </header>
 
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">ComicForge</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+
     <!-- Portada y foto de perfil -->
     <div class="cover-container position-relative mt-0">
         <img id="coverImg" src="/recursos/portadas/portada1.jpg" alt="Portada" class="cover-img">
         <img id="profilePic" src="https://i.pinimg.com/736x/f2/3d/d6/f23dd6eb040a2419677b05712d61597e.jpg" alt="Foto de perfil" class="profile-img">
     </div>
 
-    <<section class="profile-page container py-5">
+    <section class="profile-page container py-5">
         <!-- Contenedor principal de perfil y tabs -->
         <div class="layout-principal p-3">
             <div class="row">
@@ -317,4 +331,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/javascript/scriptUserProfile.js"></script>
 <script src="/javascript/scriptLogin.js"></script>
+<script src="/javascript/toast.js"></script>
 </html>
