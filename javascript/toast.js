@@ -1,9 +1,9 @@
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
-}
+document.addEventListener("DOMContentLoaded", function() {
+  const toastEl = document.getElementById("toastBienvenida");
+  if (toastEl && localStorage.getItem("isLoggedIn") === "true") {
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+    
+    localStorage.removeItem("isLoggedIn");
+  }
+});
