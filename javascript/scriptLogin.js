@@ -12,9 +12,9 @@ if (loginForm) {
 
         if (email === validEmail && password === validPass) {
             localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("username", "");
-            localStorage.setItem("profilePic", "");
             window.location.href = "/html/userProfile.html";
+        } else {
+            alert("Usuario o contraseña incorrectos");
         }
     });
 }

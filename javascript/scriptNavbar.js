@@ -4,15 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const navUserPic = document.getElementById("navUserPic");
     const offcanvasLogin = document.querySelector("#top-navbar .nav-link[href='/html/login.html']");
     const carrito = document.getElementById("carritoCompras");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const toastEl = document.getElementById("toastBienvenida");
 
     const userNameLS = localStorage.getItem("username");
     const userPicLS  = localStorage.getItem("profilePic");
 
-    if (userNameLS) {
-        if (navUserPic && userPicLS) navUserPic.src = userPicLS;
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
+    if (isLoggedIn) {
         if (loginNav) loginNav.classList.add("d-none");
         if (userNav) userNav.classList.remove("d-none");
+
+        if (navUserPic && userPicLS) navUserPic.src = userPicLS;
 
         if (offcanvasLogin) {
             offcanvasLogin.setAttribute("href", "/html/userProfile.html");
@@ -21,7 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (carrito) carrito.classList.remove("d-none");
 
+        if (toastEl) {
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            localStorage.removeItem("isLoggedIn");
+        }
+
     } else {
+        //No logueado
         if (loginNav) loginNav.classList.remove("d-none");
         if (userNav) userNav.classList.add("d-none");
 
@@ -33,8 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (carrito) carrito.classList.add("d-none");
     }
 
-    // Botón de cerrar sesión
-    const logoutBtn = document.getElementById("logoutBtn");
+    //Botón cerrar sesión
     if (logoutBtn) {
         logoutBtn.addEventListener("click", (e) => {
             e.preventDefault();
