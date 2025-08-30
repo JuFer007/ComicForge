@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const userNav    = document.getElementById("userNav");
     const navUserPic = document.getElementById("navUserPic");
     const offcanvasLogin = document.querySelector("#top-navbar .nav-link[href='/html/login.html']");
-    const toastEl = document.getElementById("toastBienvenida");
     const userNameLS = localStorage.getItem("username");
     const userPicLS  = localStorage.getItem("profilePic");
+    const carrito = document.getElementById("carritoCompras");
 
     if (userNameLS) {
         if (userPicLS && navUserPic) navUserPic.src = userPicLS;
@@ -18,13 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Mi Perfil`;
         }
 
-        //Mostrar toast solo si se acaba de iniciar sesión
-        if (toastEl && localStorage.getItem("isLoggedIn") === "true") {
-            const toast = new bootstrap.Toast(toastEl);
-            toast.show();
-            localStorage.removeItem("isLoggedIn");
-        }
-
     } else {
         if (loginNav) loginNav.classList.remove("d-none");
         if (userNav) userNav.classList.add("d-none");
@@ -33,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
             offcanvasLogin.setAttribute("href", "/html/login.html");
             offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Iniciar Sesión`;
         }
+
+        if (carrito) carrito.classList.remove("d-none");
     }
 
     //Botón de cerrar sesión

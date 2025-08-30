@@ -13,8 +13,8 @@ if (loginForm) {
 
         if (email === validEmail && password === validPass) {
             localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("username", "Admin");
-            localStorage.setItem("profilePic", "https://cdn-icons-png.flaticon.com/512/1946/1946429.png");
+            localStorage.setItem("username");
+            localStorage.setItem("profilePic");
             window.location.href = "/html/userProfile.html";
         }
     });
