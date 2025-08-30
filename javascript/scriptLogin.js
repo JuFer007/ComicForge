@@ -1,52 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const userPic  = localStorage.getItem("profilePic");
-    const userName = localStorage.getItem("username");
+const loginForm = document.getElementById("loginForm");
 
-    //Variables del navbar
-    const loginNav   = document.getElementById("loginNav");
-    const userNav    = document.getElementById("userNav");
-    const navUserPic = document.getElementById("navUserPic");
+if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    const offcanvasLogin = document.querySelector("#top-navbar .nav-link[href='/html/login.html']");
+        const email = document.getElementById("exampleInputEmail1").value.trim();
+        const password = document.getElementById("exampleInputPassword1").value.trim();
 
-    //Si ya se inicio sesión
-    if (userName) {
-        if (userPic && navUserPic) navUserPic.src = userPic;
+        // Credenciales de ejemplo
+        const validEmail = "admin@comicforge.com";
+        const validPass  = "12345";
 
-        if (loginNav) loginNav.classList.add("d-none");
-        if (userNav) userNav.classList.remove("d-none");
+        if (email === validEmail && password === validPass) {
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("username");
+            localStorage.setItem("profilePic");
 
-        if (offcanvasLogin) {
-            offcanvasLogin.setAttribute("href", "/html/userProfile.html");
-            offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Mi Perfil`;
+            window.location.href = "/html/userProfile.html";
+        } else {
+            alert("Usuario o contraseña incorrectos");
         }
-
-        //Mostrar el toast
-        const toastEl = document.getElementById("toastBienvenida");
-        if (toastEl && localStorage.getItem("isLoggedIn") === "true") {
-            const toast = new bootstrap.Toast(toastEl);
-            toast.show();
-            localStorage.removeItem("isLoggedIn");
-        }
-
-    } else {
-        if (loginNav) loginNav.classList.remove("d-none");
-        if (userNav) userNav.classList.add("d-none");
-
-        if (offcanvasLogin) {
-            offcanvasLogin.setAttribute("href", "/html/login.html");
-            offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Iniciar Sesión`;
-        }
-    }
-
-    //Para cerrar sesión
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.removeItem("username");
-            localStorage.removeItem("profilePic");
-            window.location.href = "/index.html";
-        });
-    }
-});
+    });
+}
