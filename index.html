@@ -11,6 +11,7 @@
     <!--CONEXION CON BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <!--CONEXION CON LOS ICONOS DE GOOGLE-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -20,103 +21,133 @@
 </head>
 
 <body>
-    
     <nav class="bg-danger navbar navbar-expand-lg py-4 py-lg-1 shadow">
-            <div class="container-fluid d-flex justify-content-between align-items-center ">
-                <div class="d-flex align-items-center mx-3">
-                    <img src="/recursos/ComicForge logo.png" width="100" alt="" class="me-3">
+        <div class="container-fluid d-flex justify-content-between align-items-center ">
+            <div class="d-flex align-items-center mx-3">
+                <img src="/recursos/ComicForge logo.png" width="100" alt="" class="me-3">
 
-                    <ul class="navbar-nav p-4 p-lg-0 modo-pc">
-                        <li class="nav-item mx-2 px-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="/index.html"><i class="fa-solid fa-house"></i> Inicio</a>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="fa-solid fa-list"></i>
-                                Categorías
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-white" href="#section-comics"
-                                        onclick="mostrarSeccion(contenidoMarvel)">Marvel Comics</a></li>
-                                <li><a class="dropdown-item text-white" href="#section-comics"
-                                        onclick="mostrarSeccion(contenidoDC)">DC Comics</a></li>
-                                <li><a class="dropdown-item text-white" href="#section-comics"
-                                        onclick="mostrarSeccion(contenidoDragonBall)">Mangas</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Descuentos</a>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="/html/personajes.html"><i class="fa-solid fa-users"></i>
-                                Personajes</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- DERECHA: BOTÓN + CARRITO + USUARIO -->
-                <div class="d-flex align-items-center">
-                    <button class="navbar-toggler border-0 me-2" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#top-navbar" aria-controls="top-navbar">
-                        <ion-icon name="grid-outline"></ion-icon>
-                    </button>
-
-                    <ul class="navbar-nav p-lg-0 d-flex flex-row modo-pc">
-                        <li class="nav-item mx-2 modo-pc">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
-                        </li>
-                        <li class="nav-item mx-2 modo-pc">
-                            <a class="nav-link" href="/html/login.html"><i class="fa-solid fa-user"></i> Iniciar
-                                Sesión</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!--OFFCANVAS-->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="top-navbar"
-                    aria-labelledby="top-navbarLabel">
-                    <!--NAVEGACION-->
-                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#top-navbar" aria-controls="top-navbar">
-                        <div class="d-flex justify-content-between align-items-center  p-3">
-                            <img src="/recursos/ComicForge logo.png" width="100" alt="">
-                            <ion-icon name="close-circle-outline"></ion-icon>
-                        </div>
-                    </button>
-                    <ul class="navbar-nav ms-lg-auto p-4 p-lg-0">
-                        <li class="nav-item mx-2 px-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="/index.html"><i class="fa-solid fa-house"></i> Inicio</a>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="fa-solid fa-list"></i>
-                                Categorías
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-white" href="#section-comics"
-                                        onclick="mostrarSeccion(contenidoMarvel)">Marvel Comics</a></li>
-                                <li><a class="dropdown-item text-white" href="#section-comics"
-                                        onclick="mostrarSeccion(contenidoDC)">DC Comics</a></li>
-                                <li><a class="dropdown-item text-white" href="#section-comics"
-                                        onclick="mostrarSeccion(contenidoDragonBall)">Mangas</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Descuentos</a>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="/html/personajes.html"><i class="fa-solid fa-users"></i> Personajes</a>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
-                        </li>
-                        <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
-                            <a class="nav-link" href="/html/login.html"><i class="fa-solid fa-user"></i> Iniciar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="navbar-nav p-4 p-lg-0 modo-pc">
+                    <li class="nav-item mx-2 px-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fa-solid fa-list"></i>
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-white" href="#section-comics"
+                                    onclick="mostrarSeccion(contenidoMarvel)">Marvel Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics"
+                                    onclick="mostrarSeccion(contenidoDC)">DC Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics"
+                                    onclick="mostrarSeccion(contenidoDragonBall)">Mangas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Descuentos</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/html/personajes.html"><i class="fa-solid fa-users"></i>
+                            Personajes</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+
+            <!-- DERECHA: BOTÓN + CARRITO + USUARIO -->
+            <div class="d-flex align-items-center">
+                <!-- Botón responsive -->
+                <button class="navbar-toggler border-0 me-2" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#top-navbar" aria-controls="top-navbar">
+                    <ion-icon name="grid-outline"></ion-icon>
+                </button>
+
+                <!-- Buscador -->
+                <form class="me-2 buscador-navbar d-none d-lg-block">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                             <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" placeholder="Buscar...">
+                    </div>
+                </form>
+
+                <!-- Navegacion -->
+                <ul class="navbar-nav p-lg-0 d-flex flex-row modo-pc">
+
+                    <!-- CARRITO -->
+                    <li class="nav-item mx-2 modo-pc">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
+                    </li>
+
+                    <!-- Inicio de sesion -->
+                    <li id="loginNav" class="nav-item mx-2 modo-pc">
+                        <a class="nav-link" href="/html/login.html"><i class="fa-solid fa-user"></i> Iniciar
+                            Sesión</a>
+                    </li>
+
+                    <!-- Al iniciar sesion -->
+                    <li id="userNav" class="nav-item dropdown mx-2 modo-pc d-none">
+                        <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownUser"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="navUserPic" alt="Usuario" width="36" height="36" class="rounded-circle me-2">
+                            <span>Mi Cuenta</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+                            <li><a href="/html/userProfile.html" class="dropdown-item text-white"><i class="fa-solid fa-user"></i> Perfil</a></li>
+                            <li><a class="dropdown-item text-white" href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a id="logoutBtn" class="dropdown-item text-white" href="#"><i class="fa-solid fa-square-xmark"></i> Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!--OFFCANVAS-->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="top-navbar"
+                aria-labelledby="top-navbarLabel">
+                <!--NAVEGACION-->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#top-navbar" aria-controls="top-navbar">
+                    <div class="d-flex justify-content-between align-items-center  p-3">
+                        <img src="/recursos/ComicForge logo.png" width="100" alt="">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                    </div>
+                </button>
+                <ul class="navbar-nav ms-lg-auto p-4 p-lg-0">
+                    <li class="nav-item mx-2 px-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fa-solid fa-list"></i>
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-white" href="#section-comics"
+                                    onclick="mostrarSeccion(contenidoMarvel)">Marvel Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics"
+                                    onclick="mostrarSeccion(contenidoDC)">DC Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics"
+                                    onclick="mostrarSeccion(contenidoDragonBall)">Mangas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-tags"></i> Descuentos</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/html/personajes.html"><i class="fa-solid fa-users"></i> Personajes</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/html/login.html"><i class="fa-solid fa-user"></i> Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Cuerpo -->
     <main>
@@ -343,7 +374,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Segundo slide -->
                     <div class="carousel-item">

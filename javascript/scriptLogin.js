@@ -1,41 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.querySelector("form");
-    const loginBtn = document.querySelector("a[href='html/login.html']");
-    const logoutBtn = document.getElementById("btn-CerrarSesion");
+    const userPic  = localStorage.getItem("profilePic");
+    const userName = localStorage.getItem("username");
 
+    //Variables del navbar
+    const loginNav   = document.getElementById("loginNav");
+    const userNav    = document.getElementById("userNav");
+    const navUserPic = document.getElementById("navUserPic");
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
+    const offcanvasLogin = document.querySelector("#top-navbar .nav-link[href='/html/login.html']");
 
-            const email = document.getElementById("exampleInputEmail1").value.trim();
-            const password = document.getElementById("exampleInputPassword1").value.trim();
+    if (userName) {
+        if (userPic) navUserPic.src = userPic;
+        loginNav.classList.add("d-none");
+        userNav.classList.remove("d-none");
 
-            const validEmail = "admin@comicforge.com";
-            const validPass = "12345";
+        if (offcanvasLogin) {
+            offcanvasLogin.setAttribute("href", "/html/userProfile.html");
+            offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Mi Perfil`;
+        }
+    } else {
+        loginNav.classList.remove("d-none");
+        userNav.classList.add("d-none");
 
-            if (email === validEmail && password === validPass) {
-                localStorage.setItem("isLoggedIn", "true");
-
-                window.location.href = "/html/userProfile.html";
-            } else {
-                alert("Usuario o contraseña incorrectos");
-            }
-        });
-    }
-
-    if (loginBtn) {
-        if (localStorage.getItem("isLoggedIn") === "true") {
-            loginBtn.setAttribute("href", "html/userProfile.html");
-        } else {
-            loginBtn.setAttribute("href", "html/login.html");
+        if (offcanvasLogin) {
+            offcanvasLogin.setAttribute("href", "/html/login.html");
+            offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Iniciar Sesión`;
         }
     }
 
+    //Para cerrar sesión
+    const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-            localStorage.removeItem("isLoggedIn");
-            window.location.href = "/index.html";
+        logoutBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.removeItem("username");
+            localStorage.removeItem("profilePic");
+            location.reload();
         });
     }
 });

@@ -106,22 +106,27 @@
         </div>
     </nav>
 
-
-
+    <!-- Mensaje toast -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="toastBienvenida" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" class="rounded me-2" alt="icono"
-                    width="20">
+        <div id="toastBienvenida"
+             class="toast text-bg-dark border-0 shadow-lg"
+             role="alert" aria-live="assertive" aria-atomic="true">
+
+            <div class="toast-header bg-dark text-white border-0">
+                <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
+                     class="rounded me-2" alt="icono" width="20">
                 <strong class="me-auto">Comic Forge</strong>
                 <small>Ahora</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+                <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="toast" aria-label="Cerrar"></button>
             </div>
-            <div class="toast-body">
+
+            <div class="toast-body bg-dark text-white">
                 ¡Bienvenido! Has iniciado sesión correctamente.
             </div>
         </div>
     </div>
+
 
     <!-- Portada y foto de perfil -->
     <div class="cover-container position-relative mt-0">
@@ -378,10 +383,10 @@
             </div>
         </div>
     </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/scriptUserProfile.js"></script>
+    <script src="/javascript/scriptLogin.js"></script>
+    <script src="/javascript/ScriptToast.js"></script>
 </body>
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/javascript/scriptUserProfile.js"></script>
-<script src="/javascript/scriptLogin.js"></script>
-<script src="/javascript/toast.js"></script>
 </html>
