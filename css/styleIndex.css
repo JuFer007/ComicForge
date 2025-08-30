@@ -22,53 +22,11 @@ html {
     padding: 0;
 }
 
-/*CSS PARA EL HEADER*/
-
-header.bg-danger{
-    background-color: #c6252b !important;
-}
-
-
-
-.logoheader{
-  width: 8rem;
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.logoheader:hover {
-    transform: scale(1.1);
-}
-
-/*CSS PARA EL DROPDOWN*/
-.custom-dropdown {
-  background-color: #000; 
-}
-
-.custom-dropdown .dropdown-item {
-  color: #fff; 
-}
-
-.custom-dropdown .dropdown-item:hover {
-  background-color: #c6252b; 
-  color: #fff; 
-}
-
-.nav-item:hover {
-    background-color: #1a1a1a;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    border-radius: 8px;
-}
-
-/*FINALIZACION DEL HEADER*/
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: rgba(18, 18, 18, 0.86);
     color: #232323;
 }
 
