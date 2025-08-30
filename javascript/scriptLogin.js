@@ -9,18 +9,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const offcanvasLogin = document.querySelector("#top-navbar .nav-link[href='/html/login.html']");
 
+    //Si ya se inicio sesión
     if (userName) {
-        if (userPic) navUserPic.src = userPic;
-        loginNav.classList.add("d-none");
-        userNav.classList.remove("d-none");
+        if (userPic && navUserPic) navUserPic.src = userPic;
+
+        if (loginNav) loginNav.classList.add("d-none");
+        if (userNav) userNav.classList.remove("d-none");
 
         if (offcanvasLogin) {
             offcanvasLogin.setAttribute("href", "/html/userProfile.html");
             offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Mi Perfil`;
         }
+
+        //Mostrar el toast
+        const toastEl = document.getElementById("toastBienvenida");
+        if (toastEl && localStorage.getItem("isLoggedIn") === "true") {
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            localStorage.removeItem("isLoggedIn");
+        }
+
     } else {
-        loginNav.classList.remove("d-none");
-        userNav.classList.add("d-none");
+        if (loginNav) loginNav.classList.remove("d-none");
+        if (userNav) userNav.classList.add("d-none");
 
         if (offcanvasLogin) {
             offcanvasLogin.setAttribute("href", "/html/login.html");
@@ -35,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             localStorage.removeItem("username");
             localStorage.removeItem("profilePic");
-            location.reload();
+            window.location.href = "/index.html";
         });
     }
 });
