@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Mi Perfil`;
         }
 
+        if (carrito) carrito.classList.remove("d-none");
+
     } else {
         if (loginNav) loginNav.classList.remove("d-none");
         if (userNav) userNav.classList.add("d-none");
@@ -26,8 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
             offcanvasLogin.setAttribute("href", "/html/login.html");
             offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Iniciar Sesión`;
         }
-
-        if (carrito) carrito.classList.remove("d-none");
     }
 
     //Botón de cerrar sesión
