@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const userNav    = document.getElementById("userNav");
     const navUserPic = document.getElementById("navUserPic");
     const offcanvasLogin = document.querySelector("#top-navbar .nav-link[href='/html/login.html']");
-    const userNameLS = localStorage.getItem("username");
-    const userPicLS  = localStorage.getItem("profilePic");
     const carrito = document.getElementById("carritoCompras");
 
+    const userNameLS = localStorage.getItem("username");
+    const userPicLS  = localStorage.getItem("profilePic");
+
     if (userNameLS) {
-        if (userPicLS && navUserPic) navUserPic.src = userPicLS;
+        if (navUserPic && userPicLS) navUserPic.src = userPicLS;
 
         if (loginNav) loginNav.classList.add("d-none");
         if (userNav) userNav.classList.remove("d-none");
@@ -28,9 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
             offcanvasLogin.setAttribute("href", "/html/login.html");
             offcanvasLogin.innerHTML = `<i class="fa-solid fa-user"></i> Iniciar Sesión`;
         }
+
+        if (carrito) carrito.classList.add("d-none");
     }
 
-    //Botón de cerrar sesión
+    // Botón de cerrar sesión
     const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", (e) => {
