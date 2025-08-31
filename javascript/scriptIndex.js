@@ -1,7 +1,6 @@
 const contenidoMarvel = document.getElementById('marvel');
 const contenidoDC = document.getElementById('dc');
 const contenidoDragonBall = document.getElementById('dragon-ball');
-
 const secciones = [contenidoMarvel, contenidoDC, contenidoDragonBall];
 
 function mostrarSeccion(seccion) {
@@ -21,24 +20,26 @@ document.getElementById('btn-marvel')?.addEventListener('click', () => mostrarSe
 document.getElementById('btn-dc')?.addEventListener('click', () => mostrarSeccion(contenidoDC));
 document.getElementById('btn-db')?.addEventListener('click', () => mostrarSeccion(contenidoDragonBall));
 
+// Mostrar por defecto Marvel
 mostrarSeccion(contenidoMarvel);
 
-
-//Obtener modales
+// Cargar modales externos
 document.addEventListener("DOMContentLoaded", () => {
     const modales = [
         "html/modalesMarvel.html",
         "html/modalesDC.html",
     ];
 
-    const contenedor = document.getElementById("modales-container");
-
     modales.forEach(ruta => {
         fetch(ruta)
             .then(res => res.text())
-            .then(data => {
-                document.body.insertAdjacentHTML("beforeend", data);
-            })
+            .then(data => document.body.insertAdjacentHTML("beforeend", data))
             .catch(err => console.error("Error cargando modal:", ruta, err));
     });
 });
+
+// Función para abrir comic
+function abrirComic(linkComic) {
+    const link = linkComic?.href;
+    window.open(link, "_blank", "width=1000,height=800,scrollbars=yes,resizable=yes");
+}

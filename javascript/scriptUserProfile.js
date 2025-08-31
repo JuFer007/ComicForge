@@ -1,18 +1,16 @@
+const profilePic = document.getElementById('profilePic');
+const coverImg = document.getElementById('coverImg');
 const coverSelect = document.getElementById('coverSelect');
-const coverImg    = document.getElementById('coverImg');
-const profilePic  = document.getElementById('profilePic');
-
 let selectedAvatar = profilePic?.src || '';
-let selectedCover  = coverImg?.src || '';
+let selectedCover = coverImg?.src || '';
 
 const userName = document.getElementById('username');
-const userBio  = document.getElementById('userBio');
-
-const editModalEl   = document.getElementById('editProfileModal');
+const userBio = document.getElementById('userBio');
+const editModalEl = document.getElementById('editProfileModal');
 const avatarModalEl = document.getElementById('avatarModal');
 
-// ====== Restaurar datos desde localStorage ======
-window.addEventListener("DOMContentLoaded", () => {
+//Restaurar perfil desde localStorage
+function restaurarPerfil() {
     if (localStorage.getItem("profilePic")) {
         profilePic.src = localStorage.getItem("profilePic");
         selectedAvatar = localStorage.getItem("profilePic");
@@ -27,74 +25,63 @@ window.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("userBio")) {
         userBio.textContent = localStorage.getItem("userBio");
     }
-});
+}
 
-//====== Selección de avatar (modal secundario) ======
+//Selección de avatar
 document.querySelectorAll('.avatar-item').forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-
         const img = item.querySelector('img');
         if (img) selectedAvatar = img.src;
 
-        const avatarModal = bootstrap.Modal.getOrCreateInstance(avatarModalEl);
-        avatarModal.hide();
-
-        const editModal = bootstrap.Modal.getOrCreateInstance(editModalEl);
-        editModal.show();
+        bootstrap.Modal.getOrCreateInstance(avatarModalEl).hide();
+        bootstrap.Modal.getOrCreateInstance(editModalEl).show();
     });
 });
 
-// ====== Selección de portada (combo) ======
+//Selección de portada
 if (coverSelect) {
-    coverSelect.addEventListener('change', () => {
-        selectedCover = coverSelect.value;
-    });
+    coverSelect.addEventListener('change', () => selectedCover = coverSelect.value);
 }
 
-// ====== Guardar cambios (modal principal) ======
-const saveBtn = document.getElementById('saveChanges');
-if (saveBtn) {
-    saveBtn.addEventListener('click', () => {
-        if (profilePic && selectedAvatar) {
-            profilePic.src = selectedAvatar;
-            localStorage.setItem("profilePic", selectedAvatar);
-        }
-        if (coverImg && selectedCover) {
-            coverImg.src = selectedCover;
-            localStorage.setItem("coverImg", selectedCover);
-        }
+//Guardar cambios
+document.getElementById('saveChanges')?.addEventListener('click', () => {
+    if (profilePic && selectedAvatar) {
+        profilePic.src = selectedAvatar;
+        localStorage.setItem("profilePic", selectedAvatar);
+    }
+    if (coverImg && selectedCover) {
+        coverImg.src = selectedCover;
+        localStorage.setItem("coverImg", selectedCover);
+    }
 
-        const newName = (document.getElementById('newName')?.value || '').trim();
-        const newBio  = (document.getElementById('newBio')?.value  || '').trim();
+    const newName = (document.getElementById('newName')?.value || '').trim();
+    const newBio  = (document.getElementById('newBio')?.value  || '').trim();
 
-        if (newName) {
-            userName.textContent = newName;
-            localStorage.setItem("username", newName);
-        }
-        if (newBio) {
-            userBio.textContent = newBio;
-            localStorage.setItem("userBio", newBio);
-        }
+    if (newName) {
+        userName.textContent = newName;
+        localStorage.setItem("username", newName);
+    }
+    if (newBio) {
+        userBio.textContent = newBio;
+        localStorage.setItem("userBio", newBio);
+    }
 
-        const editModal = bootstrap.Modal.getOrCreateInstance(editModalEl);
-        editModal.hide();
-        document.getElementById('editForm')?.reset();
-    });
-}
+    bootstrap.Modal.getOrCreateInstance(editModalEl).hide();
+    document.getElementById('editForm')?.reset();
+});
 
-// ====== Cancelar cambios (modal principal) ======
-const cancelBtn = document.getElementById('cancelChanges');
-if (cancelBtn) {
-    cancelBtn.addEventListener('click', () => {
-        const editModal = bootstrap.Modal.getOrCreateInstance(editModalEl);
-        editModal.hide();
-        document.getElementById('editForm')?.reset();
-    });
-}
+//Cancelar cambios
+document.getElementById('cancelChanges')?.addEventListener('click', () => {
+    bootstrap.Modal.getOrCreateInstance(editModalEl).hide();
+    document.getElementById('editForm')?.reset();
+});
 
-//Logica para cambiar entre los tabs
+//Restaurar perfil al cargar
+document.addEventListener("DOMContentLoaded", restaurarPerfil);
+
+//Manejo de los tabs
 document.addEventListener("DOMContentLoaded", () => {
     const tabButtons = document.querySelectorAll(".tabs-encabezados button");
     const tabContents = document.querySelectorAll(".tabs-contenido > div");
@@ -115,13 +102,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-//Mostrar comic
-function abrirComic(linkComic) {
-    const link = linkComic?.href;
-    window.open(
-        link,
-        "_blank",
-        "width=1000,height=800,scrollbars=yes,resizable=yes"
-    );
-}
