@@ -1,4 +1,4 @@
-// login.js
+//=============== PARA INICIAR SESIÓN ===============
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -12,19 +12,47 @@ if (loginForm) {
         const validPass  = "12345";
 
         if (email === validEmail && password === validPass) {
-            // Guardar sesión
-            localStorage.setItem("isLoggedIn", "true");
+            const loginNav = document.getElementById("loginNav");
+            const inicioSesionResponsive = document.getElementById("inicioSesionResponsive");
 
-            if (!localStorage.getItem("username")) {
-                localStorage.setItem("username", "Usuario");
+            if (loginNav) {
+                loginNav.querySelector("a").href = "/html/userProfile.html";
+                loginNav.querySelector("a").textContent = "Mi Perfil";
             }
-            if (!localStorage.getItem("profilePic")) {
-                localStorage.setItem("profilePic", "/recursos/default-avatar.png");
+
+            if (inicioSesionResponsive) {
+                inicioSesionResponsive.querySelector("a").href = "/html/userProfile.html";
+                inicioSesionResponsive.querySelector(".inicio-texto").textContent = "Mi Perfil";
             }
+
+            localStorage.setItem("isLoggedIn", "true");
 
             window.location.href = "/html/userProfile.html";
         } else {
             alert("Usuario o contraseña incorrectos");
         }
+    });
+}
+
+//=============== PARA CERRAR SESIÓN ===============
+const logoutBtn = document.getElementById("btn-CerrarSesion");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+
+        const loginNav = document.getElementById("loginNav");
+        const inicioSesionResponsive = document.getElementById("inicioSesionResponsive");
+
+        if (loginNav) {
+            loginNav.querySelector("a").href = "/html/login.html";
+            loginNav.querySelector("a").textContent = "Iniciar Sesión";
+        }
+
+        if (inicioSesionResponsive) {
+            inicioSesionResponsive.querySelector("a").href = "/html/login.html";
+            inicioSesionResponsive.querySelector(".inicio-texto").textContent = "Iniciar Sesión";
+        }
+        window.location.href = "index.html";
     });
 }

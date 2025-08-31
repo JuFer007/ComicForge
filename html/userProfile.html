@@ -64,7 +64,7 @@
                         <span class="input-group-text bg-white border-end-0">
                              <i class="bi bi-search"></i>
                         </span>
-                        <input type="text" class="form-control border-start-0" placeholder="Buscar...">
+                        <input type="text" class="form-control border-start-0" placeholder="Buscar Cómic...">
                     </div>
                 </form>
 
@@ -150,24 +150,21 @@
     <!-- Mensaje toast -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="toastBienvenida"
-             class="toast text-bg-dark border-0 shadow-lg"
+             class="toast text-white border-0 shadow-lg"
              role="alert" aria-live="assertive" aria-atomic="true">
 
             <div class="toast-header bg-dark text-white border-0">
-                <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
-                     class="rounded me-2" alt="icono" width="20">
-                <strong class="me-auto">Comic Forge</strong>
+                <i class="fa-regular fa-bell" style="color: #ffffff;"></i>
+                <strong class="me-auto text-white">Comic Forge</strong>
                 <small>Ahora</small>
-                <button type="button" class="btn-close btn-close-white"
+                <button type="button text-white" class="btn-close btn-close-white"
                         data-bs-dismiss="toast" aria-label="Cerrar"></button>
             </div>
-
             <div class="toast-body bg-dark text-white">
                 ¡Bienvenido! Has iniciado sesión correctamente.
             </div>
         </div>
     </div>
-
 
     <!-- Portada y foto de perfil -->
     <div class="cover-container position-relative mt-0">
@@ -182,7 +179,7 @@
                 <!-- Parte izquierda -->
                 <div class="col-md-4 text-center text-md-start mb-4 d-flex justify-content-center justify-content-md-start">
                     <div class="profile-info">
-                        <h3 id="username" class="fw-bold">ComicAdmin</h3>
+                        <h3 id="username" class="fw-bold">ComicForgeAdmin</h3>
                         <p id="userBio" class="text-dark">Apasionado lector de cómics, siempre al día con las aventuras de héroes y villanos. Disfruta explorando universos fantásticos y coleccionando historias que inspiran imaginación y creatividad.</p>
                         <div class="icons-redes-sociales">
                             <button><i class="fa-brands fa-instagram"></i></button>
@@ -192,6 +189,9 @@
                         </div>
                         <button class="btn btn-danger profile-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                             <i class="bi bi-pencil"></i> Editar Perfil
+                        </button>
+                        <button class="btn btn-danger profile-btn" id="btn-CerrarSesion">
+                            <i class="fa-solid fa-square-xmark"></i> Cerrar Sesión
                         </button>
                     </div>
                 </div>
