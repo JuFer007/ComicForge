@@ -8,19 +8,14 @@ function actualizarNavbar(isLoggedIn) {
     if (!loginNav || !inicioSesionResponsive) return;
 
     if (isLoggedIn) {
-        loginNav.querySelector("a").href = "/html/userProfile.html";
-        loginNav.querySelector("a").textContent = "Mi Perfil";
-
-        inicioSesionResponsive.querySelector("a").href = "/html/userProfile.html";
-        inicioSesionResponsive.querySelector(".inicio-texto").textContent = "Mi Perfil";
+        loginNav.querySelector("a").innerHTML = '<i class="fa-solid fa-user"></i> Mi Perfil';
+        inicioSesionResponsive.querySelector("a").innerHTML = '<i class="fa-solid fa-user"></i> <span class="inicio-texto">Mi Perfil</span>';
     } else {
-        loginNav.querySelector("a").href = "/html/login.html";
-        loginNav.querySelector("a").textContent = "Iniciar Sesión";
-
-        inicioSesionResponsive.querySelector("a").href = "/html/login.html";
-        inicioSesionResponsive.querySelector(".inicio-texto").textContent = "Iniciar Sesión";
+        loginNav.querySelector("a").innerHTML = '<i class="fa-solid fa-user"></i> Iniciar Sesión';
+        inicioSesionResponsive.querySelector("a").innerHTML = '<i class="fa-solid fa-user"></i> <span class="inicio-texto">Iniciar Sesión</span>';
     }
 }
+
 
 //Mostrar toast bienvenida una sola vez
 function mostrarToastBienvenida() {
