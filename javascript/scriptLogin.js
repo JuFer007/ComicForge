@@ -1,3 +1,4 @@
+// login.js
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -11,6 +12,7 @@ if (loginForm) {
         const validPass  = "12345";
 
         if (email === validEmail && password === validPass) {
+            // Guardar sesión
             localStorage.setItem("isLoggedIn", "true");
 
             if (!localStorage.getItem("username")) {

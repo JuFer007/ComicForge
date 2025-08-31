@@ -1,34 +1,46 @@
+// navbar.js
 document.addEventListener("DOMContentLoaded", () => {
     const loginNav = document.getElementById("loginNav");
     const userNav = document.getElementById("userNav");
     const navUserPic = document.getElementById("navUserPic");
     const navUserName = document.getElementById("navUserName");
     const carrito = document.getElementById("carritoCompras");
-
+    const inicioSesionResponsive = document.getElementById("inicioSesionResponsive");
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     const username = localStorage.getItem("username") || "Usuario";
     const profilePic = localStorage.getItem("profilePic") || "/recursos/default-avatar.png";
 
     if (isLoggedIn) {
-        if (loginNav) loginNav.classList.add("d-none");
-        if (userNav) userNav.classList.remove("d-none");
-        if (navUserPic) navUserPic.src = profilePic;
-        if (navUserName) navUserName.textContent = username;
-        if (carrito) carrito.classList.remove("d-none");
+        loginNav?.classList.add("d-none");
+        userNav?.classList.remove("d-none");
+        navUserPic && (navUserPic.src = profilePic);
+        navUserName && (navUserName.textContent = username);
+        carrito?.classList.remove("d-none");
     } else {
-        if (loginNav) loginNav.classList.remove("d-none");
-        if (userNav) userNav.classList.add("d-none");
-        if (carrito) carrito.classList.add("d-none");
+        loginNav?.classList.remove("d-none");
+        userNav?.classList.add("d-none");
+        carrito?.classList.add("d-none");
+    }
+
+    if (inicioSesionResponsive) {
+        const linkText = inicioSesionResponsive.querySelector(".inicio-texto");
+        const link = inicioSesionResponsive.querySelector("a");
+        if (isLoggedIn) {
+            if (linkText) linkText.textContent = "Mi Perfil";
+            if (link) link.href = "/html/userProfile.html";
+        } else {
+            if (linkText) linkText.textContent = "Iniciar Sesión";
+            if (link) link.href = "/html/login.html";
+        }
     }
 
     const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("username");
-            localStorage.removeItem("profilePic");
-            window.location.href = "/index.html";
-        });
-    }
+    logoutBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("username");
+        localStorage.removeItem("profilePic");
+        localStorage.removeItem("userBio");
+        window.location.href = "/index.html";
+    });
 });

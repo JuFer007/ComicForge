@@ -238,8 +238,12 @@ main {
         opacity: 1;
     }
 
+    .comic-card {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
     .btn-video:hover video {
         opacity: 0;
     }
-
 }
