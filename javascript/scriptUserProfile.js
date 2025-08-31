@@ -6,10 +6,10 @@ const userBio     = document.getElementById('userBio');
 const editModalEl   = document.getElementById('editProfileModal');
 const avatarModalEl = document.getElementById('avatarModal');
 
-let selectedAvatar = profilePic?.src || '';
+let selectedAvatar = profilePic?.src || '/recursos/default-avatar.png';
 let selectedCover  = coverImg?.src || '';
 
-//Restaurar datos desde localStorage
+// Restaurar datos desde localStorage
 window.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("profilePic")) {
         profilePic.src = localStorage.getItem("profilePic");
@@ -27,12 +27,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-//Selección de avatar (modal secundario)
+// Selección de avatar
 document.querySelectorAll('.avatar-item').forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-
         const img = item.querySelector('img');
         if (img) selectedAvatar = img.src;
 
@@ -41,14 +40,14 @@ document.querySelectorAll('.avatar-item').forEach(item => {
     });
 });
 
-//Selección de portada
+// Selección de portada
 if (coverSelect) {
     coverSelect.addEventListener('change', () => {
         selectedCover = coverSelect.value;
     });
 }
 
-//Guardar cambios
+// Guardar cambios
 const saveBtn = document.getElementById('saveChanges');
 if (saveBtn) {
     saveBtn.addEventListener('click', () => {
@@ -78,7 +77,7 @@ if (saveBtn) {
     });
 }
 
-//Cancelar cambios
+// Cancelar cambios
 const cancelBtn = document.getElementById('cancelChanges');
 if (cancelBtn) {
     cancelBtn.addEventListener('click', () => {
@@ -86,28 +85,6 @@ if (cancelBtn) {
         document.getElementById('editForm')?.reset();
     });
 }
-
-// Tabs
-document.addEventListener("DOMContentLoaded", () => {
-    const tabButtons = document.querySelectorAll(".tabs-encabezados button");
-    const tabContents = document.querySelectorAll(".tabs-contenido > div");
-    const indicator = document.querySelector(".indicador");
-
-    tabButtons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-            const target = button.getAttribute("data-tab");
-
-            tabButtons.forEach(btn => btn.classList.remove("activo"));
-            tabContents.forEach(tab => tab.classList.remove("activo"));
-
-            button.classList.add("activo");
-            document.getElementById(target).classList.add("activo");
-
-            indicator.style.left = `${(100 / tabButtons.length) * index}%`;
-            indicator.style.width = `${100 / tabButtons.length}%`;
-        });
-    });
-});
 
 //Mostrar comic
 function abrirComic(linkComic) {

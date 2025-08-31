@@ -12,6 +12,14 @@ if (loginForm) {
 
         if (email === validEmail && password === validPass) {
             localStorage.setItem("isLoggedIn", "true");
+
+            if (!localStorage.getItem("username")) {
+                localStorage.setItem("username", "Usuario");
+            }
+            if (!localStorage.getItem("profilePic")) {
+                localStorage.setItem("profilePic", "/recursos/default-avatar.png");
+            }
+
             window.location.href = "/html/userProfile.html";
         } else {
             alert("Usuario o contraseña incorrectos");
