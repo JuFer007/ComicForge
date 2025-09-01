@@ -495,9 +495,12 @@ footer {
         margin-left: 90px;
     }
 
+
+
     .profile-info {
         margin-right: -265px;
         width: 100%;
+        height: 80%;
     }
 
     .tabs-contenedor {
@@ -524,6 +527,11 @@ footer {
     }
 
     .profile-btn {
-        margin-left: 24px;
+        margin-left: 90px;
+    }
+
+    .icons-redes-sociales {
+        justify-content: center;
+        margin-right: 10px;
     }
 }

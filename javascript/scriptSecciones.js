@@ -20,26 +20,4 @@ document.getElementById('btn-marvel')?.addEventListener('click', () => mostrarSe
 document.getElementById('btn-dc')?.addEventListener('click', () => mostrarSeccion(contenidoDC));
 document.getElementById('btn-db')?.addEventListener('click', () => mostrarSeccion(contenidoDragonBall));
 
-// Mostrar por defecto Marvel
 mostrarSeccion(contenidoMarvel);
-
-// Cargar modales externos
-document.addEventListener("DOMContentLoaded", () => {
-    const modales = [
-        "html/modalesMarvel.html",
-        "html/modalesDC.html",
-    ];
-
-    modales.forEach(ruta => {
-        fetch(ruta)
-            .then(res => res.text())
-            .then(data => document.body.insertAdjacentHTML("beforeend", data))
-            .catch(err => console.error("Error cargando modal:", ruta, err));
-    });
-});
-
-// Función para abrir comic
-function abrirComic(linkComic) {
-    const link = linkComic?.href;
-    window.open(link, "_blank", "width=1000,height=800,scrollbars=yes,resizable=yes");
-}

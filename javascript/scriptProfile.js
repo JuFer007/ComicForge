@@ -9,7 +9,6 @@ const userBio = document.getElementById('userBio');
 const editModalEl = document.getElementById('editProfileModal');
 const avatarModalEl = document.getElementById('avatarModal');
 
-//Restaurar perfil desde localStorage
 function restaurarPerfil() {
     if (localStorage.getItem("profilePic")) {
         profilePic.src = localStorage.getItem("profilePic");
@@ -27,7 +26,6 @@ function restaurarPerfil() {
     }
 }
 
-//Selección de avatar
 document.querySelectorAll('.avatar-item').forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
@@ -40,12 +38,8 @@ document.querySelectorAll('.avatar-item').forEach(item => {
     });
 });
 
-//Selección de portada
-if (coverSelect) {
-    coverSelect.addEventListener('change', () => selectedCover = coverSelect.value);
-}
+coverSelect?.addEventListener('change', () => selectedCover = coverSelect.value);
 
-//Guardar cambios
 document.getElementById('saveChanges')?.addEventListener('click', () => {
     if (profilePic && selectedAvatar) {
         profilePic.src = selectedAvatar;
@@ -72,33 +66,7 @@ document.getElementById('saveChanges')?.addEventListener('click', () => {
     document.getElementById('editForm')?.reset();
 });
 
-//Cancelar cambios
 document.getElementById('cancelChanges')?.addEventListener('click', () => {
     bootstrap.Modal.getOrCreateInstance(editModalEl).hide();
     document.getElementById('editForm')?.reset();
-});
-
-//Restaurar perfil al cargar
-document.addEventListener("DOMContentLoaded", restaurarPerfil);
-
-//Manejo de los tabs
-document.addEventListener("DOMContentLoaded", () => {
-    const tabButtons = document.querySelectorAll(".tabs-encabezados button");
-    const tabContents = document.querySelectorAll(".tabs-contenido > div");
-    const indicator = document.querySelector(".indicador");
-
-    tabButtons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-            const target = button.getAttribute("data-tab");
-
-            tabButtons.forEach(btn => btn.classList.remove("activo"));
-            tabContents.forEach(tab => tab.classList.remove("activo"));
-
-            button.classList.add("activo");
-            document.getElementById(target).classList.add("activo");
-
-            indicator.style.left = `${(100 / tabButtons.length) * index}%`;
-            indicator.style.width = `${100 / tabButtons.length}%`;
-        });
-    });
 });

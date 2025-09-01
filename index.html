@@ -82,7 +82,7 @@
 
                     <!-- Inicio de sesion -->
                     <li id="loginNav" class="nav-item mx-2 modo-pc">
-                        <a class="nav-link" href="/html/login.html"><i class="fa-solid fa-user" style="color: #fff;"></i> Iniciar
+                        <a class="nav-link" href="/html/login.html"><i class="fa-solid fa-user"></i> Iniciar
                             Sesión</a>
                     </li>
 
@@ -1219,6 +1219,25 @@
         <div id="modales-container"></div>
     </main>
 
+    <!-- Mensaje toast de despedida -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastDespedida"
+             class="toast text-white border-0 shadow-lg"
+             role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-autohide="true">
+
+            <div class="toast-header bg-dark text-white border-0">
+                <i class="fa-regular fa-bell me-2" style="color: #ffffff;"> </i>
+                <strong class="me-auto text-white"> Comic Forge</strong>
+                <small>Ahora</small>
+                <button type="button text-white" class="btn-close btn-close-white"
+                        data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+            <div class="toast-body bg-dark text-white">
+                Sesión cerrada de forma correcta.
+            </div>
+        </div>
+    </div>
+
     <!-- Pie de Página -->
     <footer>
         <div class="bg-danger text-white py-3">
@@ -1274,8 +1293,14 @@
         </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/javascript/scriptLogin.js"></script>
-    <script src="/javascript/scriptIndex.js"></script>
-    <script src="/javascript/scriptUserProfile.js"></script>
+    <!-- Scripts -->
+    <script src="/javascript/scriptInicioSesion.js"></script>
+    <script src="/javascript/scriptModales.js"></script>
+    <script src="/javascript/scriptNavbar.js"></script>
+    <script src="/javascript/scriptPrincipal.js"></script>
+    <script src="/javascript/scriptProfile.js"></script>
+    <script src="/javascript/scriptSecciones.js"></script>
+    <script src="/javascript/scriptTabs.js"></script>
+    <script src="/javascript/scriptToast.js"></script>
 </body>
 </html>
