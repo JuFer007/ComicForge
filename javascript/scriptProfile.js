@@ -64,6 +64,7 @@ document.getElementById('saveChanges')?.addEventListener('click', () => {
 
     bootstrap.Modal.getOrCreateInstance(editModalEl).hide();
     document.getElementById('editForm')?.reset();
+    window.location.reload();
 });
 
 document.getElementById('cancelChanges')?.addEventListener('click', () => {
