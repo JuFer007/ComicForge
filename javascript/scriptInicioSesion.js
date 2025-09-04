@@ -1,5 +1,6 @@
 const loginForm = document.getElementById("loginForm");
 
+
 if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -21,8 +22,20 @@ if (loginForm) {
     });
 }
 
+//Cerrar sesion en pantallas grandes
 document.getElementById("logoutBtn")?.addEventListener("click", () => {
     localStorage.removeItem("isLoggedIn");
     actualizarNavbar(false);
     window.location.href = "/index.html";
 });
+
+//Cerrar sesion en pantallas pequeñas
+const btnCerrarSesion = document.getElementById("btn-CerrarSesion");
+
+if (btnCerrarSesion) {
+    btnCerrarSesion.addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        actualizarNavbar(false);
+        window.location.href = "/index.html";
+    });
+}

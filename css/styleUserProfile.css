@@ -524,12 +524,15 @@ footer {
         margin-top: 160px;
     }
 
-    .profile-btn {
-        margin-left: 90px;
-    }
-
     .icons-redes-sociales {
         justify-content: center;
         margin-right: 10px;
+    }
+
+    .profile-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 22px;
     }
 }
