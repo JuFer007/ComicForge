@@ -1,0 +1,68 @@
+{
+  "super": [
+    {
+      "id": "modal-db-tomo4",
+      "title": "Dragón Ball Super Tomo N° 4",
+      "imageSrc": "/recursos/dragon ball/tomo 4.jpg",
+      "description": "La batalla contra Zamasu alcanza su punto álgido, poniendo en riesgo la existencia de varios universos. Goku y Vegeta deben enfrentarse a enemigos que combinan fuerza, velocidad y magia destructiva, mientras luchan contra la desesperación y el caos que Zamasu ha desatado. Entre técnicas avanzadas y estrategias de combate extremas, los guerreros exploran sus límites, descubriendo nuevas formas de poder y cooperación.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo5",
+      "title": "Dragón Ball Super Tomo N° 5",
+      "imageSrc": "/recursos/dragon ball/tomo 5.jpg",
+      "description": "El Torneo de la Fuerza se acerca y los universos preparan a sus guerreros más fuertes para una confrontación que decidirá quiénes sobrevivirán. Cada participante debe entrenar hasta superar sus límites, mientras alianzas y rivalidades se intensifican y estrategias impredecibles cambian el rumbo de la competencia. Goku, Vegeta y sus compañeros deben combinar fuerza, ingenio y colaboración para enfrentar enemigos desconocidos y técnicas devastadoras.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo7",
+      "title": "Dragón Ball Super Tomo N° 7",
+      "imageSrc": "/recursos/dragon ball/tomo 7.jpg",
+      "description": "El Torneo de la Fuerza da inicio con una intensidad que supera cualquier expectativa. Los guerreros más poderosos de los universos se enfrentan en combates donde cada movimiento puede significar la victoria o la eliminación. Cada batalla revela secretos, técnicas ocultas y transformaciones sorprendentes que desafían la comprensión de los combatientes y el espectador. Goku y sus compañeros deben adaptarse rápidamente, mostrando resiliencia, ingenio y colaboración frente a enemigos que parecen invencibles.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo9",
+      "title": "Dragón Ball Super Tomo N° 9",
+      "imageSrc": "/recursos/dragon ball/tomo 9.jpg",
+      "description": "Goku alcanza un nivel de poder sin precedentes: el Ultra Instinto. Su enfrentamiento con Jiren, considerado invencible, es una prueba de resistencia, reflejos y estrategia, donde cada instante cuenta. Los luchadores exploran nuevos límites, combinando fuerza física con control mental absoluto, mostrando que la verdadera evolución requiere disciplina, intuición y valentía. Entre momentos de tensión extrema y maniobras impredecibles.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo12",
+      "title": "Dragón Ball Super Tomo N° 12",
+      "imageSrc": "/recursos/dragon ball/tomo 12.jpg",
+      "description": "Un nuevo enemigo surge: Moro, el devorador de planetas, cuya ambición amenaza toda la galaxia. Su poder mágico y su habilidad para absorber energía hacen que cualquier enfrentamiento sea extremadamente peligroso, obligando a Goku y Vegeta a combinar inteligencia, fuerza y nuevas técnicas. La saga explora la tensión, los sacrificios y la estrategia que cada guerrero debe emplear para sobrevivir y proteger millones de vidas.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo13",
+      "title": "Dragón Ball Super Tomo N° 13",
+      "imageSrc": "/recursos/dragon ball/tomo 13.jpg",
+      "description": "La Patrulla Galáctica se une a la lucha contra Moro, enfrentando enemigos con poderes mágicos devastadores. Cada combate desafía la resistencia, la creatividad y la capacidad de los héroes para adaptarse a circunstancias extremas. Goku, Vegeta y sus aliados deben superar obstáculos aparentemente imposibles, combinando nuevas técnicas y estrategias mientras la tensión crece con cada enfrentamiento.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo15",
+      "title": "Dragón Ball Super Tomo N° 15",
+      "imageSrc": "/recursos/dragon ball/tomo 15.jpg",
+      "description": "Vegeta viaja al planeta Yardrat para aprender una técnica secreta que podría ser clave para derrotar a Moro. Durante su intenso entrenamiento, enfrenta desafíos físicos y mentales que lo obligan a evolucionar como guerrero y como estratega. Mientras tanto, Goku sigue combatiendo en la Tierra, y cada enfrentamiento eleva la tensión y la urgencia de la batalla. Este tomo explora la perseverancia, el crecimiento personal y la importancia de adaptarse a nuevas situaciones.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    },
+    {
+      "id": "modal-db-tomo16",
+      "title": "Dragón Ball Super Tomo N° 16",
+      "imageSrc": "/recursos/dragon ball/tomo 16.jpg",
+      "description": "El enfrentamiento final contra Moro llega a la Tierra, con el destino del universo pendiendo de un hilo. Cada guerrero debe superar sus límites y coordinar ataques estratégicos para proteger millones de vidas. Entre combates épicos, momentos de sacrificio y demostraciones de poder sin precedentes, los héroes muestran que la valentía, la determinación y la colaboración pueden cambiar incluso el destino de toda la galaxia.",
+      "price": "S/. 45.00",
+      "publisher": "Shueisha"
+    }
+  ]
+}

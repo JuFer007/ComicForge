@@ -1,0 +1,138 @@
+{
+  "theflash": [
+    {
+      "id": "modal-theflash-flashpoint",
+      "title": "The Flash: Flashpoint",
+      "imageSrc": "/recursos/the flash/photo_5132069642355976623_y.jpg",
+      "description": "En Flashpoint, Barry Allen despierta en un mundo completamente alterado donde nada es como lo conoce. Sin sus poderes y enfrentando héroes transformados por la guerra, deberá usar su ingenio y valentía para restaurar la línea temporal. Entre conflictos épicos y decisiones que cambian el destino del planeta, Flash demuestra que incluso un héroe común puede marcar la diferencia en un mundo al borde del colapso.",
+      "price": "S/. 57.70",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-theflash-thefastest",
+      "title": "The Flash: The Fastest Man Alive",
+      "imageSrc": "/recursos/the flash/photo_5183661712933497268_y.jpg",
+      "description": "En The Fastest Man Alive, Barry Allen usa su velocidad sobrehumana para proteger Central City de criminales y amenazas que nadie más puede detener. Con ingenio, determinación y un sentido de justicia inquebrantable, Flash demuestra que la verdadera velocidad no solo se mide en kilómetros por hora, sino en la capacidad de actuar rápido y cambiar el destino de quienes lo necesitan.",
+      "price": "S/. 57.70",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-theflash-theflashwarvol8",
+      "title": "The Flash: Flash War Vol.8",
+      "imageSrc": "/recursos/the flash/photo_4902577668441090547_y.jpg",
+      "description": "En Flash War Vol. 8, Barry Allen enfrenta uno de sus mayores desafíos cuando viejos aliados se convierten en rivales y la ciudad corre peligro por un conflicto que amenaza con destruir la línea temporal. Con su velocidad incomparable, ingenio y determinación, Flash demuestra que incluso en medio del caos más rápido, un héroe decidido puede restaurar el orden y proteger a quienes ama.",
+      "price": "S/. 74.70",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-theflash-laguerradeunminuto",
+      "title": "The Flash: La Guerra de un Minuto",
+      "imageSrc": "/recursos/the flash/photo_4909055965182143464_y.jpg",
+      "description": "En La Guerra de un Minuto, Barry Allen se enfrenta a un conflicto que amenaza con alterar el tiempo y poner en peligro a toda Central City. Con su velocidad sobrehumana y su ingenio, Flash deberá superar enemigos implacables y tomar decisiones en fracciones de segundo para proteger a los inocentes. Esta historia demuestra que, incluso en el instante más breve, un héroe puede cambiar el destino de muchos.",
+      "price": "S/. 64.00",
+      "publisher": "DC"
+    }
+  ],
+  "superman": [
+    {
+      "id": "modal-lamuertesuperman",
+      "title": "La Muerte de Superman",
+      "imageSrc": "/recursos/superman/la muerte de superman.jpg",
+      "description": "En La Muerte de Superman, el Hombre de Acero enfrenta a un enemigo imparable que amenaza con destruir Metrópolis y todo lo que ama. Con valentía, sacrificio y un sentido inquebrantable de justicia, Superman demuestra que incluso los héroes más poderosos deben enfrentarse a sus límites para proteger a la humanidad. Una historia épica que redefine el legado del último hijo de Krypton.",
+      "price": "S/. 104.00",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-supermanerradicacion",
+      "title": "Superman: Erradicación",
+      "imageSrc": "/recursos/superman/superman erradicacion.jpg",
+      "description": "En Superman: Erradicación, Clark Kent se enfrenta a una amenaza que pone en riesgo no solo Metrópolis, sino a toda la humanidad. Con su fuerza sobrehumana, inteligencia y determinación, Superman debe detener un peligro implacable antes de que sea demasiado tarde, demostrando que incluso el héroe más poderoso necesita valor y estrategia para salvar el mundo.",
+      "price": "S/. 94.00",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-supermannewkripton",
+      "title": "Superman: New Krypton Vol. 3",
+      "imageSrc": "/recursos/superman/superman new Krypton vol3.jpg",
+      "description": "En New Krypton Vol. 3, Superman se enfrenta a los desafíos de un nuevo hogar kryptoniano en la Tierra, donde alianzas y lealtades se ponen a prueba. Entre conflictos inesperados y decisiones cruciales, Clark Kent demuestra que proteger tanto a su planeta adoptivo como a su gente requiere no solo fuerza, sino también sabiduría y corazón.",
+      "price": "S/. 74.00",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-supermantierra1vol1",
+      "title": "Superman: Tierra 1 Vol. 3",
+      "imageSrc": "/recursos/superman/superman tierra 1 vol3.jpg",
+      "description": "En Tierra 1 Vol. 3, Clark Kent enfrenta los desafíos de un mundo moderno donde la justicia y la verdad no siempre son claras. Con valentía, ingenio y un compromiso inquebrantable, Superman lucha por proteger a los inocentes y demostrar que incluso en tiempos complicados, un héroe puede marcar la diferencia.",
+      "price": "S/. 52.20",
+      "publisher": "DC"
+    }
+  ],
+  "linternaverde": [
+    {
+      "id": "modal-linternaverdetierra1vol1",
+      "title": "Linterna Verde: Tierra 1 Vol. 1",
+      "imageSrc": "/recursos/Linterna verde/linterna verde tierra 1 vol 1.jpg",
+      "description": "En Tierra 1 Vol. 1, Hal Jordan descubre el poder de su anillo de Linterna Verde y la responsabilidad de proteger el universo. Con coraje, ingenio y un fuerte sentido de justicia, se enfrenta a enemigos implacables y desafíos que ponen a prueba su determinación, demostrando que incluso un héroe recién formado puede brillar en medio de la oscuridad.",
+      "price": "S/. 152.20",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-linternaverdetierra1vol2",
+      "title": "Linterna Verde: Tierra 1 Vol. 2",
+      "imageSrc": "/recursos/Linterna verde/linterna verde tierra 1 vol 2.jpg",
+      "description": "En Tierra 1 Vol. 2, Hal Jordan continúa su viaje como Linterna Verde, enfrentando nuevas amenazas que desafían su valentía y su habilidad para mantener el equilibrio en el universo. Con su anillo como arma y su voluntad como guía, demuestra que incluso en situaciones imposibles, un héroe decidido puede iluminar la oscuridad y proteger a los inocentes.",
+      "price": "S/. 68.90",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-linternaverde-vol4",
+      "title": "Linterna Verde Vol. 4",
+      "imageSrc": "/recursos/Linterna verde/linterna verde vol 4.jpg",
+      "description": "En Linterna Verde Vol. 4, Hal Jordan enfrenta nuevas amenazas que ponen a prueba su voluntad y determinación como protector del universo. Con su anillo como arma y su coraje como guía, demuestra que incluso en medio del peligro más intenso, un héroe decidido puede iluminar la oscuridad y proteger a quienes lo necesitan.",
+      "price": "S/. 188.90",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-guygarden-linternaverde",
+      "title": "Guy Garden: Daño Colateral",
+      "imageSrc": "/recursos/Linterna verde/guy garden daño colateral.jpg",
+      "description": "En Daño Colateral, Guy Gardner enfrenta una misión peligrosa que pondrá a prueba tanto su fuerza como su determinación. Entre conflictos explosivos y decisiones difíciles, demuestra que incluso un héroe con carácter explosivo puede actuar con coraje y proteger a quienes dependen de él.",
+      "price": "S/.188.80",
+      "publisher": "DC"
+    }
+  ],
+  "batman": [
+    {
+      "id": "modal-batman-archivossecretos",
+      "title": "Batman: Archivos Secretos",
+      "imageSrc": "/recursos/batman/batman archivos secretos.jpg",
+      "description": "En Archivos Secretos, Batman revela casos y misterios inéditos de Gotham que nunca antes habían sido documentados. Entre investigaciones meticulosas y enfrentamientos con criminales peligrosos, Bruce Wayne demuestra que la verdadera fuerza de un héroe reside en su inteligencia, estrategia y capacidad para proteger a los inocentes incluso en las sombras.",
+      "price": "S/.77.00",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-batman-beyond",
+      "title": "Batman Beyond Vol. 1",
+      "imageSrc": "/recursos/batman/batman beyond.jpg",
+      "description": "En Batman Beyond Vol. 1, un nuevo vigilante toma el manto de Batman en una Gotham futurista. Con tecnología avanzada y un sentido de justicia inquebrantable, el joven héroe enfrenta criminales modernos y peligros desconocidos, demostrando que incluso en un mundo cambiante, siempre hay lugar para un protector decidido.",
+      "price": "S/.77.00",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-batman-beyondvol1",
+      "title": "Batman: El Regreso del Señor de la Noche",
+      "imageSrc": "/recursos/batman/batman el regreso del seños de la noche.jpg",
+      "description": "En Batman: El Regreso del Señor de la Noche, Batman vuelve a las sombras de Gotham para enfrentar una amenaza que pone a la ciudad al borde del caos. Con astucia, experiencia y un sentido inquebrantable de justicia, demuestra que incluso después de la oscuridad, un héroe decidido puede restaurar el orden y proteger a los inocentes.",
+      "price": "S/.87.70",
+      "publisher": "DC"
+    },
+    {
+      "id": "modal-batman-jokerwar",
+      "title": "Batman: Joker War",
+      "imageSrc": "/recursos/batman/batman joker war.jpg",
+      "description": "En Joker War, Gotham City se enfrenta al caos absoluto cuando el Joker desata su plan más destructivo hasta la fecha. Batman debe usar todo su ingenio, estrategia y valentía para detener al príncipe del crimen y proteger a la ciudad. Esta historia demuestra que incluso frente al enemigo más impredecible, la determinación de un héroe puede marcar la diferencia.",
+      "price": "S/.65.50",
+      "publisher": "DC"
+    }
+  ]
+}

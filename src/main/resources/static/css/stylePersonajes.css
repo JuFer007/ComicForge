@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-header-footer: #c6252b;
+    --color-text: #181818;
+    --color-white: #fff;
+    --color-accent: #c6252b;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff !important;
+    color: black !important;
+}
+
+/* Estilos de la tarjeta de personaje con tabs */
+.character-card {
+    width: 230px;
+    height: 430px;
+    margin: 10px auto;
+    overflow: hidden;
+    background: whitesmoke;
+    border: 1px solid black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.character-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.character-card .card-body {
+    padding: 10px;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.character-card .card-title {
+    margin-top: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.character-card .nav-tabs {
+    flex-shrink: 0;
+}
+
+.character-card .nav-tabs .nav-link {
+    margin-top: 10px;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    color: #000000;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+}
+
+.character-card .nav-tabs .nav-link.active {
+    color: #fff; 
+    background-color: #c6252b;
+    border-color: #c6252b;
+}
+
+.character-card .tab-content {
+    font-size: 0.8rem;
+    height: 90px;
+    overflow-y: auto;
+    color: #333;
+    flex-grow: 1;
+}
+
+.character-card .tab-pane {
+    background-color: #e9ecef;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.character-card .tab-pane.active {
+    background-color: transparent;
+}
+
+/* --- ESTILOS PARA EL MODO OSCURO --- */
+body.dark-mode {
+    background: #1a1a1a !important;
+    color: #f0f0f0 !important;
+}
+
+/* Tarjeta del carrusel */
+body.dark-mode .character-card {
+    background: #1e1e1e;
+    border-color: #555;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5); 
+}
+
+/* Título del personaje dentro de la tarjeta */
+body.dark-mode .character-card .card-title {
+    color: #f5f5f5; 
+}
+
+body.dark-mode .character-card .tab-content {
+    color: #d1d1d1;
+}
+
+/* Pestañas inactivas en modo oscuro */
+body.dark-mode .character-card .nav-tabs .nav-link {
+    background-color: #333; 
+    color: #ffffff;
+    border-color: #6f6b6b;
+}
+
+/* Pestaña activa en modo oscuro */
+body.dark-mode .character-card .nav-tabs .nav-link.active {
+    background-color: #c6252b; 
+    color: #fff;
+    border-color: #c6252b;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: #f4f6fb;
+    box-shadow: none;
+}
+
+.footer-topbar {
+    background: #c6252b;
+    padding: 18px 5vw 12px 5vw;
+    color: #eafaf2;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-socials a {
+    margin: 0 9px;
+    color: #fff;
+    font-size: 1.25rem;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    color: #232323;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 35px 2vw 25px 5vw;
+    background: black;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 210px;
+    margin: 0 10px;
+}
+
+.footer-col h6 {
+    font-weight: bold;
+    margin-bottom: 11px;
+    font-size: 1.09rem;
+    letter-spacing: 1px;
+    color: white;
+    border-bottom: 2px solid #c6252b;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.footer-col p,
+.footer-col a {
+    color: white;
+    font-size: 0.99rem;
+    margin: 8px 0;
+    line-height: 1.6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    text-decoration: underline;
+    color: #c6252b;
+}
+
+.footer-col i {
+    margin-right: 6px;
+    color: #c6252b;
+}
+
+.footer-bottom {
+    border-top: 1px solid #c6252b;
+    background: black;
+    text-align: center;
+    color: #ffffff;
+    padding: 12px 10px;
+    font-size: 0.98rem;
+    letter-spacing: 0.5px;
+}
