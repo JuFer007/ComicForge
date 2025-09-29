@@ -1,0 +1,90 @@
+[
+  {
+    "id": "descuent5-ironFist",
+    "title": "Iron Fist Vol. 01",
+    "description": "Danny Rand, heredero de una fortuna, regresa al mundo tras años de entrenamiento en la mística ciudad de K’un-Lun. Allí dominó las artes marciales y obtuvo el poder del Puño de Hierro, canalizando la energía del dragón Shou-Lao. Ahora, como Iron Fist, debe equilibrar su vida entre empresario y guerrero, enfrentando enemigos mortales, antiguas rivalidades y la responsabilidad de portar un legado que trasciende generaciones.",
+    "price": "S/. 87.10",
+    "imageSrc": "/recursos/descuentos/ironFist vol1.jpg",
+    "publisher": "Marvel",
+    "discountPercent": "18%",
+    "newPrice": "S/. 71.42",
+    "characters": ["Iron Fist", "Misty Knight", "Luke Cage"]
+  },
+  {
+    "id": "descuent6-moonKnight",
+    "title": "Moon Knight: City of the Dead",
+    "description": "Marc Spector, el enigmático Moon Knight, se adentra en la Ciudad de los Muertos tras aceptar una misión que lo conecta con lo sobrenatural. Con el poder del dios Khonshu como guía, debe enfrentarse a espíritus vengativos, secretos del más allá y a sus propios demonios internos. En un escenario donde la frontera entre la vida y la muerte se desdibuja, el Puño de Khonshu demostrará que incluso en la oscuridad más profunda, la justicia puede abrirse camino.",
+    "price": "S/. 94.00",
+    "imageSrc": "/recursos/descuentos/moonKnight city of the dead.jpg",
+    "publisher": "Marvel",
+    "discountPercent": "12%",
+    "newPrice": "S/. 82.72",
+    "characters": ["Moon Knight", "Khonshu", "Scarlet Scarab"]
+  },
+  {
+    "id": "descuent1-superman",
+    "title": "The Absolute Superman",
+    "description": "En un universo alternativo, Kal-El no llega a la Tierra siendo un bebé, sino como un adolescente marcado por la caída de Kryptón. Adoptado en Smallville, descubre sus poderes en medio de un mundo controlado por corporaciones y sistemas de opresión. Con un traje guiado por inteligencia artificial y un fuerte sentido de justicia, se convierte en Superman, enfrentando no solo amenazas físicas, sino también la desigualdad y la corrupción. En esta nueva visión, el Último Hijo de Kryptón lucha por demostrar que la esperanza puede sobrevivir incluso en el futuro más oscuro.",
+    "price": "S/. 104.00",
+    "imageSrc": "/recursos/descuentos/absoluteSuperman.jpg",
+    "publisher": "DC",
+    "discountPercent": "15%",
+    "newPrice": "S/. 88.40",
+    "characters": ["Superman", "Jor-El", "Lois Lane"]
+  },
+  {
+    "id": "descuent2-blackPanther vs Deadpool",
+    "title": "Black Panther vs Deadpool",
+    "description": "Cuando el rey de Wakanda y el mercenario más impredecible del mundo se cruzan, el choque es inevitable. Black Panther defiende con disciplina y estrategia el legado de su nación, mientras Deadpool irrumpe con su humor caótico y métodos poco convencionales. Entre secretos ocultos, combates explosivos y un choque de filosofías, ambos héroes descubrirán que a veces el mayor enemigo puede ser también el aliado más inesperado.",
+    "price": "S/. 150.00",
+    "imageSrc": "/recursos/descuentos/blackPhanter vs Deadpool.jpg",
+    "publisher": "Marvel",
+    "discountPercent": "20%",
+    "newPrice": "S/. 120.00",
+    "characters": ["Black Panther", "Deadpool"]
+  },
+  {
+    "id": "descuent3-aquaman",
+    "title": "Aquaman Vol. 01",
+    "description": "Arthur Curry, rey de Atlantis, vive un viaje de redescubrimiento y dolor bajo la pluma de Peter David. Tras perder su mano en combate y reemplazarla con un arpón, adopta una apariencia más salvaje y un carácter implacable. Entre intrigas políticas, amenazas míticas y batallas contra antiguos dioses, Aquaman debe reconciliar su herencia atlante con su lado humano. En un mundo que lo teme y lo subestima, demostrará que no es solo el señor de los mares, sino un héroe capaz de enfrentar cualquier tormenta.",
+    "price": "S/. 72.00",
+    "imageSrc": "/recursos/descuentos/aquaman vol1.jpg",
+    "publisher": "DC",
+    "discountPercent": "10%",
+    "newPrice": "S/. 64.80",
+    "characters": ["Aquaman", "Mera", "Orm"]
+  },
+  {
+    "id": "descuent4-blackAdam",
+    "title": "Black Adam Age Deluxe Edition",
+    "description": "Teth-Adam, un guerrero marcado por la tragedia y la ira, despierta en un mundo moderno que no entiende ni respeta sus códigos. Con el poder de los dioses egipcios corriendo por sus venas, se convierte en Black Adam, un campeón tan temido como venerado. Enfrentado a héroes, dictadores y deidades, deberá decidir si es un destructor implacable o un líder destinado a forjar un nuevo futuro. Una saga épica donde mito, poder y destino colisionan en la historia definitiva del antihéroe eterno.",
+    "price": "S/. 102.50",
+    "imageSrc": "/recursos/descuentos/black adam the dark age.jpg",
+    "publisher": "DC",
+    "discountPercent": "25%",
+    "newPrice": "S/. 76.88",
+    "characters": ["Black Adam", "Isis", "Shazam"]
+  },
+  {
+    "id": "descuent7-shazam",
+    "title": "Shazam Vol. 04",
+    "description": "Billy Batson, un joven huérfano con un corazón noble, descubre que con solo pronunciar la palabra mágica 'Shazam' puede transformarse en un héroe con el poder de los dioses antiguos. Entre la inocencia de un adolescente y la fuerza de un campeón, deberá aprender a equilibrar su vida cotidiana con la responsabilidad de ser un protector del mundo. En este inicio de saga, Shazam enfrenta enemigos mágicos y pruebas que pondrán a prueba no solo sus poderes, sino también la grandeza de su espíritu.",
+    "price": "S/. 140.10",
+    "imageSrc": "/recursos/descuentos/shazamVol4.jpg",
+    "publisher": "DC",
+    "discountPercent": "22%",
+    "newPrice": "S/. 109.28",
+    "characters": ["Shazam", "Wizard Shazam", "Dr. Sivana"]
+  },
+  {
+    "id": "descuent8-SpiderMan2099",
+    "title": "Spider-Man 2099",
+    "description": "Miguel O’Hara vive en un futuro gobernado por corporaciones que dominan hasta el último rincón de Nueva York. Un experimento fallido le otorga habilidades arácnidas sobrehumanas y un traje tecnológico, convirtiéndolo en Spider-Man 2099. Entre avances científicos, enemigos implacables y una ciudad sumida en la corrupción, deberá usar su ingenio y valentía para luchar por la justicia y demostrar que incluso en un futuro sombrío, un héroe puede marcar la diferencia.",
+    "price": "S/. 80.80",
+    "imageSrc": "/recursos/descuentos/Spider-Man 2099.jpg",
+    "publisher": "Marvel",
+    "discountPercent": "15%",
+    "newPrice": "S/. 68.68",
+    "characters": ["Spider-Man 2099", "Lyla", "Vulture 2099"]
+  }
+]

@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Forge - Personajes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <title>Comic Forge - Descuentos</title>
+    <!-- Fuentes e Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.cdnfonts.com/css/jember-sketch" rel="stylesheet">
-    <!--CONEXION CON BOOTSTRAP-->
-    <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <!--CONEXION CON LOS ICONOS DE GOOGLE-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <!-- ENLACE PARA LAS HOJAS DE ESTILO -->
-    <link href="/css/stylePersonajes.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styleheader.css">
-    <link rel="stylesheet" href="/css/styleDarkMode.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="/css/styleHeader.css">
+    <link rel="stylesheet" href="/css/styleDarkMode.css">
+    <link rel="stylesheet" href="/css/styleDescuentos.css">
 </head>
-
 <body>
+<!-- Header -->
 <nav class="bg-danger navbar navbar-expand-lg py-4 py-lg-1 shadow">
     <div class="container-fluid d-flex justify-content-between align-items-center ">
         <div class="d-flex align-items-center mx-3">
@@ -41,6 +33,9 @@
                         Categorías
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-white" href="/#section-comics" onclick="mostrarSeccion('marvel')">Marvel Comics</a></li>
+                        <li><a class="dropdown-item text-white" href="/#section-comics" onclick="mostrarSeccion('dc')">DC Comics</a></li>
+                        <li><a class="dropdown-item text-white" href="/#section-comics" onclick="mostrarSeccion('dragon-ball')">Mangas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
@@ -73,19 +68,12 @@
 
             <!-- Navegacion -->
             <ul class="navbar-nav p-lg-0 d-flex flex-row modo-pc">
-
-                <!-- CARRITO -->
                 <li id="carritoCompras" class="nav-item mx-2 modo-pc">
                     <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
                 </li>
-
-                <!-- Inicio de sesion -->
                 <li id="loginNav" class="nav-item mx-2 modo-pc">
-                    <a class="nav-link" href="/login"><i class="fa-solid fa-user"></i> Iniciar
-                        Sesión</a>
+                    <a class="nav-link" href="/login"><i class="fa-solid fa-user"></i> Iniciar Sesión</a>
                 </li>
-
-                <!-- Al iniciar sesion -->
                 <li id="userNav" class="nav-item dropdown mx-2 modo-pc d-none">
                     <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownUser"
                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -103,9 +91,7 @@
         </div>
 
         <!--OFFCANVAS-->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="top-navbar"
-             aria-labelledby="top-navbarLabel">
-            <!--NAVEGACION-->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="top-navbar" aria-labelledby="top-navbarLabel">
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#top-navbar" aria-controls="top-navbar">
                 <div class="d-flex justify-content-between align-items-center  p-3">
@@ -123,6 +109,9 @@
                         Categorías
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-white" href="/#section-comics" onclick="mostrarSeccion('marvel')">Marvel Comics</a></li>
+                        <li><a class="dropdown-item text-white" href="/#section-comics" onclick="mostrarSeccion('dc')">DC Comics</a></li>
+                        <li><a class="dropdown-item text-white" href="/#section-comics" onclick="mostrarSeccion('dragon-ball')">Mangas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
@@ -144,39 +133,67 @@
     </div>
 </nav>
 
-<!-- Galería de Personajes -->
-<section class="container-fluid my-5">
-    <div class="row justify-content-center">
-        <!-- Iteramos sobre la lista completa de personajes -->
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" th:each="personaje, iterStat : ${personajes}">
-            <div class="card character-card">
-                <img th:src="${personaje.imagen}" class="card-img-top" th:alt="${personaje.alias}">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${personaje.alias}"></h5>
-                    <!-- Tabs -->
-                    <ul class="nav nav-tabs" th:id="'tab-' + ${iterStat.index}" role="tablist">
-                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" th:attr="data-bs-target='#desc-' + ${iterStat.index}">Info</button></li>
-                        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" th:attr="data-bs-target='#poderes-' + ${iterStat.index}">Poderes</button></li>
-                        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" th:attr="data-bs-target='#equipos-' + ${iterStat.index}">Equipos</button></li>
-                    </ul>
-                    <!-- Contenido Tabs -->
-                    <div class="tab-content mt-2">
-                        <div class="tab-pane fade show active" th:id="'desc-' + ${iterStat.index}" th:text="${personaje.descripcion}"></div>
-                        <div class="tab-pane fade" th:id="'poderes-' + ${iterStat.index}" th:text="${personaje.poderes}"></div>
-                        <div class="tab-pane fade" th:id="'equipos-' + ${iterStat.index}" th:text="${personaje.equipos}"></div>
+<main class="py-5">
+    <div class="container">
+        <h1 class="page-title">¡Descuentos Imperdibles!</h1>
+
+        <!-- Contenedor para las tarjetas -->
+        <div class="row justify-content-center">
+            <!-- Iteramos sobre la lista de descuentos de la página actual -->
+            <div class="col-lg-9" th:each="descuento : ${descuentos}">
+                <div class="comic-card">
+                    <div class="row g-0 ">
+                        <div class="col">
+                            <div class="comic-info">
+                                <div>
+                                    <h2 class="comic-title" th:text="${descuento.title}">Título del Cómic</h2>
+                                    <p class="comic-description" th:text="${descuento.description}">Descripción del cómic.</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="characters">
+                                        <button class="character-tag" th:each="character : ${descuento.characters}" th:text="${character}"></button>
+                                    </div>
+                                    <div class="price-section">
+                                        <span class="old-price" th:text="${descuento.price}"></span>
+                                        <span class="new-price" th:text="${descuento.newPrice}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="comic-image">
+                                <div class="discount-badge" th:text="${descuento.discountPercent}"></div>
+                                <img th:src="${descuento.imageSrc}" th:alt="${descuento.title}">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Paginación Dinámica -->
+        <nav aria-label="Navegación de páginas" th:if="${totalPages > 1}">
+            <ul class="pagination mt-5">
+                <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                    <a class="page-link" th:href="@{/descuentos(page=${currentPage})}">&laquo;</a>
+                </li>
+                <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}" th:classappend="${i == currentPage + 1} ? 'active'">
+                    <a class="page-link" th:href="@{/descuentos(page=${i})}" th:text="${i}"></a>
+                </li>
+                <li class="page-item" th:classappend="${currentPage + 1 == totalPages} ? 'disabled'">
+                    <a class="page-link" th:href="@{/descuentos(page=${currentPage + 2})}">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-</section>
+</main>
 
 <!-- Botón Flotante Modo Oscuro -->
 <button id="darkModeToggle" class="dark-mode-toggle">
     <i class="fa-solid fa-moon"></i>
 </button>
 
-<!-- Pie de Página -->
+<!-- Footer -->
 <footer>
     <div class="bg-danger text-white py-3">
         <div class="container">
@@ -197,50 +214,38 @@
     <div class="bg-black text-white py-4">
         <div class="container">
             <div class="row text-center text-md-start">
-
                 <div class="col-md-4 mb-3">
                     <h6 class="fw-bold border-bottom border-danger pb-2 d-inline-block">Cómic Forge</h6>
                     <p class="mt-2">Cómics que conectan contigo. 📖</p>
                 </div>
-
                 <div class="col-md-4 mb-3">
                     <h6 class="fw-bold border-bottom border-danger pb-2 d-inline-block">Métodos de Pago</h6>
-                    <p class="mb-1"><i class="fas fa-credit-card text-danger me-2"></i> Tarjeta de Crédito/Débito
-                    </p>
+                    <p class="mb-1"><i class="fas fa-credit-card text-danger me-2"></i> Tarjeta de Crédito/Débito</p>
                     <p class="mb-1"><i class="fas fa-university text-danger me-2"></i> Transferencia Bancaria</p>
                     <p class="mb-0"><i class="fas fa-money-bill-wave text-danger me-2"></i> Pago en Efectivo</p>
                 </div>
-
                 <div class="col-md-4 mb-3">
                     <h6 class="fw-bold border-bottom border-danger pb-2 d-inline-block">Contáctanos</h6>
                     <p class="mb-1"><i class="fas fa-home text-danger me-2"></i> Chiclayo, Perú</p>
                     <p class="mb-1"><i class="fas fa-envelope text-danger me-2"></i> comicforge@gmail.com</p>
-                    <p class="mb-0"><i class="fas fa-phone text-danger me-2" style="color: white"></i> 944 707 103
-                    </p>
+                    <p class="mb-0"><i class="fas fa-phone text-danger me-2" style="color: white"></i> 944 707 103</p>
                 </div>
-
             </div>
-
             <div class="text-center border-top border-danger pt-3 mt-3">
                 <p class="mb-0">&copy; 2025 Cómic Forge. Todos los derechos reservados.</p>
             </div>
         </div>
     </div>
 </footer>
-<!-- JAVASCRIPT DE BOOTSTRAP -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
-</script>
-<!--ION-ICONS-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!-- Scripts -->
 <script src="/js/scriptNavbar.js"></script>
+<script src="/js/scriptDarkMode.js"></script>
+<script src="/js/scriptToast.js"></script>
 <script src="/js/scriptInicioSesion.js"></script>
 <script src="/js/scriptPrincipal.js"></script>
-<script src="/js/scriptProfile.js"></script>
-<script src="/js/scriptSecciones.js"></script>
-<script src="/js/scriptDarkMode.js"></script>
-<script src="/js/scriptCharacterTabs.js"></script>
 </body>
 </html>

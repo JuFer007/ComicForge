@@ -1,5 +1,6 @@
 package Service;
 import Model.Comic;
+import Model.ComicDescuent;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,20 @@ public class ComicService {
                 throw new RuntimeException("Archivo no encontrado: " + fileName);
             }
             return mapper.readValue(inputStream, new TypeReference<List<Comic>>() {});
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    public List<ComicDescuent> cargarDescuentos() {
+        try {
+            String fileName = "/data/descuentos.json";
+            InputStream inputStream = getClass().getResourceAsStream(fileName);
+            if (inputStream == null) {
+                throw new RuntimeException("Archivo no encontrado: " + fileName);
+            }
+            return mapper.readValue(inputStream, new TypeReference<List<ComicDescuent>>() {});
         } catch (Exception e) {
             e.printStackTrace();
             return Collections.emptyList();

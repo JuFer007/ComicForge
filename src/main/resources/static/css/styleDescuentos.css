@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+    background-color: #f8f9fa; /* Fondo claro por defecto */
+}
+
+.page-title {
+    font-family: 'Archivo Black', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #dc3545; /* Rojo de Bootstrap */
+    font-weight: bold;
+}
+
+.comic-card {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dee2e6;
+}
+
+.comic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.discount-badge {
+    position: absolute;
+    bottom: 10px;
+    right: -45px;
+    background: #dc3545;
+    color: #fff;
+    padding: 10px 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+    min-width: 60px;
+    text-align: center;
+    width: 150px;
+    transform: rotate(-45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comic-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.comic-title {
+    font-family: 'Anton', sans-serif !important;
+    font-size: 1.8rem;
+    color: #212529;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 2.2px;
+}
+
+.comic-description {
+    margin-right: 15px;
+    color: black;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+.characters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.character-tag {
+    background-color: #dc3545; 
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.character-tag:hover {
+    transform: translateY(-2px);
+}
+
+.price-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.old-price {
+    color: #6c757d;
+    text-decoration: line-through;
+    font-size: 1.1rem;
+}
+
+.new-price {
+    color: #dc3545;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.comic-image {
+    position: relative;
+    overflow: hidden;
+    height: 380px; 
+    width: 260px !important;
+}
+
+.comic-image img {
+    width: 260px;
+    height: 101%;
+}
+
+.comic-card .row {
+    flex-wrap: nowrap; 
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.page-link {
+    background: #fff;
+    color: #dc3545;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    margin: 0 5px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.page-link:hover {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.page-item.active .page-link {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+
+.page-item.disabled .page-link {
+    background: #e9ecef;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+@media (max-width: 767px) {
+    .comic-image {
+        height: 300px;
+        border-radius: 0 0 15px 15px;
+    }
+    .discount-badge {
+        top: 10px;
+        right: 10px;
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+    .comic-info {
+        padding: 20px;
+    }
+}
+
+/* --- ESTILOS PARA EL MODO OSCURO --- */
+body.dark-mode {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-mode .comic-card {
+    background: #212529;
+    border-color: transparent;
+}
+
+body.dark-mode .comic-title,
+body.dark-mode .comic-description {
+    color: #f8f9fa;
+}
+
+body.dark-mode .comic-image::before {
+    background: linear-gradient(to right, #212529 0%, rgba(33, 37, 41, 0) 100%);
+}
+
+body.dark-mode .comic-image::before {
+    background: linear-gradient(to right, #212529 0%, rgba(33, 37, 41, 0) 100%);
+}
+
+/* --- ESTILOS DE PAGINACIÓN PARA MODO OSCURO --- */
+body.dark-mode .page-link {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-color: #495057;
+}
+
+body.dark-mode .page-link:hover {
+    background-color: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+}
+
+body.dark-mode .page-item.active .page-link {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+body.dark-mode .page-item.disabled .page-link {
+    background-color: #212529; 
+    color: #6c757d;
+    border-color: #343a40;
+}
