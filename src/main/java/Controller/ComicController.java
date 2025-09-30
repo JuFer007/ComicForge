@@ -19,7 +19,7 @@ public class ComicController {
     public String index(Model model) {
         model.addAttribute("marvelComics", comicService.cargarComics("marvel"));
         model.addAttribute("dcComics", comicService.cargarComics("dc"));
-        model.addAttribute("dragonballMangas", comicService.cargarComics("dragon-ball"));
+        model.addAttribute("dragonballMangas", comicService.cargarComics("dragonball"));
         model.addAttribute("masVendidos", comicService.cargarMasVendidos());
         return "index";
     }
