@@ -8,14 +8,12 @@ function mostrarSeccion(seccionId) {
     secciones.forEach(s => s.style.display = 'none');
     document.getElementById(seccionId).style.display = 'block';
 
-    // Aplicar active en el nav
     const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
     navLinks.forEach(link => link.classList.remove('active'));
 
     const activeLink = Array.from(navLinks).find(link => link.getAttribute('onclick').includes(seccionId));
     if (activeLink) activeLink.classList.add('active');
 
-    // Cargar usuarios si corresponde
     if(seccionId === 'deleteUsers') cargarUsuarios();
 }
 
@@ -31,11 +29,13 @@ document.getElementById('addComicForm').addEventListener('submit', async (e) => 
         if (!response.ok) throw new Error('Error en la solicitud');
 
         const data = await response.json();
-        alert(data.message);
-        e.target.reset(); // Limpiar formulario
+
+        Toast.success('¡Cómic agregado correctamente!');
+
+        e.target.reset();
     } catch (error) {
         console.error('Error:', error);
-        alert('Ocurrió un error al agregar el cómic. ' + error);
+        Toast.error('Error al guardar el comic');
     }
 });
 
@@ -46,7 +46,7 @@ document.getElementById('addComicForm').addEventListener('submit', async (e) => 
 // Cargar todos los usuarios
 async function cargarUsuarios() {
     try {
-        const response = await fetch('/admin/users'); // Endpoint backend
+        const response = await fetch('/admin/users');
         if (!response.ok) throw new Error('Error al obtener usuarios');
         const users = await response.json();
 
@@ -114,12 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const profilePic = localStorage.getItem("profilePic");
     const role = localStorage.getItem("role");
 
-    // Solo mostrar si es admin
     if (role === "admin") {
         if (adminNameEl) adminNameEl.textContent = userName || "Administrador";
         if (adminProfileImg) adminProfileImg.src = profilePic || "/recursos/avatares/default-avatar.jpg";
     } else {
-        // Redirigir si no es admin
         window.location.href = "/";
     }
 
@@ -138,11 +136,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         localStorage.clear();
                         window.location.href = "/";
                     } else {
-                        alert("Error al cerrar sesión correctamente en el servidor.");
+                        console.log("Error al cerrar sesión correctamente en el servidor.");
                     }
                 } catch (error) {
                     console.error("Error al cerrar sesión:", error);
-                    alert("Hubo un problema al cerrar sesión. Intenta de nuevo.");
+                    console.log("Hubo un problema al cerrar sesión. Intenta de nuevo.");
                 }
             }
         });

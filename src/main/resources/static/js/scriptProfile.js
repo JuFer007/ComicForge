@@ -61,7 +61,7 @@ coverSelect?.addEventListener('change', () => {
 // --- Guardar cambios de perfil ---
 document.getElementById('saveChanges')?.addEventListener('click', async () => {
     if (!userId) {
-        alert("No se encontró ID del usuario.");
+        console.log("No se encontró ID del usuario.");
         return;
     }
 
@@ -87,11 +87,10 @@ document.getElementById('saveChanges')?.addEventListener('click', async () => {
             localStorage.setItem("userBio", newBio);
             window.location.reload();
         } else {
-            alert("❌ Error al guardar los cambios.");
+            console("Error al guardar los cambios.");
         }
     } catch (error) {
         console.error("Error al actualizar:", error);
-        alert("⚠ Error de conexión al actualizar el perfil.");
     }
 });
 
@@ -113,7 +112,7 @@ document.getElementById('btn-CerrarSesion')?.addEventListener('click', logout);
 // --- Agregar a favoritos ---
 async function agregarAFavoritos(comicId, buttonEl) {
     if (!userId) {
-        alert("Debes iniciar sesión para agregar a favoritos.");
+        Toast.error('Inicie sesión para agregar a favoritos');
         return;
     }
 
@@ -132,14 +131,13 @@ async function agregarAFavoritos(comicId, buttonEl) {
                 parentDiv.classList.add('justify-content-center');
             }
 
-            alert("✅ " + result);
+            Toast.success('Cómic agregado a favoritos');
             window.location.reload();
         } else {
-            alert("❌ " + result);
+            console.log(result);
         }
     } catch (error) {
         console.error("Error al agregar favorito:", error);
-        alert("⚠ Error al agregar a favoritos.");
     }
 }
 

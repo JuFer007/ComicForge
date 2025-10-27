@@ -11,32 +11,42 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                credentials: "include", // ✅ Importante para mantener la sesión
+                credentials: "include",
                 body: new URLSearchParams({ email, password })
             });
 
-            if (response.ok) {
-                const user = await response.json();
+            if (!response.ok) {
+                Toast.error("Credenciales incorrectas");
+                return;
+            }
 
-                localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("userId", user.id);
-                localStorage.setItem("userName", user.userName);
-                localStorage.setItem("profilePic", user.profilePicture);
-                localStorage.setItem("role", user.role);
+            let user;
+            try {
+                user = await response.json();
+            } catch (jsonError) {
+                console.error("Error al convertir la respuesta a JSON:", jsonError);
+                console.log("El servidor no devolvió datos válidos");
+                return;
+            }
 
-                alert("Bienvenido " + user.userName);
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("userId", user.id);
+            localStorage.setItem("userName", user.userName);
+            localStorage.setItem("profilePic", user.profilePicture);
+            localStorage.setItem("role", user.role);
 
+            Toast.success("Bienvenido, inicio de sesión exitoso");
+
+            setTimeout(() => {
                 if (user.role === "admin") {
                     window.location.href = "/admin";
                 } else {
                     window.location.href = `/user/profile/${user.id}`;
                 }
-            } else {
-                alert("Credenciales incorrectas");
-            }
+            }, 1000);
+
         } catch (error) {
-            console.error(error);
-            alert("Error al conectar con el servidor");
+            console.error("Error de conexión o servidor caído:", error);
         }
     });
 });
@@ -46,19 +56,21 @@ async function logout() {
         try {
             const response = await fetch("/auth/logout", {
                 method: "POST",
-                credentials: "include" // ✅ Sin headers ni body
+                credentials: "include"
             });
 
             if (response.ok) {
                 localStorage.clear();
-                window.location.href = "/";
+                Toast.success("Sesión cerrada con éxito");
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 2000);
             } else {
                 const msg = await response.text();
-                alert("Error: " + msg);
+                console.log("Error: " + msg);
             }
         } catch (error) {
             console.error("Error al cerrar sesión:", error);
-            alert("Hubo un problema al cerrar sesión. Intenta de nuevo.");
         }
     }
 }

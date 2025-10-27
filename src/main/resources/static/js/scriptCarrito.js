@@ -8,14 +8,14 @@ function agregarAlCarrito(comicId) {
     })
     .then(response => {
         if (response.ok) {
-            alert('Comic agregado al carrito');
+            Toast.success('¡Cómic agregado al carrito exitosamente!');
         } else {
-            alert('Error al agregar al carrito');
+            Toast.error('Inicie sesión para agregar al carrito');
         }
     })
     .catch(err => {
         console.error('Error agregando al carrito:', err);
-        alert('Inicie sesion para agregar al carrito');
+        Toast.error('Inicie sesión para agregar al carrito');
     });
 }
 

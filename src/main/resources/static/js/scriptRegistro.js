@@ -7,7 +7,7 @@ document.getElementById("RegistroForm")?.addEventListener("submit", async (event
     const userName = document.getElementById("inputUser").value;
 
     if (password !== confirmPassword) {
-        alert("Las contraseñas no coinciden.");
+        Toast.error('Las contraseñas no coinciden');
         return;
     }
 
@@ -19,13 +19,12 @@ document.getElementById("RegistroForm")?.addEventListener("submit", async (event
         });
 
         if (response.ok) {
-            alert("¡Registro exitoso!");
+            Toast.success('Registro exitoso');
             window.location.href = "/login";
         } else {
-            alert("Error al registrar usuario.");
+            console.log("Error al registrar usuario.");
         }
     } catch (error) {
         console.error(error);
-        alert("Ocurrió un error inesperado.");
     }
 });

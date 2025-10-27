@@ -25,22 +25,6 @@
 <body>
 <nav th:replace="~{fragments/_layout :: header}"></nav>
 
-<!-- Mensaje toast de bienvenida -->
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="toastBienvenida" class="toast text-white border-0 shadow-lg"
-         role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-autohide="true">
-        <div class="toast-header bg-dark text-white border-0">
-            <i class="fa-regular fa-bell me-2" style="color: #ffffff;"></i>
-            <strong class="me-auto text-white">Comic Forge</strong>
-            <small>Ahora</small>
-            <button type="button text-white" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Cerrar"></button>
-        </div>
-        <div class="toast-body bg-dark text-white">
-            ¡Bienvenido! Has iniciado sesión correctamente.
-        </div>
-    </div>
-</div>
-
 <!-- Portada y foto de perfil -->
 <div class="cover-container position-relative mt-0">
     <img id="profilePic" th:src="${user.profilePicture}" alt="Foto de perfil" class="profile-img">
@@ -232,6 +216,7 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!-- Scripts personalizados necesarios para la página -->
+<script src="/js/scriptToast.js"></script>
 <script src="/js/scriptNavbar.js"></script>
 <script src="/js/scriptDarkMode.js"></script>
 <script src="/js/scriptProfile.js"></script>

@@ -67,7 +67,6 @@ async function cargarComics(categoria) {
 
     } catch (error) {
         console.error('Error al cargar los cómics:', error);
-        alert('Error al cargar los cómics.');
     }
 }
 
@@ -84,14 +83,14 @@ function agregarAlCarrito(comicId) {
     })
     .then(response => {
         if (response.ok) {
-            alert('¡Cómic añadido al carrito!');
+            Toast.success('¡Cómic agregado al carrito exitosamente!');
         } else {
-            alert('Error al añadir el cómic al carrito.');
+            Toast.error('Inicie sesión para agregar al carrito');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al añadir el cómic al carrito.');
+        Toast.error('Inicie sesión para agregar al carrito');
     });
 }
 
