@@ -38,16 +38,14 @@ body {
 
 /* ------------------ LAYOUT PRINCIPAL ------------------ */
 .layout-principal {
-    width: 130.6%;
+    margin-left: -140px;
     max-width: 100vw;
     background-color: #1d1c1c;
     padding: 20px 40px;
     margin-top: -80px;
     position: relative;
     z-index: 2;
-    margin-left: -200px;
     box-sizing: border-box;
-    height: 100%;
 }
 
 /* ------------------ FOTO DE PERFIL ------------------ */
@@ -80,9 +78,9 @@ body {
     box-shadow: 0 4px 16px #0008;
     margin-top: 100px;
     z-index: 2;
-    margin-left: 110px;
-    height: 60%;
-    margin-top: 100px;
+    /* margin-left: 110px; -- Eliminado */
+    /* height: 60%; -- Eliminado */
+    /* margin-top: 100px; -- Redundante, se mantiene el primero si es necesario */
     text-align: justify !important;
 }
 
@@ -238,6 +236,26 @@ body {
     box-shadow: 0 5px 5px rgb(141, 134, 134);
 }
 
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #c6252b;
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 /* ------------------ MODAL EDITAR PERFIL ------------------ */
 #editProfileModal .modal-dialog {
     max-width: 500px;
@@ -356,10 +374,10 @@ body {
 }
 
 .avatar-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; /* Reducimos un poco el espacio para que quepa mejor */
+    justify-items: center;
 }
 
 .avatar-item {
@@ -438,91 +456,9 @@ body.light-mode .tabs-contenido {
     color: #333;
 }
 
-.footer-container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    border-radius: 0;
-    overflow: hidden;
-    background: #f4f6fb;
-    box-shadow: none;
-}
-
-.footer-topbar {
-    background: #c6252b;
-    padding: 18px 5vw 12px 5vw;
-    color: #eafaf2;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.footer-socials a {
-    margin: 0 9px;
-    color: #fff;
-    font-size: 1.25rem;
-    transition: color 0.2s;
-    text-decoration: none;
-}
-
-.footer-socials a:hover {
-    color: #232323;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 35px 2vw 25px 5vw;
-    background: black;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 210px;
-    margin: 0 10px;
-}
-
-.footer-col h6 {
-    font-weight: bold;
-    margin-bottom: 11px;
-    font-size: 1.09rem;
-    letter-spacing: 1px;
-    color: white;
-    border-bottom: 2px solid #c6252b;
-    display: inline-block;
-    padding-bottom: 2px;
-}
-
-.footer-col p,
-.footer-col a {
-    color: white;
-    font-size: 0.99rem;
-    margin: 8px 0;
-    line-height: 1.6;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-col a:hover {
-    text-decoration: underline;
-    color: #c6252b;
-}
-
-.footer-col i {
-    margin-right: 6px;
-    color: #c6252b;
-}
-
-.footer-bottom {
-    border-top: 1px solid #c6252b;
-    background: black;
-    text-align: center;
-    color: #ffffff;
-    padding: 12px 10px;
-    font-size: 0.98rem;
-    letter-spacing: 0.5px;
+.mensajeInfo {
+    font-size: 19px;
+    font-family: "Georgia", serif;
 }
 
 /* ------------------ RESPONSIVE ------------------ */
@@ -531,11 +467,11 @@ body.light-mode .tabs-contenido {
         margin-left: 90px;
     }
 
-    .profile-info {
-        margin-right: -265px;
-        width: 100%;
-        height: 80%;
-    }
+    /* .profile-info { -- Eliminado
+        margin-right: -265px; -- Eliminado
+        width: 100%; -- Eliminado
+        height: 80%; -- Eliminado
+    } */
 
     .tabs-contenedor {
         margin-left: 190px !important;

@@ -1,7 +1,6 @@
 const contenidoMarvel = document.getElementById('marvel');
 const contenidoDC = document.getElementById('dc');
-const contenidoDragonBall = document.getElementById('dragon-ball');
-const secciones = [contenidoMarvel, contenidoDC, contenidoDragonBall];
+const secciones = [contenidoMarvel, contenidoDC];
 
 function mostrarSeccion(seccionId) {
     secciones.forEach(s => {

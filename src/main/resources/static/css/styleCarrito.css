@@ -1,0 +1,46 @@
+/* Título del carrito */
+.titulo-carrito, infoCompra {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* Cards */
+.list-group-item {
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Imagen del comic */
+.comic-img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Botón eliminar */
+.btn-danger {
+    transition: all 0.2s;
+}
+
+.descripcion {
+    font-size: 14px;
+    text-align: justify !important;
+}
+
+h5 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+body.dark-mode .titulo-carrito,
+    body.dark-mode .infoCompra {
+    color: #ffffff !important;
+}

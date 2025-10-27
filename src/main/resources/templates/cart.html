@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comic Forge - Carrito</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="/css/styleheader.css">
+    <link rel="stylesheet" href="/css/styleFooter.css">
+    <link rel="stylesheet" href="/css/styleDarkMode.css">
+    <link rel="stylesheet" href="/css/styleCarrito.css">
+</head>
+<body>
+
+<header th:replace="~{fragments/_layout :: header}"></header>
+
+<main class="container my-5">
+    <h1 class="mb-4 text-center titulo-carrito text-dark">
+        <i class="fa-solid fa-cart-shopping"></i> Carrito de Compras
+    </h1>
+
+    <div style="height: 300px; border: none; background-color: transparent !important;" th:if="${comics.isEmpty()}" class="alert alert-info text-center">
+        El carrito está vacío.
+    </div>
+
+    <div th:unless="${comics.isEmpty()}">
+        <div class="row">
+            <!-- IZQUIERDA: Lista de cómics -->
+            <div class="col-lg-8" style="margin-top: 10px !important">
+                <div class="list-group">
+                    <div class="list-group-item mb-3 p-3 shadow-sm rounded dark-mode-element" th:each="comic : ${comics}">
+                        <div class="d-flex align-items-center">
+                            <img th:src="${comic.imageSRC}" alt="Imagen del cómic" class="img-fluid comic-img me-3">
+                            <div class="flex-grow-1">
+                                <h5 th:text="${comic.title}"></h5>
+                                <p th:text="${comic.description}" class="mb-1 text-muted descripcion"></p>
+                                <p><strong>Precio:</strong> S/. <span th:text="${comic.price}"></span>0</p>
+                            </div>
+                            <div class="ms-3 d-flex align-items-center">
+                                <form th:action="@{/cart/remove/{id}(id=${comic.id})}" method="post">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DERECHA: Resumen total y finalizar compra -->
+            <div class="col-lg-4">
+                <div class="p-4 shadow-sm rounded dark-mode-element" style="margin-top: 10px !important">
+                    <div>
+                        <h4 class="infoCompra text-dark">Resumen del Carrito</h4>
+                        <hr>
+                        <p class="infoCompra text-dark"><strong>Total: </strong>S/. <span th:text="${total}"></span>0</p>
+                    </div>
+                    <form th:action="@{/cart/checkout}" method="post" class="mt-auto">
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-danger btn-lg" style="font-size: 16px; width: 50%;">
+                                <i class="fa-solid fa-credit-card"></i> Finalizar Compra
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Botón Flotante Modo Oscuro -->
+<button id="darkModeToggle" class="dark-mode-toggle">
+    <i class="fa-solid fa-moon"></i>
+</button>
+
+<footer th:replace="~{fragments/_layout :: footer}"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="/js/scriptNavbar.js"></script>
+<script src="/js/scriptDarkMode.js"></script>
+</body>
+</html>

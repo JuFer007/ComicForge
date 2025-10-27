@@ -245,3 +245,12 @@ main {
         opacity: 0;
     }
 }
+
+body.dark-mode .home h1,
+body.dark-mode .container h2,
+body.dark-mode .marvel-comics h1,
+body.dark-mode .dc-comics h1,
+body.dark-mode .dragonball-manga h1 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav class="bg-danger navbar navbar-expand-lg py-4 py-lg-1 shadow">
+        <div class="container-fluid d-flex justify-content-between align-items-center ">
+            <div class="d-flex align-items-center mx-3">
+                <button class="btn p-0 border-0 bg-transparent" onclick="window.location.href='/'">
+                    <img src="/recursos/ComicForge logo.png" width="100" alt="Logo" class="me-3">
+                </button>
+
+                <ul class="navbar-nav p-4 p-lg-0 modo-pc">
+                    <li class="nav-item mx-2 px-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false"><i class="fa-solid fa-list"></i>
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-white" href="#section-comics" onclick="mostrarSeccion('marvel')">Marvel Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics" onclick="mostrarSeccion('dc')">DC Comics</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/descuentos"><i class="fa-solid fa-tags"></i> Descuentos</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/personajes"><i class="fa-solid fa-users"></i>
+                            Personajes</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- DERECHA: BOTÓN + CARRITO + USUARIO -->
+            <div class="d-flex align-items-center">
+                <!-- Botón responsive -->
+                <button class="navbar-toggler border-0 me-2" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#top-navbar" aria-controls="top-navbar">
+                    <ion-icon name="grid-outline"></ion-icon>
+                </button>
+
+                <!-- Buscador -->
+                <form class="me-2 buscador-navbar d-none d-lg-block">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                             <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" placeholder="Buscar Cómic...">
+                    </div>
+                </form>
+
+                <!-- Navegacion -->
+                <ul class="navbar-nav p-lg-0 d-flex flex-row modo-pc">
+
+                    <!-- CARRITO -->
+                    <li id="carritoCompras" class="nav-item mx-2 modo-pc">
+                        <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
+                    </li>
+
+                    <!-- Inicio de sesion -->
+                    <li id="loginNav" class="nav-item mx-2 modo-pc">
+                        <a class="nav-link" href="/login"><i class="fa-solid fa-user"></i> Iniciar
+                            Sesión</a>
+                    </li>
+
+                    <!-- Al iniciar sesion -->
+                    <li id="userNav" class="nav-item dropdown mx-2 modo-pc d-none">
+                        <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownUser"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="navUserPic" alt="Usuario" width="36" height="36" class="rounded-circle me-2">
+                            <span>Mi Cuenta</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser" >
+                            <li><a id="userProfileLink" href="/userProfile" class="dropdown-item text-white"><i class="fa-solid fa-user"></i> Perfil</a></li>
+                            <li><a class="dropdown-item text-white" href="/cart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a  onclick="logout()" id="logoutBtn" action="/logout" method="post" class="dropdown-item text-white" href="#"><i class="fa-solid fa-square-xmark"></i> Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Al iniciar como admin -->
+                    <li id="adminNav" class="nav-item dropdown mx-2 modo-pc d-none">
+                        <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="dropdownAdmin"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="adminUserPic" alt="Usuario" width="36" height="36" class="rounded-circle me-2">
+                            <span>Mi Cuenta</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser" >
+                            <li><a id="adminLink" href="/admin" class="dropdown-item text-white"><i class="fa-solid fa-user"></i> Perfil</a></li>
+                            <li><a onclick="logout()" id="logoutBtnAdmin" class="dropdown-item text-white" href="#"> <i class="fa-solid fa-square-xmark"></i> Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!--OFFCANVAS-->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="top-navbar"
+                 aria-labelledby="top-navbarLabel">
+                <!--NAVEGACION-->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#top-navbar" aria-controls="top-navbar">
+                    <div class="d-flex justify-content-between align-items-center  p-3">
+                        <img src="/recursos/ComicForge logo.png" width="100" alt="">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                    </div>
+                </button>
+                <ul class="navbar-nav ms-lg-auto p-4 p-lg-0">
+                    <li class="nav-item mx-2 px-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false"><i class="fa-solid fa-list"></i>
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Corregimos el onclick para pasar el ID como string -->
+                            <li><a class="dropdown-item text-white" href="#section-comics" onclick="mostrarSeccion('marvel')">Marvel Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics" onclick="mostrarSeccion('dc')">DC Comics</a></li>
+                            <li><a class="dropdown-item text-white" href="#section-comics" onclick="mostrarSeccion('dragon-ball')">Mangas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/descuentos"><i class="fa-solid fa-tags"></i> Descuentos</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/personajes"><i class="fa-solid fa-users"></i> Personajes</a>
+                    </li>
+                    <li class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
+                    </li>
+                    <li id="inicioSesionResponsive" class="nav-item px-2 mx-2 px-lg-0 py-1 py-lg-4">
+                        <a class="nav-link" href="/login">
+                            <i class="fa-solid fa-user"></i> <span class="inicio-texto">Iniciar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Pie de Página -->
+<footer>
+    <div class="bg-danger text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <span>¡Síguenos en nuestras redes sociales!</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black text-white py-4">
+        <div class="container">
+            <div class="row text-center text-md-start">
+
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold border-bottom border-danger pb-2 d-inline-block">Cómic Forge</h6>
+                    <p class="mt-2">Cómics que conectan contigo. 📖</p>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold border-bottom border-danger pb-2 d-inline-block">Métodos de Pago</h6>
+                    <p class="mb-1"><i class="fas fa-credit-card text-danger me-2"></i> Tarjeta de Crédito/Débito
+                    </p>
+                    <p class="mb-1"><i class="fas fa-university text-danger me-2"></i> Transferencia Bancaria</p>
+                    <p class="mb-0"><i class="fas fa-money-bill-wave text-danger me-2"></i> Pago en Efectivo</p>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold border-bottom border-danger pb-2 d-inline-block">Contáctanos</h6>
+                    <p class="mb-1"><i class="fas fa-home text-danger me-2"></i> Chiclayo, Perú</p>
+                    <p class="mb-1"><i class="fas fa-envelope text-danger me-2"></i> comicforge@gmail.com</p>
+                    <p class="mb-0"><i class="fas fa-phone text-danger me-2" style="color: white"></i> 944 707 103
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center border-top border-danger pt-3 mt-3">
+                <p class="mb-0">&copy; 2025 Cómic Forge. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Scripts -->
+    <script src="/js/scriptNavbar.js"></script>
+    <script src="/js/scriptDarkMode.js"></script>
+    <script src="/js/scriptToast.js"></script>
+    <script src="/js/scriptSecciones.js"></script>
+    <script src="/js/scriptLogin.js"></script>
+    <script src="/js/scriptRegistro"></script>
+    <script src="/js/scriptProfile.js"></script>
+    <script src="/js/scriptTabs.js"></script>
+    <script src="/js/scriptPrincipal.js"></script>
+</html>

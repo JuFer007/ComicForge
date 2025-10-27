@@ -1,213 +1,212 @@
 [
-    {
-        "imagen": "https://i.pinimg.com/1200x/2a/25/de/2a25de24b45816bd07db73899e3f6d67.jpg",
-        "alias": "Spider-Man",
-        "descripcion": "Peter Parker, un joven estudiante apasionado por la ciencia, obtuvo sus poderes tras ser mordido por una araña radiactiva.",
-        "poderes": "Fuerza sobrehumana, agilidad, telarañas",
-        "equipos": "Avengers, Fantastic Four"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/e4/09/fa/e409fa94b3de9b0726a411dd85cc1666.jpg",
-        "alias": "Deadpool",
-        "descripcion": "Wade Wilson, un mercenario sarcástico, adquirió habilidades regenerativas tras un fallido experimento.",
-        "poderes": "Factor curativo, agilidad, experto en armas",
-        "equipos": "X-Force, X-Men, ocasionalmente Avengers"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/3e/1c/21/3e1c21ced8c5218519ee80250fc99a73.jpg",
-        "alias": "Capitán América",
-        "descripcion": "Steve Rogers fue transformado en el supersoldado Capitán América gracias a un suero experimental.",
-        "poderes": "Fuerza mejorada, resistencia, escudo indestructible",
-        "equipos": "Avengers, Invaders"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/e4/45/ee/e445eeb18cdb04e383b65421c3b776b1.jpg",
-        "alias": "Wolverine",
-        "descripcion": "Logan, conocido como Wolverine, es un mutante con factor curativo, sentidos agudos y garras retráctiles de adamantium.",
-        "poderes": "Factor curativo, garras de adamantium, sentidos aumentados",
-        "equipos": "X-Men, Avengers, Alpha Flight"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/9c/61/2d/9c612d3e8c6003c26df07ace49499414.jpg",
-        "alias": "Batman",
-        "descripcion": "El Caballero Oscuro de Gotham, un héroe que lucha contra el crimen usando su intelecto, tecnología y habilidades físicas.",
-        "poderes": "Intelecto de genio, artes marciales, gadgets",
-        "equipos": "Justice League, Bat-Family"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/65/57/eb/6557eb08534368f1f4fc01003a27e865.jpg",
-        "alias": "Superman",
-        "descripcion": "El último hijo de Krypton, defensor de la Tierra con poderes sobrehumanos que inspiran esperanza.",
-        "poderes": "Fuerza, vuelo, visión láser, invulnerabilidad",
-        "equipos": "Justice League"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/07/bd/6e/07bd6eda7907ce853a0b3fce0e6ac764.jpg",
-        "alias": "Wonder Woman",
-        "descripcion": "Princesa amazona y diosa guerrera que lucha por la paz, la justicia y la igualdad en el mundo.",
-        "poderes": "Fuerza divina, combate, Lazo de la Verdad",
-        "equipos": "Justice League, Amazons"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/63/47/a1/6347a122f59b8b5240057f2ed582bb0c.jpg",
-        "alias": "The Flash",
-        "descripcion": "El hombre más rápido del mundo, capaz de manipular la Speed Force y viajar a través del tiempo y dimensiones.",
-        "poderes": "Super velocidad, curación acelerada, viaje temporal",
-        "equipos": "Justice League"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/32/7f/f4/327ff4137d62b2ab2442f12d68f5b55b.jpg",
-        "alias": "Iron Man",
-        "descripcion": "Tony Stark, genio multimillonario que construyó una armadura de alta tecnología para convertirse en Iron Man.",
-        "poderes": "Armadura avanzada, vuelo, arsenal tecnológico",
-        "equipos": "Avengers, Illuminati"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/90/23/37/902337529994b79b58a93feb3f7fa13c.jpg",
-        "alias": "Thor",
-        "descripcion": "Dios del Trueno de Asgard, empuña el martillo Mjolnir y protege tanto a Asgard como a la Tierra.",
-        "poderes": "Fuerza divina, control del trueno, inmortalidad",
-        "equipos": "Avengers, Warriors Three"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/be/9a/ce/be9ace46b0cea92f736f0b9a5c6a234c.jpg",
-        "alias": "Hulk",
-        "descripcion": "Bruce Banner se transforma en el poderoso Hulk cuando pierde el control, desatando una fuerza imparable.",
-        "poderes": "Fuerza ilimitada, regeneración, resistencia extrema",
-        "equipos": "Avengers, Defenders"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/c5/e9/ad/c5e9adb618e2d5577bd34261cc63dbbe.jpg",
-        "alias": "Quicksilver",
-        "descripcion": "Pietro Maximoff, mutante capaz de moverse y pensar a velocidades sobrehumanas, hermano de Scarlet Witch.",
-        "poderes": "Supervelocidad, reflejos mejorados, aceleración de procesos mentales",
-        "equipos": "Avengers, X-Men (ocasionalmente en cómics)"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/a6/e3/0c/a6e30c4ba210af66eb79f5a635220632.jpg",
-        "alias": "Aquaman",
-        "descripcion": "Arthur Curry, rey de Atlantis, lucha por unir la superficie y los océanos.",
-        "poderes": "Control marino, fuerza, telepatía con criaturas marinas",
-        "equipos": "Justice League"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/fb/05/77/fb057707b7026e0acc584503a58edf2a.jpg",
-        "alias": "Green Lantern",
-        "descripcion": "Hal Jordan porta un anillo de poder que le permite materializar cualquier cosa que imagine.",
-        "poderes": "Construcciones de energía, vuelo, campo de fuerza",
-        "equipos": "Green Lantern Corps, Justice League"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/11/bb/46/11bb46298a63ee932d24f173e277b64e.jpg",
-        "alias": "Cyborg",
-        "descripcion": "Victor Stone, mitad hombre mitad máquina, con un cuerpo cibernético alimentado por tecnología alienígena.",
-        "poderes": "Cuerpo cibernético, armas tecnológicas, conexión digital",
-        "equipos": "Justice League, Teen Titans"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/c3/5e/d4/c35ed4e9db7f02e1e51175f87a6089e0.jpg",
-        "alias": "Tormenta",
-        "descripcion": "Ororo Munroe, mutante capaz de controlar el clima y generar fenómenos meteorológicos.",
-        "poderes": "Control del clima, vuelo, manipulación atmosférica",
-        "equipos": "X-Men, Hellfire Club"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/92/16/5e/92165e3e4a91cfee660efd0ccd2bd535.jpg",
-        "alias": "Cyclops",
-        "descripcion": "Scott Summers, líder de los X-Men, capaz de emitir potentes rayos ópticos de energía pura desde sus ojos.",
-        "poderes": "Rayo óptico de energía, liderazgo táctico",
-        "equipos": "X-Men"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/43/e7/6b/43e76b861057df9e1dafa2f1ff5b0879.jpg",
-        "alias": "Jean Grey",
-        "descripcion": "Mutante con poder telepático y telequinético, y huésped ocasional de la fuerza Fénix.",
-        "poderes": "Telepatía, telequinesis, Fénix Force",
-        "equipos": "X-Men"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/2e/40/d6/2e40d669da17a947db300dbcec2049c2.jpg",
-        "alias": "Beast",
-        "descripcion": "Hank McCoy, mutante con fuerza sobrehumana, agilidad excepcional y gran intelecto.",
-        "poderes": "Fuerza, agilidad, inteligencia superior",
-        "equipos": "X-Men, Avengers"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/2f/5f/cf/2f5fcf8c7c54d4956db1072abd64f4bf.jpg",
-        "alias": "Nightcrawler",
-        "descripcion": "Kurt Wagner, mutante capaz de teletransportarse instantáneamente y con apariencia demoníaca.",
-        "poderes": "Teletransportación, agilidad, sigilo",
-        "equipos": "X-Men"
-    }, 
-        {
-        "imagen": "https://i.pinimg.com/736x/ca/18/56/ca1856bb4404af6d6b7be5424b868ed9.jpg",
-        "alias": "Gambit",
-        "descripcion": "Remy LeBeau, mutante que puede convertir objetos en explosivos mediante energía cinética, experto en cartas y combate cuerpo a cuerpo.",
-        "poderes": "Carga cinética, agilidad, combate con cartas y bastón",
-        "equipos": "X-Men"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/72/d7/e9/72d7e937d67dc7a5142104c52f7086ee.jpg",
-        "alias": "Star-Lord",
-        "descripcion": "Peter Quill, aventurero intergaláctico, líder de los Guardianes, con habilidades de combate y tecnología avanzada.",
-        "poderes": "Combate experto, armas de alta tecnología, estrategia",
-        "equipos": "Guardians of the Galaxy"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/b3/3f/fd/b33ffde15729f8850086286fb4e53c95.jpg",
-        "alias": "Rocket Raccoon",
-        "descripcion": "Mapache genéticamente modificado, experto en armas y tácticas de guerrilla, con gran inteligencia tecnológica.",
-        "poderes": "Experto en armas, estratega, inteligencia avanzada",
-        "equipos": "Guardians of the Galaxy"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/77/64/fa/7764fa37900293c30630a2c924c884b0.jpg",
-        "alias": "Reed Richards",
-        "descripcion": "Reed Richards, líder de los Cuatro Fantásticos, científico genio con la habilidad de estirar su cuerpo de manera extraordinaria.",
-        "poderes": "Elasticidad extrema, intelecto superior, estrategia y liderazgo",
-        "equipos": "Fantastic Four"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/ba/f4/a1/baf4a198d0c88f51a1f52ec7501cd341.jpg",
-        "alias": "Ant-Man",
-        "descripcion": "Scott Lang, capaz de encogerse y crecer de tamaño gracias a la tecnología Pym, experto ladrón reformado y héroe.",
-        "poderes": "Cambio de tamaño, comunicación con insectos, agilidad",
-        "equipos": "Avengers"
-    },
-    {
-        "imagen": "https://i.pinimg.com/1200x/d6/d3/34/d6d33491d8c75e2a3f89e49bc4f7a23b.jpg",
-        "alias": "Black Panther",
-        "descripcion": "T'Challa, rey de Wakanda, guerrero altamente entrenado con acceso a tecnología avanzada y el corazón de la pantera.",
-        "poderes": "Fuerza y agilidad mejoradas, intelecto superior, traje de vibranium",
-        "equipos": "Avengers, Wakanda"
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/3f/a0/41/3fa0411e9c3f13f89241b1457180e264.jpg",
-        "alias": "Hawkeye",
-        "descripcion": "Clint Barton, arquero maestro con puntería inigualable y experto en combate cuerpo a cuerpo.",
-        "poderes": "Arquero experto, combate cuerpo a cuerpo, precisión extrema",
-        "equipos": "Avengers, S.H.I.E.L.D."
-    },
-    {
-        "imagen": "https://i.pinimg.com/736x/21/91/37/219137ca1cd9f7ad2bc8284b739754a1.jpg",
-        "alias": "Black Adam",
-        "descripcion": "Teth-Adam, antiguo campeón de los dioses egipcios, posee poderes mágicos otorgados por los dioses.",
-        "poderes": "Fuerza sobrehumana, velocidad, vuelo, manipulación de magia, resistencia invulnerable",
-        "equipos": "Black Marvel Family, ocasionalmente Justice League o villano independiente"
-    }
-    ,
-    {
-        "imagen": "https://i.pinimg.com/736x/bd/96/ca/bd96caec97608a9527370e58a8054a1e.jpg",
-        "alias": "Human Torch",
-        "descripcion": "Johnny Storm, miembro de los Cuatro Fantásticos, puede envolverse en llamas y volar.",
-        "poderes": "Manipulación de fuego, vuelo, resistencia al calor",
-        "equipos": "Fantastic Four"
-    }, 
-    {
-        "imagen": "https://i.pinimg.com/736x/61/5b/a9/615ba9203d7b33c86e5382d13ea843df.jpg",
-        "alias": "Iceman",
-        "descripcion": "Bobby Drake, mutante capaz de generar y manipular hielo, congelando ambientes y a sus enemigos.",
-        "poderes": "Criocinesis, generación de hielo, vuelo sobre hielo",
-        "equipos": "X-Men"
-    }
+  {
+    "image": "https://i.pinimg.com/1200x/2a/25/de/2a25de24b45816bd07db73899e3f6d67.jpg",
+    "nickName": "Spider-Man",
+    "description": "Peter Parker, un joven estudiante apasionado por la ciencia, obtuvo sus poderes tras ser mordido por una araña radiactiva.",
+    "power": "Fuerza sobrehumana, agilidad, telarañas",
+    "teams": "Avengers, Fantastic Four"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/e4/09/fa/e409fa94b3de9b0726a411dd85cc1666.jpg",
+    "nickName": "Deadpool",
+    "description": "Wade Wilson, un mercenario sarcástico, adquirió habilidades regenerativas tras un fallido experimento.",
+    "power": "Factor curativo, agilidad, experto en armas",
+    "teams": "X-Force, X-Men, ocasionalmente Avengers"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/3e/1c/21/3e1c21ced8c5218519ee80250fc99a73.jpg",
+    "nickName": "Capitán América",
+    "description": "Steve Rogers fue transformado en el supersoldado Capitán América gracias a un suero experimental.",
+    "power": "Fuerza mejorada, resistencia, escudo indestructible",
+    "teams": "Avengers, Invaders"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/e4/45/ee/e445eeb18cdb04e383b65421c3b776b1.jpg",
+    "nickName": "Wolverine",
+    "description": "Logan, conocido como Wolverine, es un mutante con factor curativo, sentidos agudos y garras retráctiles de adamantium.",
+    "power": "Factor curativo, garras de adamantium, sentidos aumentados",
+    "teams": "X-Men, Avengers, Alpha Flight"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/9c/61/2d/9c612d3e8c6003c26df07ace49499414.jpg",
+    "nickName": "Batman",
+    "description": "El Caballero Oscuro de Gotham, un héroe que lucha contra el crimen usando su intelecto, tecnología y habilidades físicas.",
+    "power": "Intelecto de genio, artes marciales, gadgets",
+    "teams": "Justice League, Bat-Family"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/65/57/eb/6557eb08534368f1f4fc01003a27e865.jpg",
+    "nickName": "Superman",
+    "description": "El último hijo de Krypton, defensor de la Tierra con poderes sobrehumanos que inspiran esperanza.",
+    "power": "Fuerza, vuelo, visión láser, invulnerabilidad",
+    "teams": "Justice League"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/07/bd/6e/07bd6eda7907ce853a0b3fce0e6ac764.jpg",
+    "nickName": "Wonder Woman",
+    "description": "Princesa amazona y diosa guerrera que lucha por la paz, la justicia y la igualdad en el mundo.",
+    "power": "Fuerza divina, combate, Lazo de la Verdad",
+    "teams": "Justice League, Amazons"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/63/47/a1/6347a122f59b8b5240057f2ed582bb0c.jpg",
+    "nickName": "The Flash",
+    "description": "El hombre más rápido del mundo, capaz de manipular la Speed Force y viajar a través del tiempo y dimensiones.",
+    "power": "Super velocidad, curación acelerada, viaje temporal",
+    "teams": "Justice League"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/32/7f/f4/327ff4137d62b2ab2442f12d68f5b55b.jpg",
+    "nickName": "Iron Man",
+    "description": "Tony Stark, genio multimillonario que construyó una armadura de alta tecnología para convertirse en Iron Man.",
+    "power": "Armadura avanzada, vuelo, arsenal tecnológico",
+    "teams": "Avengers, Illuminati"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/90/23/37/902337529994b79b58a93feb3f7fa13c.jpg",
+    "nickName": "Thor",
+    "description": "Dios del Trueno de Asgard, empuña el martillo Mjolnir y protege tanto a Asgard como a la Tierra.",
+    "power": "Fuerza divina, control del trueno, inmortalidad",
+    "teams": "Avengers, Warriors Three"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/be/9a/ce/be9ace46b0cea92f736f0b9a5c6a234c.jpg",
+    "nickName": "Hulk",
+    "description": "Bruce Banner se transforma en el poderoso Hulk cuando pierde el control, desatando una fuerza imparable.",
+    "power": "Fuerza ilimitada, regeneración, resistencia extrema",
+    "teams": "Avengers, Defenders"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/c5/e9/ad/c5e9adb618e2d5577bd34261cc63dbbe.jpg",
+    "nickName": "Quicksilver",
+    "description": "Pietro Maximoff, mutante capaz de moverse y pensar a velocidades sobrehumanas, hermano de Scarlet Witch.",
+    "power": "Supervelocidad, reflejos mejorados, aceleración de procesos mentales",
+    "teams": "Avengers, X-Men (ocasionalmente en cómics)"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/a6/e3/0c/a6e30c4ba210af66eb79f5a635220632.jpg",
+    "nickName": "Aquaman",
+    "description": "Arthur Curry, rey de Atlantis, lucha por unir la superficie y los océanos.",
+    "power": "Control marino, fuerza, telepatía con criaturas marinas",
+    "teams": "Justice League"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/fb/05/77/fb057707b7026e0acc584503a58edf2a.jpg",
+    "nickName": "Green Lantern",
+    "description": "Hal Jordan porta un anillo de poder que le permite materializar cualquier cosa que imagine.",
+    "power": "Construcciones de energía, vuelo, campo de fuerza",
+    "teams": "Green Lantern Corps, Justice League"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/11/bb/46/11bb46298a63ee932d24f173e277b64e.jpg",
+    "nickName": "Cyborg",
+    "description": "Victor Stone, mitad hombre mitad máquina, con un cuerpo cibernético alimentado por tecnología alienígena.",
+    "power": "Cuerpo cibernético, armas tecnológicas, conexión digital",
+    "teams": "Justice League, Teen Titans"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/c3/5e/d4/c35ed4e9db7f02e1e51175f87a6089e0.jpg",
+    "nickName": "Tormenta",
+    "description": "Ororo Munroe, mutante capaz de controlar el clima y generar fenómenos meteorológicos.",
+    "power": "Control del clima, vuelo, manipulación atmosférica",
+    "teams": "X-Men, Hellfire Club"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/92/16/5e/92165e3e4a91cfee660efd0ccd2bd535.jpg",
+    "nickName": "Cyclops",
+    "description": "Scott Summers, líder de los X-Men, capaz de emitir potentes rayos ópticos de energía pura desde sus ojos.",
+    "power": "Rayo óptico de energía, liderazgo táctico",
+    "teams": "X-Men"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/43/e7/6b/43e76b861057df9e1dafa2f1ff5b0879.jpg",
+    "nickName": "Jean Grey",
+    "description": "Mutante con poder telepático y telequinético, y huésped ocasional de la fuerza Fénix.",
+    "power": "Telepatía, telequinesis, Fénix Force",
+    "teams": "X-Men"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/2e/40/d6/2e40d669da17a947db300dbcec2049c2.jpg",
+    "nickName": "Beast",
+    "description": "Hank McCoy, mutante con fuerza sobrehumana, agilidad excepcional y gran intelecto.",
+    "power": "Fuerza, agilidad, inteligencia superior",
+    "teams": "X-Men, Avengers"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/2f/5f/cf/2f5fcf8c7c54d4956db1072abd64f4bf.jpg",
+    "nickName": "Nightcrawler",
+    "description": "Kurt Wagner, mutante capaz de teletransportarse instantáneamente y con apariencia demoníaca.",
+    "power": "Teletransportación, agilidad, sigilo",
+    "teams": "X-Men"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/ca/18/56/ca1856bb4404af6d6b7be5424b868ed9.jpg",
+    "nickName": "Gambit",
+    "description": "Remy LeBeau, mutante que puede convertir objetos en explosivos mediante energía cinética, experto en cartas y combate cuerpo a cuerpo.",
+    "power": "Carga cinética, agilidad, combate con cartas y bastón",
+    "teams": "X-Men"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/72/d7/e9/72d7e937d67dc7a5142104c52f7086ee.jpg",
+    "nickName": "Star-Lord",
+    "description": "Peter Quill, aventurero intergaláctico, líder de los Guardianes, con habilidades de combate y tecnología avanzada.",
+    "power": "Combate experto, armas de alta tecnología, estrategia",
+    "teams": "Guardians of the Galaxy"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/b3/3f/fd/b33ffde15729f8850086286fb4e53c95.jpg",
+    "nickName": "Rocket Raccoon",
+    "description": "Mapache genéticamente modificado, experto en armas y tácticas de guerrilla, con gran inteligencia tecnológica.",
+    "power": "Experto en armas, estratega, inteligencia avanzada",
+    "teams": "Guardians of the Galaxy"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/77/64/fa/7764fa37900293c30630a2c924c884b0.jpg",
+    "nickName": "Reed Richards",
+    "description": "Reed Richards, líder de los Cuatro Fantásticos, científico genio con la habilidad de estirar su cuerpo de manera extraordinaria.",
+    "power": "Elasticidad extrema, intelecto superior, estrategia y liderazgo",
+    "teams": "Fantastic Four"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/ba/f4/a1/baf4a198d0c88f51a1f52ec7501cd341.jpg",
+    "nickName": "Ant-Man",
+    "description": "Scott Lang, capaz de encogerse y crecer de tamaño gracias a la tecnología Pym, experto ladrón reformado y héroe.",
+    "power": "Cambio de tamaño, comunicación con insectos, agilidad",
+    "teams": "Avengers"
+  },
+  {
+    "image": "https://i.pinimg.com/1200x/d6/d3/34/d6d33491d8c75e2a3f89e49bc4f7a23b.jpg",
+    "nickName": "Black Panther",
+    "description": "T'Challa, rey de Wakanda, guerrero altamente entrenado con acceso a tecnología avanzada y el corazón de la pantera.",
+    "power": "Fuerza y agilidad mejoradas, intelecto superior, traje de vibranium",
+    "teams": "Avengers, Wakanda"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/3f/a0/41/3fa0411e9c3f13f89241b1457180e264.jpg",
+    "nickName": "Hawkeye",
+    "description": "Clint Barton, arquero maestro con puntería inigualable y experto en combate cuerpo a cuerpo.",
+    "power": "Arquero experto, combate cuerpo a cuerpo, precisión extrema",
+    "teams": "Avengers, S.H.I.E.L.D."
+  },
+  {
+    "image": "https://i.pinimg.com/736x/21/91/37/219137ca1cd9f7ad2bc8284b739754a1.jpg",
+    "nickName": "Black Adam",
+    "description": "Teth-Adam, antiguo campeón de los dioses egipcios, posee poderes mágicos otorgados por los dioses.",
+    "power": "Fuerza sobrehumana, velocidad, vuelo, manipulación de magia, resistencia invulnerable",
+    "teams": "Black Marvel Family, ocasionalmente Justice League o villano independiente"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/bd/96/ca/bd96caec97608a9527370e58a8054a1e.jpg",
+    "nickName": "Human Torch",
+    "description": "Johnny Storm, miembro de los Cuatro Fantásticos, puede envolverse en llamas y volar.",
+    "power": "Manipulación de fuego, vuelo, resistencia al calor",
+    "teams": "Fantastic Four"
+  },
+  {
+    "image": "https://i.pinimg.com/736x/61/5b/a9/615ba9203d7b33c86e5382d13ea843df.jpg",
+    "nickName": "Iceman",
+    "description": "Bobby Drake, mutante capaz de generar y manipular hielo, congelando ambientes y a sus enemigos.",
+    "power": "Criocinesis, generación de hielo, vuelo sobre hielo",
+    "teams": "X-Men"
+  }
 ]
