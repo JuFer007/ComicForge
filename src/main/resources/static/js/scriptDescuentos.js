@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function cargarDescuentos() {
         try {
-            const response = await fetch('/comics/descuento');
+            const response = await fetch('api/comics/descuento');
             descuentos = await response.json();
 
             descuentos.forEach(d => {

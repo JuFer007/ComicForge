@@ -1,6 +1,6 @@
 async function cargarComics(categoria, containerId) {
     try {
-        const response = await fetch(`/comics/${categoria}`);
+        const response = await fetch(`/api/comics/${categoria}`);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const comics = await response.json();
 
@@ -67,26 +67,35 @@ async function cargarComics(categoria, containerId) {
 }
 
 function agregarAlCarrito(comicId) {
-    const formData = new URLSearchParams();
-    formData.append('comicID', comicId);
-
     fetch('/cart/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: formData
+        body: `comicID=${comicId}`
     })
     .then(response => {
-        if (response.ok) {
-            Toast.success('¡Cómic agregado al carrito exitosamente!');
-        } else {
+        return response.text().then(text => ({
+            status: response.status,
+            message: text
+        }));
+    })
+    .then(data => {
+        if (data.status === 200) {
+            Toast.success(data.message);
+        } else if (data.status === 401) {
             Toast.error('Inicie sesión para agregar al carrito');
+        } else if (data.status === 400) {
+            Toast.warning(data.message);
+        } else if (data.status === 404) {
+            Toast.error('Cómic no encontrado');
+        } else {
+            Toast.error('Error al agregar al carrito');
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        Toast.error('Inicie sesión para agregar al carrito');
+    .catch(err => {
+        console.error('Error agregando al carrito:', err);
+        Toast.error('Error de conexión');
     });
 }
 

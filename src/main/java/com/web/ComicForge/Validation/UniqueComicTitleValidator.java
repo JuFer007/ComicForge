@@ -1,4 +1,5 @@
 package com.web.ComicForge.Validation;
+import com.web.ComicForge.DTO.ComicFormDTO;
 import com.web.ComicForge.Model.Comic;
 import com.web.ComicForge.Repository.ComicRepository;
 import jakarta.validation.ConstraintValidator;
@@ -7,28 +8,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+public class UniqueComicTitleValidator implements ConstraintValidator<UniqueComicTitle, ComicFormDTO> {
 
-public class UniqueComicTitleValidator implements ConstraintValidator<UniqueComicTitle, Comic> {
-    private static ComicRepository comicRepository;
+    private final ComicRepository comicRepository;
 
     @Autowired
-    public void setComicRepository(ComicRepository repo) {
-        UniqueComicTitleValidator.comicRepository = repo;
+    public UniqueComicTitleValidator(ComicRepository comicRepository) {
+        this.comicRepository = comicRepository;
     }
 
     @Override
-    public boolean isValid(Comic comic, ConstraintValidatorContext context) {
-        if (comic == null || comic.getTitle() == null || comic.getTitle().trim().isEmpty()) {
+    public boolean isValid(ComicFormDTO dto, ConstraintValidatorContext context) {
+        if (dto == null || dto.getTitle() == null || dto.getTitle().trim().isEmpty()) {
             return true;
         }
 
-        var existenteOpt = comicRepository.findByTitleIgnoreCase(comic.getTitle().trim());
+        var existenteOpt = comicRepository.findByTitleIgnoreCase(dto.getTitle().trim());
 
-        if (existenteOpt.isEmpty()) {
-            return true;
+        if (existenteOpt.isPresent()) {
+            Comic existente = existenteOpt.get();
+            if (dto.getId() != null && dto.getId().equals(existente.getId())) {
+                return true;
+            }
+            
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate("Ya existe un cómic con este título")
+                    .addPropertyNode("title")
+                    .addConstraintViolation();
+            return false;
         }
 
-        var existente = existenteOpt.get();
-        return existente.getId().equals(comic.getId());
+        return true;
     }
 }

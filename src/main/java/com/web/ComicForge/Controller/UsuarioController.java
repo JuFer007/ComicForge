@@ -1,8 +1,8 @@
 package com.web.ComicForge.Controller;
 import com.web.ComicForge.Model.Comic;
-import com.web.ComicForge.Model.User;
+import com.web.ComicForge.Model.Usuario;
 import com.web.ComicForge.Service.ComicService;
-import com.web.ComicForge.Service.UserService;
+import com.web.ComicForge.Service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +15,13 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
-public class UserController {
-
-    private final UserService userService;
+public class UsuarioController {
+    private final UsuarioService userService;
     private final ComicService comicService;
 
     @GetMapping("/profile/{id}")
     public String userProfile(@PathVariable Long id, Model model) {
-        User user = userService.getUserByID(id).orElse(null);
+        Usuario user = userService.getUserByID(id).orElse(null);
         if (user == null) {
             return "redirect:/";
         }
@@ -38,10 +37,10 @@ public class UserController {
             @RequestParam String profilePicture,
             @RequestParam String coverImageURL) {
 
-        Optional<User> optionalUser = userService.getUserByID(id);
+        Optional<Usuario> optionalUser = userService.getUserByID(id);
 
         if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
+            Usuario user = optionalUser.get();
             user.setUserName(userName);
             user.setUserBio(userBio);
             user.setProfilePicture(profilePicture);

@@ -29,4 +29,9 @@ public class PageController {
     public String adminPage() {
         return "admin";
     }
+
+    @GetMapping("/read")
+    public String leerComic() {
+        return "lectorComic";
+    }
 }

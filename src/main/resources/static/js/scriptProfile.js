@@ -1,11 +1,11 @@
 // --- Referencias principales ---
-const profilePic = document.getElementById('profilePic');
+const profilePicElement = document.getElementById('profilePic');
 const coverImg = document.getElementById('coverImg');
 const coverSelect = document.getElementById('coverSelect');
 const editModalEl = document.getElementById('editProfileModal');
 const avatarModalEl = document.getElementById('avatarModal');
 
-let selectedAvatar = profilePic?.src || '';
+let selectedAvatar = profilePicElement?.src || '';
 let selectedCover = coverImg?.src || '';
 
 const userName = document.getElementById('username');
@@ -26,13 +26,13 @@ editModalEl?.addEventListener('show.bs.modal', () => {
 
 // --- Restaurar perfil desde localStorage ---
 function restaurarPerfil() {
-    if (localStorage.getItem("profilePic"))
-        profilePic.src = localStorage.getItem("profilePic");
-    if (localStorage.getItem("coverImg"))
+    if (localStorage.getItem("profilePic") && profilePicElement)
+        profilePicElement.src = localStorage.getItem("profilePic");
+    if (localStorage.getItem("coverImg") && coverImg)
         coverImg.src = localStorage.getItem("coverImg");
-    if (localStorage.getItem("username"))
+    if (localStorage.getItem("username") && userName)
         userName.textContent = localStorage.getItem("username");
-    if (localStorage.getItem("userBio"))
+    if (localStorage.getItem("userBio") && userBio)
         userBio.textContent = localStorage.getItem("userBio");
 }
 
@@ -61,7 +61,8 @@ coverSelect?.addEventListener('change', () => {
 // --- Guardar cambios de perfil ---
 document.getElementById('saveChanges')?.addEventListener('click', async () => {
     if (!userId) {
-        console.log("No se encontró ID del usuario.");
+        console.error("No se encontró ID del usuario.");
+        Toast.error("Error: Usuario no identificado");
         return;
     }
 
@@ -85,12 +86,18 @@ document.getElementById('saveChanges')?.addEventListener('click', async () => {
             localStorage.setItem("coverImg", selectedCover);
             localStorage.setItem("username", newName);
             localStorage.setItem("userBio", newBio);
-            window.location.reload();
+
+            Toast.success('Perfil actualizado correctamente');
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
         } else {
-            console("Error al guardar los cambios.");
+            Toast.error("Error al guardar los cambios.");
         }
     } catch (error) {
         console.error("Error al actualizar:", error);
+        Toast.error("Error de conexión al actualizar perfil");
     }
 });
 
@@ -102,10 +109,31 @@ document.getElementById('cancelChanges')?.addEventListener('click', () => {
 });
 
 // --- Cerrar sesión ---
-function logout() {
-    localStorage.clear();
-    window.location.href = "/";
+async function logout() {
+    if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
+        try {
+            const response = await fetch("/auth/logout", {
+                method: "POST",
+                credentials: "include"
+            });
+
+            if (response.ok) {
+                localStorage.clear();
+                Toast.success("Sesión cerrada con éxito");
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 1200);
+            } else {
+                const msg = await response.text();
+                Toast.error("Error al cerrar sesión: " + msg);
+            }
+        } catch (error) {
+            console.error("Error al cerrar sesión:", error);
+            Toast.error("Error de conexión al cerrar sesión");
+        }
+    }
 }
+
 document.getElementById('logoutBtn')?.addEventListener('click', logout);
 document.getElementById('btn-CerrarSesion')?.addEventListener('click', logout);
 
@@ -121,10 +149,8 @@ async function agregarAFavoritos(comicId, buttonEl) {
         const result = await response.text();
 
         if (response.ok) {
-            // Ocultar botón de favorito
             buttonEl.style.display = 'none';
 
-            // Centrar el botón restante
             const parentDiv = buttonEl.closest('.d-flex');
             if (parentDiv) {
                 parentDiv.classList.remove('justify-content-between');
@@ -132,16 +158,20 @@ async function agregarAFavoritos(comicId, buttonEl) {
             }
 
             Toast.success('Cómic agregado a favoritos');
-            window.location.reload();
+
+            setTimeout(() => {
+                cargarFavoritos(userId);
+            }, 1000);
         } else {
-            console.log(result);
+            Toast.error(result || 'Error al agregar favorito');
         }
     } catch (error) {
         console.error("Error al agregar favorito:", error);
+        Toast.error("Error de conexión al agregar favorito");
     }
 }
 
-// --- Cargar cómics del usuario ---
+// --- Cargar cómics del usuario (ACTUALIZADO) ---
 async function cargarMisComics(userId) {
     if (!userId) return;
 
@@ -159,14 +189,18 @@ async function cargarMisComics(userId) {
 
         const misComicsContainer = document.getElementById('misComicsContainer');
         const noMisComics = document.getElementById('noMisComics');
+
+        if (!misComicsContainer) return;
+
         misComicsContainer.innerHTML = '';
 
         if (comics.length === 0) {
-            noMisComics.style.display = 'block';
+            if (noMisComics) noMisComics.style.display = 'block';
             return;
         }
 
-        noMisComics.style.display = 'none';
+        if (noMisComics) noMisComics.style.display = 'none';
+
         comics.forEach(comic => {
             const esFavorito = favoritosIds.includes(comic.id);
             const justifyClass = esFavorito ? 'justify-content-center' : 'justify-content-between';
@@ -175,15 +209,15 @@ async function cargarMisComics(userId) {
             comicCard.className = 'col-md-4 mb-4';
             comicCard.innerHTML = `
                 <div class="card h-100 shadow-sm">
-                    <img src="${comic.imageSRC}" class="card-img-top" alt="${comic.title}">
+                    <img src="${comic.imageSRC}" class="card-img-top" alt="${comic.title}" style="height: 400px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${comic.title}</h5>
-                        <div class="mt-auto d-flex ${justifyClass} gap-3">
-                            <a href="${comic.link_comic || '#'}" class="btn btn-danger btn-sm" target="_blank">
-                                <i class="bi bi-book"></i> Leer
+                        <div class="mt-auto d-flex ${justifyClass} gap-2">
+                            <a href="/comic/read/${comic.id}" class="btn btn-dark botonLeer">
+                                <i class="bi bi-book-fill"></i> Leer
                             </a>
                             ${!esFavorito ? `
-                                <button class="btn btn-danger btn-sm btn-add-fav" data-id="${comic.id}">
+                                <button class="btn btn-danger btn-sm btn-add-fav botonFavoritos" data-id="${comic.id}">
                                     <i class="bi bi-heart"></i> Favoritos
                                 </button>` : ''}
                         </div>
@@ -204,15 +238,17 @@ async function cargarMisComics(userId) {
     }
 }
 
-// --- Cargar favoritos ---
+// --- Cargar favoritos (ACTUALIZADO) ---
 async function cargarFavoritos(userId) {
     if (!userId) return;
 
     const favoritosContainer = document.getElementById('favoritosContainer');
     const noFavoritos = document.getElementById('noFavoritos');
 
+    if (!favoritosContainer) return;
+
     favoritosContainer.innerHTML = '';
-    noFavoritos.style.display = 'none';
+    if (noFavoritos) noFavoritos.style.display = 'none';
 
     try {
         const response = await fetch(`/user/${userId}/favoritos`);
@@ -221,7 +257,7 @@ async function cargarFavoritos(userId) {
         const favoritos = await response.json();
 
         if (favoritos.length === 0) {
-            noFavoritos.style.display = 'block';
+            if (noFavoritos) noFavoritos.style.display = 'block';
             return;
         }
 
@@ -230,12 +266,12 @@ async function cargarFavoritos(userId) {
             comicCard.className = 'col-md-4 mb-4';
             comicCard.innerHTML = `
                 <div class="card h-100 shadow-sm">
-                    <img src="${comic.imageSRC}" class="card-img-top" alt="${comic.title}">
+                    <img src="${comic.imageSRC}" class="card-img-top" alt="${comic.title}" style="height: 400px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${comic.title}</h5>
                         <div class="mt-auto d-flex justify-content-center">
-                            <a href="${comic.link_comic || '#'}" class="btn btn-danger btn-sm" target="_blank">
-                                <i class="bi bi-book"></i> Leer
+                            <a href="/comic/read/${comic.id}" class="btn btn-dark btn-sm botonLeer">
+                                <i class="bi bi-book-fill"></i> Leer
                             </a>
                         </div>
                     </div>
@@ -245,11 +281,11 @@ async function cargarFavoritos(userId) {
         });
     } catch (error) {
         console.error('Error al cargar favoritos:', error);
-        noFavoritos.style.display = 'block';
+        if (noFavoritos) noFavoritos.style.display = 'block';
     }
 }
 
-// --- Al cargar la página ---
+// --- cargar la página ---
 document.addEventListener("DOMContentLoaded", () => {
     restaurarPerfil();
     cargarMisComics(userId);

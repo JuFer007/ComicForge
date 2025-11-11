@@ -46,6 +46,6 @@ body{
     line-height: initial;
 }
 .carousel-inner img {
-    max-height: 730px !important;
+    max-height: 780px !important;
     object-fit:cover;
 }

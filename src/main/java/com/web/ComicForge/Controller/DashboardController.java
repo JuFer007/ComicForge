@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @AllArgsConstructor
 
@@ -14,5 +17,15 @@ public class DashboardController {
     @GetMapping("/admin/dashboard-stats")
     public DashboardStatsDTO getDashboardStats() {
         return dashboardService.getStats();
+    }
+
+    @GetMapping("/top-comics")
+    public List<Map<String, Object>> getTopComics() {
+        return dashboardService.obtenerTopComics();
+    }
+
+    @GetMapping("/publishers")
+    public Map<String, Long> getComicsPorPublisher() {
+        return dashboardService.obtenerComicsPorPublisher();
     }
 }

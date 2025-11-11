@@ -95,8 +95,14 @@
             <div class="px-lg-5 pb-lg-4 p-4 text-center">
                 <p class="fw-bold text-light">ó Inicia sesión con</p>
                 <div class="d-flex justify-content-around">
-                    <button type="button" class="btn btn-outline-light flex-grow-1 me-2"><i class="fa-brands fa-google lead me-2"></i>Google</button>
-                    <button type="button" class="btn btn-outline-light flex-grow-1 ms-2"><i class="fa-brands fa-facebook me-2"></i>Facebook</button>
+                    <button type="button" class="btn btn-outline-light flex-grow-1 me-2" onclick="window.location.href='/oauth2/authorization/google'">
+                        <i class="fa-brands fa-google lead me-2"></i>
+                        Google
+                    </button>
+                    <button type="button" class="btn btn-outline-light flex-grow-1 ms-2">
+                        <i class="fa-brands fa-facebook me-2"></i>
+                        Facebook
+                    </button>
                 </div>
             </div>
         </div>

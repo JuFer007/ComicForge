@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Leyendo: ' + ${comic.title}">Lector de Cómics</title>
+    <link rel="stylesheet" href="/css/styleLector.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+<div class="reader-container">
+    <div class="reader-header">
+        <div class="header-left">
+            <a href="javascript:history.back()" class="btn-back">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+        </div>
+        <div class="header-center">
+            <h4 th:text="${comic.title}">Título del Cómic</h4>
+        </div>
+        <div class="header-right">
+            <div id="pdfNavigationControls" style="display: none;">
+                <button id="prevPage" class="btn-control">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <span id="pageInfo" class="page-info">Página 1 / 1</span>
+                <button id="nextPage" class="btn-control">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+            <button id="fullscreenBtn" class="btn-control">
+                <i class="bi bi-fullscreen"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="reader-content">
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p class="loading-text">Cargando cómic...</p>
+        </div>
+
+        <iframe
+                th:if="${linkType == 'drive'}"
+                th:src="${comicLink}"
+                id="driveViewer"
+                allow="autoplay"
+                style="display: none;">
+        </iframe>
+
+        <div
+                th:if="${linkType == 'local'}"
+                id="pdfContainer"
+                style="display: none;">
+            <canvas id="pdfCanvas1" class="pdf-canvas"></canvas>
+            <canvas id="pdfCanvas2" class="pdf-canvas"></canvas>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const linkType = /*[[${linkType}]]*/ 'drive';
+    const comicLink = /*[[${comicLink}]]*/ '';
+    /*]]>*/
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const readerContainer = document.querySelector('.reader-container');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        // MANEJO DE GOOGLE DRIVE
+        if (linkType === 'drive') {
+            const viewer = document.getElementById('driveViewer');
+
+            if (viewer) {
+                viewer.addEventListener('load', () => {
+                    loadingOverlay.style.display = 'none';
+                    viewer.style.display = 'block';
+                });
+
+                setTimeout(() => {
+                    if (loadingOverlay.style.display !== 'none') {
+                        loadingOverlay.style.display = 'none';
+                        viewer.style.display = 'block';
+                    }
+                }, 5000);
+            }
+        }
+
+        // MANEJO DE PDF LOCAL
+        if (linkType === 'local') {
+            const canvas1 = document.getElementById('pdfCanvas1');
+            const canvas2 = document.getElementById('pdfCanvas2');
+            const pdfContainer = document.getElementById('pdfContainer');
+            const pdfNavigationControls = document.getElementById('pdfNavigationControls');
+            const prevPageBtn = document.getElementById('prevPage');
+            const nextPageBtn = document.getElementById('nextPage');
+            const pageInfo = document.getElementById('pageInfo');
+
+            let pdfDoc = null;
+            let pageNum = 1;
+            let pageRendering = false;
+            let pageNumPending = null;
+            const scale = 1.5;
+
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+            function renderPage(num) {
+                pageRendering = true;
+
+                // Siempre mostrar 2 páginas consecutivas
+                const page1 = num;
+                const page2 = num + 1;
+
+                const renderSinglePage = (canvas, pageNumber) => {
+                    if (pageNumber > pdfDoc.numPages) {
+                        canvas.style.display = 'none';
+                        return Promise.resolve();
+                    }
+                    canvas.style.display = 'block';
+                    return pdfDoc.getPage(pageNumber).then(page => {
+                        const viewport = page.getViewport({ scale: scale });
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+
+                        const renderContext = {
+                            canvasContext: canvas.getContext('2d'),
+                            viewport: viewport
+                        };
+                        return page.render(renderContext).promise;
+                    });
+                };
+
+                // Renderizar ambas páginas (página 1 en canvas1, página 2 en canvas2)
+                Promise.all([
+                    renderSinglePage(canvas1, page1),  // Primera página (izquierda)
+                    renderSinglePage(canvas2, page2)   // Segunda página (derecha)
+                ]).then(() => {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+
+                // Actualizar información de páginas
+                const endPage = Math.min(page2, pdfDoc.numPages);
+                if (page2 <= pdfDoc.numPages) {
+                    pageInfo.textContent = `Páginas ${page1}-${endPage} / ${pdfDoc.numPages}`;
+                } else {
+                    pageInfo.textContent = `Página ${page1} / ${pdfDoc.numPages}`;
+                }
+
+                prevPageBtn.disabled = (num <= 1);
+                nextPageBtn.disabled = (page2 >= pdfDoc.numPages);
+            }
+
+            function queueRenderPage(num) {
+                if (pageRendering) {
+                    pageNumPending = num;
+                } else {
+                    renderPage(num);
+                }
+            }
+
+            function onPrevPage() {
+                if (pageNum <= 1) return;
+                pageNum -= 2;  // Retroceder 2 páginas
+                if (pageNum < 1) pageNum = 1;
+                queueRenderPage(pageNum);
+            }
+
+            function onNextPage() {
+                if (pageNum + 2 > pdfDoc.numPages) return;
+                pageNum += 2;  // Avanzar 2 páginas
+                queueRenderPage(pageNum);
+            }
+
+            prevPageBtn.addEventListener('click', onPrevPage);
+            nextPageBtn.addEventListener('click', onNextPage);
+
+            pdfjsLib.getDocument(comicLink).promise.then(pdfDoc_ => {
+                pdfDoc = pdfDoc_;
+                renderPage(pageNum);
+                loadingOverlay.style.display = 'none';
+                pdfContainer.style.display = 'flex';
+                pdfNavigationControls.style.display = 'flex';
+            }).catch(error => {
+                console.error('Error cargando PDF:', error);
+                loadingOverlay.innerHTML = `
+                    <i class="bi bi-exclamation-triangle" style="font-size: 3rem; color: #dc3545;"></i>
+                    <p class="loading-text">Error al cargar el PDF</p>
+                    <p class="loading-text" style="font-size: 0.9rem;">${error.message}</p>
+                `;
+            });
+
+            // Navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') onPrevPage();
+                if (e.key === 'ArrowRight') onNextPage();
+            });
+        }
+
+        // PANTALLA COMPLETA
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                readerContainer.requestFullscreen().catch(err => {
+                    console.error('Error al activar pantalla completa:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            const icon = fullscreenBtn.querySelector('i');
+            if (document.fullscreenElement) {
+                icon.className = 'bi bi-fullscreen-exit';
+            } else {
+                icon.className = 'bi bi-fullscreen';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                fullscreenBtn.click();
+            }
+        });
+    });
+</script>
+</body>
+</html>

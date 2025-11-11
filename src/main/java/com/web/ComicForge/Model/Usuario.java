@@ -12,10 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "usuario")
 @Builder
 
-public class User {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,6 +41,15 @@ public class User {
     @JoinTable(name = "user_favorites", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "comic_id"))
     @JsonIgnore
     private List<Comic> favoriteComics = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_purchased_comics",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "comic_id")
+    )
+    @JsonIgnore
+    private List<Comic> purchasedComics = new ArrayList<>();
 
     @Column(nullable = false)
     private String role;

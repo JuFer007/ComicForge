@@ -1,7 +1,7 @@
 package com.web.ComicForge.Controller;
 import com.web.ComicForge.DTO.UserDTO;
-import com.web.ComicForge.Model.User;
-import com.web.ComicForge.Service.UserService;
+import com.web.ComicForge.Model.Usuario;
+import com.web.ComicForge.Service.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 
 public class AdminController {
-    private final UserService userService;
+    private final UsuarioService userService;
 
     @GetMapping("/users")
     public List<UserDTO> getAllUsers() {
-        List<User> users = userService.getAllUser();
+        List<Usuario> users = userService.getAllUser();
         return users.stream()
                 .map(user -> new UserDTO(user.getId(), user.getUserName(), user.getEmail()))
                 .toList();

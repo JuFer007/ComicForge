@@ -376,7 +376,7 @@ body {
 .avatar-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px; /* Reducimos un poco el espacio para que quepa mejor */
+    gap: 15px;
     justify-items: center;
 }
 
@@ -507,4 +507,16 @@ body.light-mode .tabs-contenido {
         align-items: center;
         margin-left: 22px;
     }
+}
+
+.botonLeer {
+  transition: all 0.3s ease;
+}
+
+.botonLeer:hover {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
 }

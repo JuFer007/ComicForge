@@ -1,10 +1,11 @@
 package com.web.ComicForge.Controller;
-import com.web.ComicForge.Model.User;
+import com.web.ComicForge.Model.Usuario;
 import com.web.ComicForge.Service.ComicService;
 import com.web.ComicForge.Service.SaleService;
-import com.web.ComicForge.Service.UserService;
+import com.web.ComicForge.Service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ import java.util.List;
 public class CartController {
     private final ComicService comicService;
     private final SaleService saleService;
-    private final UserService userService;
+    private final UsuarioService usuarioService;
 
     @GetMapping
     public String showCart(Model model, HttpSession session) {
@@ -36,31 +37,57 @@ public class CartController {
     }
 
     @PostMapping("/add")
-    @ResponseBody
-    public ResponseEntity<Void> addToCart(@RequestParam Long comicID, HttpSession session) {
+    public ResponseEntity<String> addToCart(@RequestParam Long comicID, HttpSession session) {
         Long loggedUserId = (Long) session.getAttribute("userId");
         if (loggedUserId == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Debe iniciar sesión para agregar al carrito");
+        }
+
+        Usuario usuario = usuarioService.getUserByID(loggedUserId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        boolean yaComprado = usuario.getPurchasedComics().stream().anyMatch(comic -> comic.getId().equals(comicID));
+
+        if (yaComprado) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ya posees este cómic en tu colección");
+        }
+
+        if (!comicService.existsById(comicID)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cómic no encontrado");
         }
 
         List<Long> cart = (List<Long>) session.getAttribute("cart");
         if (cart == null) cart = new ArrayList<>();
 
+        if (cart.contains(comicID)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Este cómic ya esta en tu carrito");
+        }
+
         cart.add(comicID);
         session.setAttribute("cart", cart);
-        return ResponseEntity.ok().build();
+
+        return ResponseEntity.ok("Cómic agregado al carrito exitosamente");
     }
 
     @PostMapping("/checkout")
-    public String checkout(HttpSession session) {
+    public String checkout(HttpSession session, Model model) {
         List<Long> cart = (List<Long>) session.getAttribute("cart");
-        if (cart == null || cart.isEmpty()) return "redirect:/cart?empty";
+        if (cart == null || cart.isEmpty()) {
+            return "redirect:/cart?empty";
+        }
 
         Long loggedUserId = (Long) session.getAttribute("userId");
-        if (loggedUserId == null) return "redirect:/login";
+        if (loggedUserId == null) {
+            return "redirect:/login";
+        }
 
-        User user = userService.getUserByID(loggedUserId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Usuario user = usuarioService.getUserByID(loggedUserId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        List<Long> comicsYaComprados = cart.stream().filter(comicId -> user.getPurchasedComics().stream()
+        .anyMatch(c -> c.getId().equals(comicId))).toList();
+
+        if (!comicsYaComprados.isEmpty()) {
+            model.addAttribute("error", "Algunos cómics ya los posees");
+            return "redirect:/cart?error=already_owned";
+        }
 
         saleService.crearVenta(user, cart);
         session.removeAttribute("cart");
