@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,426 +13,455 @@
 </head>
 
 <body>
-<!-- SIDEBAR -->
-<aside class="admin-sidebar">
-    <div class="profile-section">
-        <div class="profile-img-container" data-bs-toggle="modal" data-bs-target="#avatarModal">
-            <img id="adminProfileImg" src="https://i.pinimg.com/736x/83/35/70/8335704160cf69ea51603f76ac88c838.jpg" alt="Admin Profile">
-            <div class="profile-img-overlay">
-                <i class="bi bi-camera-fill"></i>
-            </div>
-        </div>
-        <h3 class="admin-name" id="adminName">Admin ComicForge</h3>
-        <span class="admin-role"><i class="bi bi-shield-check"></i> Administrador</span>
-    </div>
-
-    <nav class="sidebar-nav">
-        <div class="nav-category">Dashboard</div>
-        <ul class="list-unstyled">
-            <li class="nav-item">
-                <a href="#" class="nav-link active" onclick="mostrarSeccion('dashboard')">
-                    <i class="bi bi-speedometer2"></i> Inicio
-                </a>
-            </li>
-        </ul>
-
-        <div class="nav-category">Gestión de Cómics</div>
-        <ul class="list-unstyled">
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="mostrarSeccion('addComic')">
-                    <i class="bi bi-plus-circle"></i> Agregar Cómic
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="mostrarSeccion('manageComics')">
-                    <i class="bi bi-book-half"></i> Gestionar Cómics
-                </a>
-            </li>
-        </ul>
-
-        <div class="nav-category">Ventas</div>
-        <ul class="list-unstyled">
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="mostrarSeccion('sales')">
-                    <i class="bi bi-cart-check-fill"></i> Historial Ventas
-                </a>
-            </li>
-        </ul>
-
-        <div class="nav-category">Usuarios</div>
-        <ul class="list-unstyled">
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="mostrarSeccion('manageUsers')">
-                    <i class="bi bi-people-fill"></i> Gestionar Usuarios
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <button onclick="logout()" class="logout-btn" id="btn-CerrarSesion">
-        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-    </button>
-</aside>
-
-<main class="main-content">
-    <div id="sections-container">
-        <!-- DASHBOARD INICIAL -->
-        <div id="dashboard" class="seccion" style="display:block;">
-            <!-- DASHBOARD HEADER -->
-            <div class="dashboard-header-container">
-                <div class="dashboard-header">
-                    <h1><i class="bi bi-bar-chart-line"></i> Panel de Control</h1>
-                    <p>Bienvenido al sistema de administración de Comic Forge</p>
-                </div>
-
-                <!-- TARJETAS ESTADÍSTICAS -->
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <span class="stat-card-title">Ventas del Día</span>
-                            <div class="stat-card-icon sales"><i class="bi bi-currency-dollar"></i></div>
-                        </div>
-                        <div class="stat-card-value" id="totalSales">S/0</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <span class="stat-card-title">Total Cómics</span>
-                            <div class="stat-card-icon comics"><i class="bi bi-book-fill"></i></div>
-                        </div>
-                        <div class="stat-card-value" id="totalComics">0</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <span class="stat-card-title">Clientes Activos</span>
-                            <div class="stat-card-icon customers"><i class="bi bi-people-fill"></i></div>
-                        </div>
-                        <div class="stat-card-value" id="totalCustomers">0</div>
-                    </div>
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+        <div class="profile-section">
+            <div class="profile-img-container" data-bs-toggle="modal" data-bs-target="#avatarModal">
+                <img id="adminProfileImg" src="https://i.pinimg.com/736x/83/35/70/8335704160cf69ea51603f76ac88c838.jpg"
+                    alt="Admin Profile">
+                <div class="profile-img-overlay">
+                    <i class="bi bi-camera-fill"></i>
                 </div>
             </div>
-
-            <!-- GRÁFICOS -->
-            <div class="charts-container">
-                <div class="chart-card">
-                    <h3><i class="bi bi-bar-chart-fill"></i> Top 5 Cómics Más Vendidos</h3>
-                    <div class="custom-bar-chart" id="topComicsChart">
-                        <p style="text-align: center; color: #999;">Cargando datos...</p>
-                    </div>
-                </div>
-                <div class="chart-card">
-                    <h3><i class="bi bi-pie-chart-fill"></i> Distribución de Cómics por Editorial</h3>
-                    <div class="chart-wrapper">
-                        <canvas id="publisherChart"></canvas>
-                    </div>
-                </div>
-            </div>
+            <h3 class="admin-name" id="adminName">Admin ComicForge</h3>
+            <span class="admin-role"><i class="bi bi-shield-check"></i> Administrador</span>
         </div>
 
-        <!-- AGREGAR CÓMIC -->
-        <div id="addComic" class="seccion" style="display:none;">
-            <h2 class="section-title"><i class="bi bi-plus-circle"></i> Agregar Nuevo Cómic</h2>
+        <nav class="sidebar-nav">
+            <div class="nav-category">Dashboard</div>
+            <ul class="list-unstyled">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" onclick="mostrarSeccion('dashboard')">
+                        <i class="bi bi-speedometer2"></i> Inicio
+                    </a>
+                </li>
+            </ul>
 
-            <form id="addComicForm" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Título del Cómic</label>
-                                <input type="text" class="form-control" name="title" placeholder="Titulo del comic" required>
+            <div class="nav-category">Gestión de Cómics</div>
+            <ul class="list-unstyled">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="mostrarSeccion('addComic')">
+                        <i class="bi bi-plus-circle"></i> Agregar Cómic
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="mostrarSeccion('manageComics')">
+                        <i class="bi bi-book-half"></i> Gestionar Cómics
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-category">Ventas</div>
+            <ul class="list-unstyled">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="mostrarSeccion('sales')">
+                        <i class="bi bi-cart-check-fill"></i> Historial Ventas
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-category">Usuarios</div>
+            <ul class="list-unstyled">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="mostrarSeccion('manageUsers')">
+                        <i class="bi bi-people-fill"></i> Gestionar Usuarios
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button onclick="logout()" class="logout-btn" id="btn-CerrarSesion">
+            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+        </button>
+    </aside>
+
+    <main class="main-content">
+        <div id="sections-container">
+            <!-- DASHBOARD INICIAL -->
+            
+            <div class="dashboard-header" id="dynamicHeader">
+                <h1><i class="bi bi-bar-chart-line"></i> Panel de Control</h1>
+                <p>Bienvenido al sistema de administración de Comic Forge</p>
+            </div>
+
+            <div id="dashboard" class="seccion" style="display:block;">
+                <!-- DASHBOARD HEADER -->
+                <div class="dashboard-header-container">
+
+                    <!-- TARJETAS ESTADÍSTICAS -->
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-card-title">Ventas del Día</span>
+                                <div class="stat-card-icon sales"><i class="bi bi-currency-dollar"></i></div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Categoría</label>
-                                <input type="text" class="form-control" name="category" placeholder="Categoria" required>
+                            <div class="stat-card-value" id="totalSales">S/0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-card-title">Total Cómics</span>
+                                <div class="stat-card-icon comics"><i class="bi bi-book-fill"></i></div>
+                            </div>
+                            <div class="stat-card-value" id="totalComics">0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-card-title">Clientes Activos</span>
+                                <div class="stat-card-icon customers"><i class="bi bi-people-fill"></i></div>
+                            </div>
+                            <div class="stat-card-value" id="totalCustomers">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICOS -->
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3><i class="bi bi-bar-chart-fill"></i> Top 5 Cómics Más Vendidos</h3>
+                        <div class="custom-bar-chart" id="topComicsChart">
+                            <p style="text-align: center; color: #999;">Cargando datos...</p>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3><i class="bi bi-pie-chart-fill"></i> Distribución de Cómics por Editorial</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="publisherChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AGREGAR CÓMIC -->
+            <div id="addComic" class="seccion" style="display:none;">
+
+                <h2 class="section-title"><i class="bi bi-plus-circle"></i> Agregar Nuevo Cómic</h2>
+
+                <form id="addComicForm" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Título del Cómic</label>
+                                    <input type="text" class="form-control" name="title" placeholder="Titulo del comic"
+                                        required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Categoría</label>
+                                    <input type="text" class="form-control" name="category" placeholder="Categoria"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Precio (S/.)</label>
+                                    <input type="number" class="form-control" name="price" placeholder="0.00"
+                                        step="0.01" min="0" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Editorial</label>
+                                    <input type="text" class="form-control" name="publisher"
+                                        placeholder="Marvel Comics o DC Cómics" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label class="form-label">Descripción</label>
+                                    <textarea class="form-control" name="description" rows="4"
+                                        placeholder="Descripción detallada del cómic..." required></textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Precio (S/.)</label>
-                                <input type="number" class="form-control" name="price" placeholder="0.00" step="0.01" min="0" required>
+
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label class="form-label">Imagen del Cómic</label>
+                                <div class="file-upload-wrapper"
+                                    onclick="document.getElementById('comicImageUpload').click();">
+                                    <i class="bi bi-cloud-upload"></i>
+                                    <p><strong>Haz clic para subir</strong> o arrastra una imagen aquí</p>
+                                    <small class="text-muted">PNG, JPG, JPEG (máx. 5MB)</small>
+                                    <input type="file" id="comicImageUpload" name="comicImage" accept="image/*" hidden
+                                        required>
+                                </div>
+                                <div class="image-preview-container" id="imagePreview">
+                                    <img src="" alt="Preview" class="preview-image" id="previewImg">
+                                    <button type="button" class="remove-preview-btn" onclick="removeImagePreview()">
+                                        <i class="bi bi-x-circle"></i> Remover
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Editorial</label>
-                                <input type="text" class="form-control" name="publisher" placeholder="Marvel Comics o DC Cómics" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <label class="form-label">Descripción</label>
-                                <textarea class="form-control" name="description" rows="4" placeholder="Descripción detallada del cómic..." required></textarea>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Archivo PDF del cómic</label>
+                                <div class="file-upload-wrapper" onclick="document.getElementById('comicPDF').click();">
+                                    <i class="bi bi-cloud-upload"></i>
+                                    <p><strong>Sube el cómic en formato PDF</strong> o arrástralo hasta aquí</p>
+                                    <small class="text-muted">PDF (máx. 50MB)</small>
+                                    <input type="file" id="comicPDF" name="comicPDF" accept="application/pdf" hidden
+                                        required>
+                                </div>
+                                <div class="pdf-preview-container" id="pdfPreview">
+                                    <div class="pdf-preview-info">
+                                        <i class="bi bi-file-pdf pdf-icon"></i>
+                                        <div class="pdf-details">
+                                            <h6 id="pdfFileName">documento.pdf</h6>
+                                            <small id="pdfFileSize">0 KB</small>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="remove-preview-btn" onclick="removePdfPreview()">
+                                        <i class="bi bi-x-circle"></i> Remover
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group mb-3">
-                            <label class="form-label">Imagen del Cómic</label>
-                            <div class="file-upload-wrapper" onclick="document.getElementById('comicImageUpload').click();">
-                                <i class="bi bi-cloud-upload"></i>
-                                <p><strong>Haz clic para subir</strong> o arrastra una imagen aquí</p>
-                                <small class="text-muted">PNG, JPG, JPEG (máx. 5MB)</small>
-                                <input type="file" id="comicImageUpload" name="comicImage" accept="image/*" hidden required>
-                            </div>
-                            <div class="image-preview-container" id="imagePreview">
-                                <img src="" alt="Preview" class="preview-image" id="previewImg">
-                                <button type="button" class="remove-preview-btn" onclick="removeImagePreview()">
-                                    <i class="bi bi-x-circle"></i> Remover
-                                </button>
-                            </div>
+                    <div class="text-end mt-4">
+                        <button type="button" class="btn btn-outline-secondary"
+                            style="padding: 13px 30px; border-radius: 8px;" onclick="resetForm()">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn-add-comic" style="padding: 15px 30px; border-radius: 8px;">
+                            <i class="bi bi-check-circle"></i> Agregar Cómic
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- GESTIONAR CÓMICS -->
+            <div id="manageComics" class="seccion" style="display:none;">
+                <h2 class="section-title"><i class="bi bi-book-half"></i> Gestionar Cómics</h2>
+
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="position-relative search-box flex-grow-1">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="buscarComic" class="form-control" placeholder="Buscar cómic...">
+                    </div>
+
+                    <select id="categoriaSelect" class="form-control w-auto categoryControl">
+                        <option value="todos">Todas las categorías</option>
+                        <option value="mas-vendido">Más Vendidos</option>
+                        <option value="descuento">Descuentos</option>
+                        <option value="dc">DC</option>
+                        <option value="marvel">Marvel</option>
+                    </select>
+                </div>
+
+                <table class="table table-hover" id="tablaComics">
+                    <thead>
+                        <tr>
+                            <th>Cómic</th>
+                            <th>Editorial</th>
+                            <th>Precio</th>
+                            <th>Descuento</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="text-center">Selecciona una categoría para ver los cómics</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal de confirmación para eliminar -->
+            <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmModalLabel">
+                                <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Archivo PDF del cómic</label>
-                            <div class="file-upload-wrapper" onclick="document.getElementById('comicPDF').click();">
-                                <i class="bi bi-cloud-upload"></i>
-                                <p><strong>Sube el cómic en formato PDF</strong> o arrástralo hasta aquí</p>
-                                <small class="text-muted">PDF (máx. 50MB)</small>
-                                <input type="file" id="comicPDF" name="comicPDF" accept="application/pdf" hidden required>
-                            </div>
-                            <div class="pdf-preview-container" id="pdfPreview">
-                                <div class="pdf-preview-info">
-                                    <i class="bi bi-file-pdf pdf-icon"></i>
-                                    <div class="pdf-details">
-                                        <h6 id="pdfFileName">documento.pdf</h6>
-                                        <small id="pdfFileSize">0 KB</small>
+                        <div class="modal-body">
+                            <p>¿Estás seguro de que deseas eliminar este cómic?</p>
+                            <p class="text-danger"><strong>Esta acción no se puede deshacer.</strong></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+                                <i class="bi bi-trash"></i> Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para ver/editar comic -->
+            <div class="modal fade" id="comicModal" tabindex="-1" aria-labelledby="comicModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header py-2">
+                            <h5 class="modal-title" id="comicModalLabel">
+                                <i class="bi bi-book-fill"></i> <span id="modalTitleText">Ver Cómic</span>
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body p-3">
+                            <form id="editComicForm">
+                                <input type="hidden" id="comicId" name="comicId">
+
+                                <div class="row g-2">
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label class="form-label mb-1">Título</label>
+                                            <input type="text" class="form-control form-control-sm" id="modalTitle"
+                                                name="title" readonly>
+                                        </div>
+
+                                        <div class="row g-2">
+                                            <div class="col-md-6">
+                                                <label class="form-label mb-1">Categoría</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="modalCategory" name="category" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label mb-1">Editorial</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="modalPublisher" name="publisher" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="row g-2 mt-1">
+                                            <div class="col-md-6">
+                                                <label class="form-label mb-1">Precio (S/.)</label>
+                                                <input type="number" class="form-control form-control-sm"
+                                                    id="modalPrice" name="price" step="0.01" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label mb-1">Descuento (%)</label>
+                                                <input type="number" class="form-control form-control-sm"
+                                                    id="modalDiscount" name="discount" min="0" max="100" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <label class="form-label mb-1">Descripción</label>
+                                            <textarea class="form-control form-control-sm" id="modalDescription"
+                                                name="description" rows="5" readonly></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label mb-1">Imagen</label>
+                                        <div class="comic-image-preview-compact">
+                                            <img id="modalComicImage"
+                                                src="https://via.placeholder.com/250x350?text=Sin+Imagen"
+                                                alt="Comic Preview"
+                                                style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                                        </div>
                                     </div>
                                 </div>
-                                <button type="button" class="remove-preview-btn" onclick="removePdfPreview()">
-                                    <i class="bi bi-x-circle"></i> Remover
-                                </button>
-                            </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer py-2">
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+                                <i class="bi bi-x-circle"></i> Cerrar
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" id="btnEditMode"
+                                onclick="activarModoEdicion()">
+                                <i class="bi bi-pencil"></i> Editar
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm" id="btnSaveChanges"
+                                style="display: none;" onclick="guardarCambios()">
+                                <i class="bi bi-check-circle"></i> Guardar
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" id="btnCancelEdit"
+                                style="display: none;" onclick="cancelarEdicion()">
+                                <i class="bi bi-x"></i> Cancelar
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-end mt-4">
-                    <button type="button" class="btn btn-outline-secondary" style="padding: 13px 30px; border-radius: 8px;" onclick="resetForm()">
-                        <i class="bi bi-x-circle"></i> Cancelar
-                    </button>
-                    <button type="submit" class="btn-add-comic" style="padding: 15px 30px; border-radius: 8px;">
-                        <i class="bi bi-check-circle"></i> Agregar Cómic
-                    </button>
+            <!-- HISTORIAL DE VENTAS -->
+            <div id="sales" class="seccion" style="display:none;">
+                <h2 class="section-title"><i class="bi bi-cart-check-fill"></i> Historial de Ventas</h2>
+
+                <div class="filter-section">
+                    <input type="date" class="form-control" style="max-width: 200px;">
+                    <input type="date" class="form-control" style="max-width: 200px;">
+                    <button class="btn-add-comic"><i class="bi bi-download"></i> Exportar</button>
                 </div>
-            </form>
-        </div>
 
-        <!-- GESTIONAR CÓMICS -->
-        <div id="manageComics" class="seccion" style="display:none;">
-            <h2 class="section-title"><i class="bi bi-book-half"></i> Gestionar Cómics</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID Venta</th>
+                            <th>Cliente</th>
+                            <th>Cómic</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#V-0145</td>
+                            <td>Juan Pérez</td>
+                            <td>Spider-Man: No Way Home</td>
+                            <td>08/11/2025 14:30</td>
+                            <td>S/25.90</td>
+                            <td><span class="badge-status badge-active">Completado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="position-relative search-box flex-grow-1">
+            <!-- GESTIONAR USUARIOS -->
+            <div id="manageUsers" class="seccion" style="display:none;">
+                <h2 class="section-title"><i class="bi bi-people-fill"></i> Gestionar Usuarios</h2>
+
+                <div class="position-relative search-box mb-4">
                     <i class="bi bi-search search-icon"></i>
-                    <input type="text" id="buscarComic" class="form-control" placeholder="Buscar cómic...">
+                    <input type="text" class="form-control" placeholder="Buscar usuario por nombre o email...">
                 </div>
 
-                <select id="categoriaSelect" class="form-control w-auto categoryControl">
-                    <option value="todos">Todas las categorías</option>
-                    <option value="mas-vendido">Más Vendidos</option>
-                    <option value="descuento">Descuentos</option>
-                    <option value="dc">DC</option>
-                    <option value="marvel">Marvel</option>
-                </select>
-            </div>
-
-            <table class="table table-hover" id="tablaComics">
-                <thead>
-                <tr>
-                    <th>Cómic</th>
-                    <th>Editorial</th>
-                    <th>Precio</th>
-                    <th>Descuento</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td colspan="6" class="text-center">Selecciona una categoría para ver los cómics</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Modal de confirmación para eliminar -->
-        <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteConfirmModalLabel">
-                            <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación
-                        </h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>¿Estás seguro de que deseas eliminar este cómic?</p>
-                        <p class="text-danger"><strong>Esta acción no se puede deshacer.</strong></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
-                            <i class="bi bi-trash"></i> Eliminar
-                        </button>
-                    </div>
-                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Fecha Registro</th>
+                            <th>Compras</th>
+                            <th>Total Gastado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan Pérez</td>
+                            <td>juan.perez@email.com</td>
+                            <td>15/10/2025</td>
+                            <td>8</td>
+                            <td>S/215.50</td>
+                            <td>
+                                <button class="btn-action btn-view"><i class="bi bi-eye"></i></button>
+                                <button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </main>
 
-        <!-- Modal para ver/editar comic -->
-        <div class="modal fade" id="comicModal" tabindex="-1" aria-labelledby="comicModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header py-2">
-                        <h5 class="modal-title" id="comicModalLabel">
-                            <i class="bi bi-book-fill"></i> <span id="modalTitleText">Ver Cómic</span>
-                        </h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body p-3">
-                        <form id="editComicForm">
-                            <input type="hidden" id="comicId" name="comicId">
-
-                            <div class="row g-2">
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label class="form-label mb-1">Título</label>
-                                        <input type="text" class="form-control form-control-sm" id="modalTitle" name="title" readonly>
-                                    </div>
-
-                                    <div class="row g-2">
-                                        <div class="col-md-6">
-                                            <label class="form-label mb-1">Categoría</label>
-                                            <input type="text" class="form-control form-control-sm" id="modalCategory" name="category" readonly>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label mb-1">Editorial</label>
-                                            <input type="text" class="form-control form-control-sm" id="modalPublisher" name="publisher" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="row g-2 mt-1">
-                                        <div class="col-md-6">
-                                            <label class="form-label mb-1">Precio (S/.)</label>
-                                            <input type="number" class="form-control form-control-sm" id="modalPrice" name="price" step="0.01" readonly>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label mb-1">Descuento (%)</label>
-                                            <input type="number" class="form-control form-control-sm" id="modalDiscount" name="discount" min="0" max="100" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="mt-2">
-                                        <label class="form-label mb-1">Descripción</label>
-                                        <textarea class="form-control form-control-sm" id="modalDescription" name="description" rows="5" readonly></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label mb-1">Imagen</label>
-                                    <div class="comic-image-preview-compact">
-                                        <img id="modalComicImage" src="https://via.placeholder.com/250x350?text=Sin+Imagen" alt="Comic Preview" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="modal-footer py-2">
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
-                            <i class="bi bi-x-circle"></i> Cerrar
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm" id="btnEditMode" onclick="activarModoEdicion()">
-                            <i class="bi bi-pencil"></i> Editar
-                        </button>
-                        <button type="button" class="btn btn-success btn-sm" id="btnSaveChanges" style="display: none;" onclick="guardarCambios()">
-                            <i class="bi bi-check-circle"></i> Guardar
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm" id="btnCancelEdit" style="display: none;" onclick="cancelarEdicion()">
-                            <i class="bi bi-x"></i> Cancelar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- HISTORIAL DE VENTAS -->
-        <div id="sales" class="seccion" style="display:none;">
-            <h2 class="section-title"><i class="bi bi-cart-check-fill"></i> Historial de Ventas</h2>
-
-            <div class="filter-section">
-                <input type="date" class="form-control" style="max-width: 200px;">
-                <input type="date" class="form-control" style="max-width: 200px;">
-                <button class="btn-add-comic"><i class="bi bi-download"></i> Exportar</button>
-            </div>
-
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>ID Venta</th>
-                    <th>Cliente</th>
-                    <th>Cómic</th>
-                    <th>Fecha</th>
-                    <th>Monto</th>
-                    <th>Estado</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>#V-0145</td>
-                    <td>Juan Pérez</td>
-                    <td>Spider-Man: No Way Home</td>
-                    <td>08/11/2025 14:30</td>
-                    <td>S/25.90</td>
-                    <td><span class="badge-status badge-active">Completado</span></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- GESTIONAR USUARIOS -->
-        <div id="manageUsers" class="seccion" style="display:none;">
-            <h2 class="section-title"><i class="bi bi-people-fill"></i> Gestionar Usuarios</h2>
-
-            <div class="position-relative search-box mb-4">
-                <i class="bi bi-search search-icon"></i>
-                <input type="text" class="form-control" placeholder="Buscar usuario por nombre o email...">
-            </div>
-
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Email</th>
-                    <th>Fecha Registro</th>
-                    <th>Compras</th>
-                    <th>Total Gastado</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Juan Pérez</td>
-                    <td>juan.perez@email.com</td>
-                    <td>15/10/2025</td>
-                    <td>8</td>
-                    <td>S/215.50</td>
-                    <td>
-                        <button class="btn-action btn-view"><i class="bi bi-eye"></i></button>
-                        <button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/js/scriptToast.js"></script>
-<script src="/js/admin/scriptAdmin.js"></script>
-<script src="/js/admin/scriptPrevisualizar.js"></script>
-<script src="/js/admin/scriptAdministrarComics.js"></script>
-<script src="/js/admin/scriptGraficos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/scriptToast.js"></script>
+    <script src="/js/admin/scriptAdmin.js"></script>
+    <script src="/js/admin/scriptPrevisualizar.js"></script>
+    <script src="/js/admin/scriptAdministrarComics.js"></script>
+    <script src="/js/admin/scriptGraficos.js"></script>
 </body>
+
 </html>

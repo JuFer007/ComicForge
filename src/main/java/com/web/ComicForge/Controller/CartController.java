@@ -5,7 +5,6 @@ import com.web.ComicForge.Service.SaleService;
 import com.web.ComicForge.Service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

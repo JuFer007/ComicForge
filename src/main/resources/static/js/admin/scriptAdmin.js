@@ -13,6 +13,8 @@ function mostrarSeccion(seccionId) {
     if (activeLink) activeLink.classList.add('active');
 
     if(seccionId === 'deleteUsers') cargarUsuarios();
+    actualizarHeader(seccionId);
+
 }
 
 // ==================================
@@ -225,3 +227,40 @@ document.addEventListener("DOMContentLoaded", () => {
         window.recargarGraficos();
     }
 });
+
+// SECCION PARA CAMBIAR EL HEADER DEPENDIENDO DE LA SECCION
+const headerContent = {
+    dashboard: {
+        title: '<i class="bi bi-bar-chart-line"></i> Panel de Control',
+        subtitle: 'Bienvenido al sistema de administración de Comic Forge'
+    },
+    addComic: {
+        title: '<i class="bi bi-plus-circle"></i> Agregar Nuevo Cómic',
+        subtitle: 'Complete los datos para registrar un nuevo cómic'
+    },
+    manageComics: {
+        title: '<i class="bi bi-book-half"></i> Gestionar Cómics',
+        subtitle: 'Administre los cómics registrados en el sistema'
+    },
+    sales: {
+        title: '<i class="bi bi-cart-check-fill"></i> Historial de Ventas',
+        subtitle: 'Registros completos de ventas realizadas'
+    },
+    manageUsers: {
+        title: '<i class="bi bi-people-fill"></i> Gestionar Usuarios',
+        subtitle: 'Revisa y administra la información de los usuarios'
+    }
+};
+
+function actualizarHeader(seccionId) {
+    const header = document.getElementById('dynamicHeader');
+    
+    if (headerContent[seccionId]) {
+        header.innerHTML = `
+            <h1>${headerContent[seccionId].title}</h1>
+            <p>${headerContent[seccionId].subtitle}</p>
+        `;
+    }
+}
+
+
