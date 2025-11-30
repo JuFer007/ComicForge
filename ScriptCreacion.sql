@@ -78,7 +78,7 @@ INSERT INTO user (
 ) VALUES (
     'http://localhost:8080/recursos/portadas/portada4.jpeg',
     'adminJuFer@gmail.com',
-    '12345', 
+    '$2a$10$Scaxh5pbOy25XF/YZKvXwe2AZpV4v8DGbqRvrXMgfeEiY2JPkJRLC', -- del 1 al 6
     'http://localhost:8080/recursos/avatares/adminIcon.jpeg',
     'Administrador de Comic Forge con acceso completo al sistema.',
     'Junior',
@@ -90,7 +90,7 @@ INSERT INTO user (
 ) VALUES (
     'http://localhost:8080/recursos/portadas/portada4.jpeg',
     'adminCristian@gmail.com',
-    '12345', 
+    '$2a$10$Scaxh5pbOy25XF/YZKvXwe2AZpV4v8DGbqRvrXMgfeEiY2JPkJRLC', -- del 1 al 6
     'http://localhost:8080/recursos/avatares/adminIcon.jpeg',
     'Administrador de Comic Forge con acceso completo al sistema.',
     'Cristian',
@@ -102,7 +102,7 @@ INSERT INTO user (
 ) VALUES (
     'http://localhost:8080/recursos/portadas/portada4.jpeg',
     'prueba@gmail.com',
-    '12345',
+    '$2a$10$Scaxh5pbOy25XF/YZKvXwe2AZpV4v8DGbqRvrXMgfeEiY2JPkJRLC', -- del 1 al 6
     'http://localhost:8080/recursos/avatares/Moon%20Knight%20icon.jpeg',
     'Amante de los comics de Marvel y mi equipo fav es los xmen, the flash mi personaje favorito',
     'JuFer',

@@ -168,23 +168,13 @@ async function guardarCambios() {
     const discount = parseInt(document.getElementById('modalDiscount').value) || 0;
     const description = document.getElementById('modalDescription').value.trim();
 
-    if (!title) {
-        Toast.error('El título es obligatorio');
-        return;
-    }
-
-    if (isNaN(price) || price <= 0) {
-        Toast.error('El precio debe ser mayor a 0');
+    if (!title || isNaN(price) || price <= 0 || !description) {
+        Toast.error('Por favor completa todos los campos correctamente');
         return;
     }
 
     if (discount < 0 || discount > 100) {
         Toast.error('El descuento debe estar entre 0 y 100');
-        return;
-    }
-
-    if (!description) {
-        Toast.error('La descripción es obligatoria');
         return;
     }
 
@@ -198,10 +188,13 @@ async function guardarCambios() {
     };
 
     try {
+        const token = localStorage.getItem("jwtToken");
+
         const response = await fetch(`/api/comics/editar/${comicId}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(comicActualizado)
         });
@@ -218,7 +211,6 @@ async function guardarCambios() {
             Toast.error('Error al actualizar el cómic');
         }
     } catch (error) {
-        console.error('Error:', error);
         Toast.error('Error al guardar los cambios');
     }
 }
@@ -252,8 +244,13 @@ document.getElementById('confirmDeleteBtn').addEventListener('click', async func
     if (!comicIdToDelete) return;
 
     try {
+        const token = localStorage.getItem("jwtToken");
+
         const response = await fetch(`/api/comics/eliminar/${comicIdToDelete}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         });
 
         const data = await response.json();
@@ -274,7 +271,6 @@ document.getElementById('confirmDeleteBtn').addEventListener('click', async func
         comicIdToDelete = null;
 
     } catch (error) {
-        console.error('Error al eliminar cómic:', error);
         Toast.error('Error al conectar con el servidor');
         bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal')).hide();
     }

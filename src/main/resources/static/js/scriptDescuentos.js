@@ -15,8 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let descuentos = [];
 
     async function cargarDescuentos() {
+        const token = localStorage.getItem("jwtToken");
+
         try {
-            const response = await fetch('api/comics/descuento');
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+
+            if (token) {
+                headers['Authorization'] = `Bearer ${token}`;
+            }
+
+            const response = await fetch('api/comics/descuento', { headers });
             descuentos = await response.json();
 
             descuentos.forEach(d => {
@@ -122,7 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
         pagination.appendChild(nextLi);
     }
 
-    function agregarAlCarrito(comicId) {
+    window.agregarAlCarrito = function(comicId) {
+        const token = localStorage.getItem("jwtToken");
+
+        if (!token) {
+            Toast.error('Debes iniciar sesión para agregar al carrito');
+            setTimeout(() => window.location.href = '/login', 1500);
+            return;
+        }
+
         const formData = new URLSearchParams();
         formData.append('comicID', comicId);
 
@@ -130,19 +148,24 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Bearer ${token}`
             },
             body: formData
         })
         .then(response => {
             if (response.ok) {
                 Toast.success('¡Cómic agregado al carrito exitosamente!');
+            } else if (response.status === 401) {
+                Toast.error('Tu sesión ha expirado. Inicia sesión nuevamente');
+                localStorage.clear();
+                setTimeout(() => window.location.href = '/login', 1500);
             } else {
-                Toast.error('Inicie sesión para agregar al carrito');
+                Toast.error('Error al agregar al carrito');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            Toast.error('Inicie sesión para agregar al carrito');
+            Toast.error('Error de conexión');
         });
     }
 

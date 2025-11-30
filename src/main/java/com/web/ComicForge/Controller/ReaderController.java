@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/comic/read")
 @RequiredArgsConstructor
-
 public class ReaderController {
     private final ComicService comicService;
     private final UsuarioService usuarioService;
@@ -25,15 +24,19 @@ public class ReaderController {
     @GetMapping("/{comicId}")
     public String readComic(@PathVariable Long comicId, HttpSession session, Model model) {
         Long userId = (Long) session.getAttribute("userId");
+
         if (userId == null) {
-            return "redirect:/?message=login_required";
+            return "redirect:/login?message=login_required";
         }
 
-        Usuario user = usuarioService.getUserByID(userId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Usuario user = usuarioService.getUserByID(userId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        Comic comic = comicService.getComicById(comicId).orElseThrow(() -> new RuntimeException("Cómic no encontrado"));
+        Comic comic = comicService.getComicById(comicId)
+                .orElseThrow(() -> new RuntimeException("Cómic no encontrado"));
 
-        boolean hasAccess = user.getPurchasedComics().stream().anyMatch(c -> c.getId().equals(comicId));
+        boolean hasAccess = user.getPurchasedComics().stream()
+                .anyMatch(c -> c.getId().equals(comicId));
 
         if (!hasAccess) {
             model.addAttribute("error", "No tienes acceso a este cómic. Debes comprarlo primero.");
@@ -56,6 +59,7 @@ public class ReaderController {
     @ResponseBody
     public ResponseEntity<Boolean> checkAccess(@PathVariable Long comicId, HttpSession session) {
         Long userId = (Long) session.getAttribute("userId");
+
         if (userId == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
         }

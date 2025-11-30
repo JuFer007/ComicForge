@@ -1,18 +1,24 @@
 package com.web.ComicForge.Config;
+import com.web.ComicForge.Util.JwtRequestFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@EnableWebSecurity
 @RequiredArgsConstructor
 
 public class SecurityConfig {
     private final OAuth2SuccessHandler oauth2SuccessHandler;
+    private final JwtRequestFilter jwtRequestFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -22,11 +28,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/admin", "/admin/**").hasAuthority("admin")
-                        .requestMatchers("/api/comics/editar/**").hasAuthority("admin")
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                )
 
-                        .requestMatchers("/admin/dashboard-stats", "/top-comics", "/publishers").permitAll()
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/admin/users", "/admin/users/**").hasAuthority("admin")
+                        .requestMatchers("/admin/dashboard-stats").hasAuthority("admin")
+                        .requestMatchers("/api/comics/editar/**").hasAuthority("admin")
+                        .requestMatchers("/api/comics/addComic").hasAuthority("admin")
+                        .requestMatchers("/admin", "/admin/**").permitAll()
 
                         .requestMatchers(
                                 "/",
@@ -42,9 +53,18 @@ public class SecurityConfig {
                                 "/login/oauth2/**",
                                 "/api/comics/**",
                                 "/personajes",
-                                "/descuentos"
+                                "/descuentos",
+                                "/top-comics",
+                                "/publishers",
+                                "/comic/read/**",
+                                "/profile",
+                                "/user/**",
+                                "/cart/**",
+                                "/error403",
+                                "/sales",
+                                "/sales/export"
                         ).permitAll()
-                        .requestMatchers("/comic/read/**", "/profile", "/user/**", "/cart/**").authenticated()
+
                         .anyRequest().authenticated()
                 )
 
@@ -81,10 +101,9 @@ public class SecurityConfig {
                                 "/user/**",
                                 "/comic/**",
                                 "/admin/**",
-                                "/api/comics/**",
+                                "/api/**",
                                 "/top-comics",
-                                "/publishers",
-                                "/admin/dashboard-stats"
+                                "/publishers"
                         )
                 )
 
@@ -98,7 +117,18 @@ public class SecurityConfig {
                                 response.sendRedirect("/error403");
                             }
                         })
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            if (request.getRequestURI().startsWith("/api/")) {
+                                response.setStatus(401);
+                                response.setContentType("application/json");
+                                response.getWriter().write("{\"status\":\"error\",\"message\":\"No autenticado\"}");
+                            } else {
+                                response.sendRedirect("/login");
+                            }
+                        })
                 );
+
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

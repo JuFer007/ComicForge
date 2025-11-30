@@ -1,8 +1,17 @@
 function agregarAlCarrito(comicId) {
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+        Toast.error('Debes iniciar sesión para agregar al carrito');
+        setTimeout(() => window.location.href = '/login', 1500);
+        return;
+    }
+
     fetch('/cart/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${token}`
         },
         body: `comicID=${comicId}`
     })
@@ -16,7 +25,9 @@ function agregarAlCarrito(comicId) {
         if (data.status === 200) {
             Toast.success(data.message);
         } else if (data.status === 401) {
-            Toast.error('Inicie sesión para agregar al carrito');
+            Toast.error('Tu sesión ha expirado. Por favor inicia sesión nuevamente');
+            localStorage.clear();
+            setTimeout(() => window.location.href = '/login', 1500);
         } else if (data.status === 400) {
             Toast.warning(data.message);
         } else if (data.status === 404) {
@@ -33,7 +44,9 @@ function agregarAlCarrito(comicId) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const checkoutBtn = document.getElementById("checkoutBtn");
-    if (checkoutBtn && localStorage.getItem("isLoggedIn") !== "true") {
+    const token = localStorage.getItem("jwtToken");
+
+    if (checkoutBtn && !token) {
         checkoutBtn.disabled = true;
         checkoutBtn.textContent = "Inicia sesión para comprar";
     }

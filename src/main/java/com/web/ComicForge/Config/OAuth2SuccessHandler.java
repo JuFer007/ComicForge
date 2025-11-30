@@ -20,17 +20,13 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
     private final UsuarioService usuarioService;
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request,
-                                        HttpServletResponse response,
-                                        Authentication authentication) throws IOException, ServletException {
-
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         OAuth2AuthenticationToken token = (OAuth2AuthenticationToken) authentication;
         OAuth2User oauth2User = token.getPrincipal();
 
         String email = oauth2User.getAttribute("email");
         String name = oauth2User.getAttribute("name");
         String picture = oauth2User.getAttribute("picture");
-
         Usuario usuario = usuarioService.handleGoogleLogin(email, name, picture);
 
         HttpSession session = request.getSession();

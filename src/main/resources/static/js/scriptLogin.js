@@ -1,6 +1,3 @@
-// ========================
-// LOGIN TRADICIONAL
-// ========================
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
 
@@ -8,53 +5,50 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
-            const email = document.getElementById("exampleInputEmail1").value;
+            const email = document.getElementById("exampleInputEmail1").value.trim();
             const password = document.getElementById("exampleInputPassword1").value;
+
+            // Validaciones
+            if (!email) { Toast.error("El email es obligatorio"); return; }
+            if (!password) { Toast.error("La contraseña es obligatoria"); return; }
 
             try {
                 const response = await fetch("/auth/login", {
                     method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    credentials: "include",
-                    body: new URLSearchParams({ email, password })
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
                 });
 
-                if (!response.ok) {
-                    Toast.error("Credenciales incorrectas");
-                    return;
-                }
-
-                let data;
-                try {
-                    data = await response.json();
-                } catch (jsonError) {
-                    console.error("Error al convertir la respuesta a JSON:", jsonError);
-                    Toast.error("El servidor no devolvió datos válidos");
-                    return;
-                }
+                const data = await response.json();
 
                 if (!data.success) {
                     Toast.error(data.message || "Error al iniciar sesión");
                     return;
                 }
 
+                // Guardar datos en localStorage
+                localStorage.setItem("jwtToken", data.token);
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("userId", data.userId);
                 localStorage.setItem("userName", data.userName);
                 localStorage.setItem("profilePic", data.profilePic);
                 localStorage.setItem("role", data.role);
 
+                document.dispatchEvent(new CustomEvent('sesionActualizada'));
+
                 Toast.success("Bienvenido, inicio de sesión exitoso");
 
-                // Redirigir inmediatamente sin setTimeout
-                if (data.role === "admin") {
-                    window.location.href = "/admin";
-                } else {
-                    window.location.href = `/user/profile/${data.userId}`;
-                }
+                // REDIRECCIÓN INMEDIATA SIN VERIFICACIONES ADICIONALES
+                setTimeout(() => {
+                    if (data.role === "admin") {
+                        window.location.replace("/admin");
+                    } else {
+                        window.location.replace("/");
+                    }
+                }, 800);
 
             } catch (error) {
-                console.error("Error de conexión o servidor caído:", error);
+                console.error("Error de conexión:", error);
                 Toast.error("Error de conexión con el servidor");
             }
         });
@@ -67,57 +61,75 @@ document.addEventListener("DOMContentLoaded", () => {
 async function logout() {
     if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
         try {
+            const token = localStorage.getItem("jwtToken");
+
             const response = await fetch("/auth/logout", {
                 method: "POST",
-                credentials: "include"
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
             });
 
+            localStorage.clear();
+
             if (response.ok) {
-                localStorage.clear();
                 Toast.success("Sesión cerrada con éxito");
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 1500);
             } else {
-                const msg = await response.text();
-                Toast.error("Error al cerrar sesión: " + msg);
+                Toast.warning("Sesión cerrada localmente");
             }
+
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+
         } catch (error) {
             console.error("Error al cerrar sesión:", error);
-            Toast.error("Error de conexión al cerrar sesión");
+            localStorage.clear();
+            Toast.info("Sesión cerrada");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
         }
     }
 }
 
 // ========================
-// VERIFICAR SESIÓN ACTIVA
+// VERIFICAR SESIÓN ACTIVA - SOLO PARA PROTEGER RUTAS
 // ========================
 document.addEventListener("DOMContentLoaded", async () => {
     const currentPath = window.location.pathname;
-    const authPages = ['/login', '/registro', '/auth/register'];
 
-    if (authPages.includes(currentPath)) {
-        console.log("En página de autenticación, no verificar redirección");
+    // Lista de páginas públicas que NO requieren verificación
+    const publicPages = ['/login', '/registro', '/auth/register', '/', '/index', '/personajes', '/descuentos'];
+
+    // Si estamos en una página pública, no verificar nada
+    if (publicPages.some(page => currentPath === page || currentPath.startsWith(page))) {
+        console.log("Página pública, no verificar sesión");
         return;
     }
 
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    const userId = localStorage.getItem("userId");
-    const role = localStorage.getItem("role");
+    // Si estamos en /admin, verificar que sea admin
+    if (currentPath === '/admin' || currentPath.startsWith('/admin/')) {
+        const role = localStorage.getItem("role");
+        const token = localStorage.getItem("jwtToken");
 
-    if (isLoggedIn && userId) {
+        if (!token || role !== "admin") {
+            console.log("No autorizado para admin, redirigiendo...");
+            Toast.error("No tienes permisos para acceder a esta página");
+            setTimeout(() => window.location.href = '/login', 1000);
+            return;
+        }
+
+        // Verificar token válido
         try {
-            const response = await fetch('/api/session/status');
-            const data = await response.json();
+            const response = await fetch('/api/session/status', {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
 
-            if (data.isLoggedIn) {
-                if (currentPath === '/' || currentPath === '/index') {
-                    if (role === "admin") {
-                        window.location.href = "/admin";
-                    } else {
-                        window.location.href = `/user/profile/${userId}`;
-                    }
-                }
+            if (response.status === 401) {
+                localStorage.clear();
+                Toast.error("Tu sesión ha expirado");
+                setTimeout(() => window.location.href = '/login', 1500);
             }
         } catch (error) {
             console.error("Error al verificar sesión:", error);

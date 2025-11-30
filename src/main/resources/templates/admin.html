@@ -388,9 +388,9 @@
                 <h2 class="section-title"><i class="bi bi-cart-check-fill"></i> Historial de Ventas</h2>
 
                 <div class="filter-section">
-                    <input type="date" class="form-control" style="max-width: 200px;">
-                    <input type="date" class="form-control" style="max-width: 200px;">
-                    <button class="btn-add-comic"><i class="bi bi-download"></i> Exportar</button>
+                    <input type="date" id="startDate" class="form-control" style="max-width: 200px;">
+                    <input type="date" id="endDate" class="form-control" style="max-width: 200px;">
+                    <button id="exportSales" class="btn-add-comic"><i class="bi bi-download"></i> Exportar</button>
                 </div>
 
                 <table class="table table-hover">
@@ -431,23 +431,12 @@
                         <tr>
                             <th>Usuario</th>
                             <th>Email</th>
-                            <th>Fecha Registro</th>
-                            <th>Compras</th>
-                            <th>Total Gastado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Juan Pérez</td>
-                            <td>juan.perez@email.com</td>
-                            <td>15/10/2025</td>
-                            <td>8</td>
-                            <td>S/215.50</td>
-                            <td>
-                                <button class="btn-action btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button>
-                            </td>
+                        <!-- Carga dinamica -->
                         </tr>
                     </tbody>
                 </table>
@@ -462,6 +451,8 @@
     <script src="/js/admin/scriptPrevisualizar.js"></script>
     <script src="/js/admin/scriptAdministrarComics.js"></script>
     <script src="/js/admin/scriptGraficos.js"></script>
+    <script src="/js/admin/scriptVentas.js"></script>
+    <script src="/js/admin/scriptUsuarios.js"></script>
 </body>
 
 </html>

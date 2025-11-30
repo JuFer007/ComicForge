@@ -1,9 +1,18 @@
 async function cargarComics(categoria) {
+    const token = localStorage.getItem("jwtToken");
+
     try {
-        const response = await fetch(`/api/comics/${categoria}`);
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const response = await fetch(`/api/comics/${categoria}`, { headers });
         const masVendidos = await response.json();
 
-        // Carrusel pantallas grandes (grupos de 5)
         const container = document.getElementById('comicCarouselInner');
         container.innerHTML = '';
 
@@ -14,7 +23,6 @@ async function cargarComics(categoria) {
             const slideContent = document.createElement('div');
             slideContent.className = 'd-flex justify-content-center gap-3';
 
-            // Tomamos un subgrupo de 5 cómics
             const subList = masVendidos.slice(i, i + 5);
             subList.forEach(comic => {
                 slideContent.innerHTML += `
@@ -38,7 +46,6 @@ async function cargarComics(categoria) {
             container.appendChild(slide);
         }
 
-        // Carrusel pantallas pequeñas (1 por slide)
         const containerSmall = document.getElementById('comicCarouselInnerSmall');
         containerSmall.innerHTML = '';
 
@@ -71,10 +78,19 @@ async function cargarComics(categoria) {
 }
 
 function agregarAlCarrito(comicId) {
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+        Toast.error('Debes iniciar sesión para agregar al carrito');
+        setTimeout(() => window.location.href = '/login', 1500);
+        return;
+    }
+
     fetch('/cart/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${token}`
         },
         body: `comicID=${comicId}`
     })
@@ -88,7 +104,9 @@ function agregarAlCarrito(comicId) {
         if (data.status === 200) {
             Toast.success(data.message);
         } else if (data.status === 401) {
-            Toast.error('Inicie sesión para agregar al carrito');
+            Toast.error('Tu sesión ha expirado. Inicia sesión nuevamente');
+            localStorage.clear();
+            setTimeout(() => window.location.href = '/login', 1500);
         } else if (data.status === 400) {
             Toast.warning(data.message);
         } else if (data.status === 404) {

@@ -5,17 +5,20 @@ import com.web.ComicForge.Repository.ComicRepository;
 import com.web.ComicForge.Repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-
 public class UsuarioService {
+
     @Autowired
     private final UsuarioRepository userRepository;
     private final ComicRepository comicRepository;
+
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public Optional<Usuario> getUserByID(Long id) {
         return userRepository.findById(id);
@@ -31,27 +34,38 @@ public class UsuarioService {
 
     public Usuario registerUser(String email, String password, String userName) {
         if (userRepository.findByEmail(email).isPresent()) {
-            throw new RuntimeException("El correo ya esta registrado");
+            throw new RuntimeException("El correo ya está registrado");
         }
+
+        String encryptedPassword = passwordEncoder.encode(password);
+
         Usuario user = Usuario.builder()
                 .email(email)
-                .password(password)
+                .password(encryptedPassword)
                 .userName(userName)
                 .userBio("Usuario nuevo en Comic Forge. Entusiasmado por leer cómics")
                 .profilePicture("/recursos/avatares/avatarDefault.jpg")
                 .coverImageURL("/recursos/portadas/portada1.jpg")
                 .role("cliente")
                 .build();
+
         return userRepository.save(user);
     }
 
     public Usuario loginUser(String email, String password) {
         Optional<Usuario> optionalUser = userRepository.findByEmail(email);
-        if (optionalUser.isPresent() && optionalUser.get().getPassword().equals(password)) {
-            return optionalUser.get();
-        } else {
+
+        if (optionalUser.isEmpty()) {
             throw new RuntimeException("Correo o contraseña incorrectos");
         }
+
+        Usuario user = optionalUser.get();
+
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new RuntimeException("Correo o contraseña incorrectos");
+        }
+
+        return user;
     }
 
     public List<Comic> getUserFavorites(Long userId) {

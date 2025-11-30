@@ -1,6 +1,17 @@
 async function cargarComics(categoria, containerId) {
+    const token = localStorage.getItem("jwtToken");
+
     try {
-        const response = await fetch(`/api/comics/${categoria}`);
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const response = await fetch(`/api/comics/${categoria}`, { headers });
+
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const comics = await response.json();
 
@@ -67,10 +78,19 @@ async function cargarComics(categoria, containerId) {
 }
 
 function agregarAlCarrito(comicId) {
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+        Toast.error('Debes iniciar sesión para agregar al carrito');
+        setTimeout(() => window.location.href = '/login', 1500);
+        return;
+    }
+
     fetch('/cart/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${token}`
         },
         body: `comicID=${comicId}`
     })
@@ -84,7 +104,9 @@ function agregarAlCarrito(comicId) {
         if (data.status === 200) {
             Toast.success(data.message);
         } else if (data.status === 401) {
-            Toast.error('Inicie sesión para agregar al carrito');
+            Toast.error('Tu sesión ha expirado. Inicia sesión nuevamente');
+            localStorage.clear();
+            setTimeout(() => window.location.href = '/login', 1500);
         } else if (data.status === 400) {
             Toast.warning(data.message);
         } else if (data.status === 404) {

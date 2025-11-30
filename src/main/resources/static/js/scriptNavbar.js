@@ -1,15 +1,24 @@
 async function sincronizarSesion() {
     try {
-        const response = await fetch('/api/session/status');
+        const token = localStorage.getItem("jwtToken");
+
+        const headers = {};
+        if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+        }
+
+        const response = await fetch('/api/session/status', { headers });
         const data = await response.json();
-        
+
         if (data.isLoggedIn) {
+            localStorage.setItem("jwtToken", token);
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("userId", data.userId);
             localStorage.setItem("role", data.role);
             localStorage.setItem("userName", data.userName || "Usuario");
             localStorage.setItem("profilePic", data.profilePic || "/recursos/avatares/avatarDefault.jpg");
         } else {
+            localStorage.removeItem("jwtToken");
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("userId");
             localStorage.removeItem("role");
@@ -46,7 +55,6 @@ function actualizarNavbar(isLoggedIn) {
         loginNav.classList.add("d-none");
         inicioSesionResponsive.classList.add("d-none");
 
-        // Siempre ocultar carrito si hay sesión
         if (carrito) carrito.classList.add("d-none");
 
         if (role === "admin") {
@@ -93,20 +101,70 @@ async function inicializarNavbar() {
     actualizarNavbar(isLoggedIn);
 }
 
-// Listener para el botón de cerrar sesión
 document.addEventListener("DOMContentLoaded", () => {
     inicializarNavbar();
 
-    const logoutBtn = document.getElementById("btn-CerrarSesion");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutBtnAdmin = document.getElementById("logoutBtnAdmin");
+
     if (logoutBtn) {
-        logoutBtn.addEventListener("click", async () => {
+        logoutBtn.addEventListener("click", async (e) => {
+            e.preventDefault();
+
             try {
-                await fetch('/auth/logout', { method: 'POST' });
+                const token = localStorage.getItem("jwtToken");
+
+                await fetch('/auth/logout', {
+                    method: 'POST',
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
                 localStorage.clear();
-                window.location.href = '/';
+
             } catch (error) {
                 console.error("Error al cerrar sesión:", error);
+                localStorage.clear();
+                Toast.info("Sesión cerrada");
+                setTimeout(() => window.location.href = '/', 1000);
             }
         });
     }
+
+    if (logoutBtnAdmin) {
+        logoutBtnAdmin.addEventListener("click", async (e) => {
+            e.preventDefault();
+
+            if (!confirm("¿Estás seguro de que deseas cerrar sesión?")) {
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem("jwtToken");
+
+                await fetch('/auth/logout', {
+                    method: 'POST',
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
+                localStorage.clear();
+
+                Toast.success("Sesión cerrada con éxito");
+                setTimeout(() => window.location.href = '/', 1000);
+
+            } catch (error) {
+                console.error("Error al cerrar sesión:", error);
+                localStorage.clear();
+                Toast.info("Sesión cerrada");
+                setTimeout(() => window.location.href = '/', 1000);
+            }
+        });
+    }
+});
+
+document.addEventListener('sesionActualizada', async () => {
+    await inicializarNavbar();
 });

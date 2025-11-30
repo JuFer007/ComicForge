@@ -112,24 +112,34 @@ document.getElementById('cancelChanges')?.addEventListener('click', () => {
 async function logout() {
     if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
         try {
+            const token = localStorage.getItem("jwtToken");
+
             const response = await fetch("/auth/logout", {
                 method: "POST",
-                credentials: "include"
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
             });
 
+            localStorage.clear();
+
             if (response.ok) {
-                localStorage.clear();
                 Toast.success("Sesión cerrada con éxito");
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 1200);
             } else {
-                const msg = await response.text();
-                Toast.error("Error al cerrar sesión: " + msg);
+                Toast.warning("Sesión cerrada localmente");
             }
+
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+
         } catch (error) {
             console.error("Error al cerrar sesión:", error);
-            Toast.error("Error de conexión al cerrar sesión");
+            localStorage.clear();
+            Toast.info("Sesión cerrada");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
         }
     }
 }

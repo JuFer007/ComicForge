@@ -24,6 +24,11 @@ public class CartController {
 
     @GetMapping
     public String showCart(Model model, HttpSession session) {
+        Long loggedUserId = (Long) session.getAttribute("userId");
+        if (loggedUserId == null) {
+            return "redirect:/login";
+        }
+
         List<Long> cart = (List<Long>) session.getAttribute("cart");
         if (cart == null) cart = new ArrayList<>();
 
@@ -36,14 +41,18 @@ public class CartController {
     }
 
     @PostMapping("/add")
+    @ResponseBody
     public ResponseEntity<String> addToCart(@RequestParam Long comicID, HttpSession session) {
         Long loggedUserId = (Long) session.getAttribute("userId");
         if (loggedUserId == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Debe iniciar sesión para agregar al carrito");
         }
 
-        Usuario usuario = usuarioService.getUserByID(loggedUserId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        boolean yaComprado = usuario.getPurchasedComics().stream().anyMatch(comic -> comic.getId().equals(comicID));
+        Usuario usuario = usuarioService.getUserByID(loggedUserId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        boolean yaComprado = usuario.getPurchasedComics().stream()
+                .anyMatch(comic -> comic.getId().equals(comicID));
 
         if (yaComprado) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ya posees este cómic en tu colección");
@@ -57,7 +66,7 @@ public class CartController {
         if (cart == null) cart = new ArrayList<>();
 
         if (cart.contains(comicID)) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Este cómic ya esta en tu carrito");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Este cómic ya está en tu carrito");
         }
 
         cart.add(comicID);
@@ -68,20 +77,23 @@ public class CartController {
 
     @PostMapping("/checkout")
     public String checkout(HttpSession session, Model model) {
-        List<Long> cart = (List<Long>) session.getAttribute("cart");
-        if (cart == null || cart.isEmpty()) {
-            return "redirect:/cart?empty";
-        }
-
         Long loggedUserId = (Long) session.getAttribute("userId");
         if (loggedUserId == null) {
             return "redirect:/login";
         }
 
-        Usuario user = usuarioService.getUserByID(loggedUserId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        List<Long> cart = (List<Long>) session.getAttribute("cart");
+        if (cart == null || cart.isEmpty()) {
+            return "redirect:/cart?empty";
+        }
 
-        List<Long> comicsYaComprados = cart.stream().filter(comicId -> user.getPurchasedComics().stream()
-        .anyMatch(c -> c.getId().equals(comicId))).toList();
+        Usuario user = usuarioService.getUserByID(loggedUserId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        List<Long> comicsYaComprados = cart.stream()
+                .filter(comicId -> user.getPurchasedComics().stream()
+                        .anyMatch(c -> c.getId().equals(comicId)))
+                .toList();
 
         if (!comicsYaComprados.isEmpty()) {
             model.addAttribute("error", "Algunos cómics ya los posees");
@@ -100,11 +112,11 @@ public class CartController {
     }
 
     @PostMapping("/remove/{id}")
-    public String removeFromCart(@PathVariable Long id, HttpSession sesion) {
-        List<Long> cart = (List<Long>) sesion.getAttribute("cart");
+    public String removeFromCart(@PathVariable Long id, HttpSession session) {
+        List<Long> cart = (List<Long>) session.getAttribute("cart");
         if (cart != null) {
             cart.removeIf(comicId -> comicId.equals(id));
-            sesion.setAttribute("cart", cart);
+            session.setAttribute("cart", cart);
         }
         return "redirect:/cart";
     }

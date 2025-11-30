@@ -1,10 +1,26 @@
 document.getElementById("RegistroForm")?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const email = document.getElementById("InputEmail1").value;
+    const email = document.getElementById("InputEmail1").value.trim();
     const password = document.getElementById("InputPassword1").value;
     const confirmPassword = document.getElementById("InputPassword2").value;
-    const userName = document.getElementById("inputUser").value;
+    const userName = document.getElementById("inputUser").value.trim();
+
+    // Validaciones
+    if (!userName) {
+        Toast.error('El nombre de usuario es obligatorio');
+        return;
+    }
+
+    if (!email) {
+        Toast.error('El email es obligatorio');
+        return;
+    }
+
+    if (password.length < 6) {
+        Toast.error('La contraseña debe tener al menos 6 caracteres');
+        return;
+    }
 
     if (password !== confirmPassword) {
         Toast.error('Las contraseñas no coinciden');
@@ -18,13 +34,34 @@ document.getElementById("RegistroForm")?.addEventListener("submit", async (event
             body: new URLSearchParams({ email, password, userName })
         });
 
-        if (response.ok) {
+        const data = await response.json();
+
+        if (data.success) {
+            // Guardar JWT
+            localStorage.setItem("jwtToken", data.token);
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("userId", data.userId);
+            localStorage.setItem("userName", data.userName);
+            localStorage.setItem("profilePic", data.profilePic);
+            localStorage.setItem("role", data.role);
+
+            console.log("JWT Token guardado:", data.token);
+            console.log("Usuario registrado:", {
+                userId: data.userId,
+                userName: data.userName,
+                role: data.role
+            });
+
             Toast.success('Registro exitoso');
-            window.location.href = "/login";
+
+            setTimeout(() => {
+                window.location.href = `/user/profile/${data.userId}`;
+            }, 1000);
         } else {
-            console.log("Error al registrar usuario.");
+            Toast.error(data.message || 'Error al registrar usuario');
         }
     } catch (error) {
         console.error(error);
+        Toast.error('Error de conexión');
     }
 });
