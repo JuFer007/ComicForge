@@ -56,7 +56,6 @@ public class SecurityConfig {
                                 "/descuentos",
                                 "/top-comics",
                                 "/publishers",
-                                "/comic/read/**",
                                 "/profile",
                                 "/user/**",
                                 "/cart/**",

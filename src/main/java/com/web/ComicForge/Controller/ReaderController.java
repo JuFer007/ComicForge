@@ -34,16 +34,7 @@ public class ReaderController {
 
         Comic comic = comicService.getComicById(comicId)
                 .orElseThrow(() -> new RuntimeException("Cómic no encontrado"));
-
-        boolean hasAccess = user.getPurchasedComics().stream()
-                .anyMatch(c -> c.getId().equals(comicId));
-
-        if (!hasAccess) {
-            model.addAttribute("error", "No tienes acceso a este cómic. Debes comprarlo primero.");
-            model.addAttribute("comicId", comicId);
-            return "access_denied";
-        }
-
+        
         String processedLink = comicService.processComicLink(comic.getLinkComic());
         String linkType = comicService.getLinkType(comic.getLinkComic());
 
