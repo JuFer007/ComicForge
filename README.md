@@ -1,4 +1,5 @@
-🦸 Comic Forge - Sistema de Gestión y Venta de Cómics Digitales
+# 🦸 Comic Forge - Sistema de Gestión y Venta de Cómics Digitales
+
 📖 Descripción del Sistema
 Comic Forge es una plataforma web completa de comercio electrónico especializada en la venta y lectura de cómics digitales. El sistema permite a los usuarios navegar, comprar y leer cómics de diferentes editoriales (Marvel, DC Comics, entre otras) directamente desde su navegador web, ofreciendo una experiencia de usuario moderna y fluida.
 La aplicación está desarrollada con Spring Boot y Thymeleaf, proporcionando una arquitectura robusta que integra autenticación segura, gestión de usuarios, procesamiento de pagos, y un panel de administración completo para la gestión del catálogo y análisis de ventas.
