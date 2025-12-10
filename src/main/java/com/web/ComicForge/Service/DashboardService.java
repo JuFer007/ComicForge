@@ -5,7 +5,6 @@ import com.web.ComicForge.Repository.SaleRepository;
 import com.web.ComicForge.Repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 @Service

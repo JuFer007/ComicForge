@@ -69,9 +69,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-// ==================================
-// NAVEGACIÓN ENTRE SECCIONES
-// ==================================
 function mostrarSeccion(seccionId) {
     const secciones = document.querySelectorAll('.seccion');
     secciones.forEach(s => s.style.display = 'none');
@@ -95,9 +92,6 @@ function mostrarSeccion(seccionId) {
     actualizarHeader(seccionId);
 }
 
-// ==================================
-// ACTUALIZAR HEADER DINÁMICO
-// ==================================
 const headerContent = {
     dashboard: {
         title: '<i class="bi bi-bar-chart-line"></i> Panel de Control',
@@ -132,9 +126,6 @@ function actualizarHeader(seccionId) {
     }
 }
 
-// ==================================
-// ESTADÍSTICAS
-// ==================================
 async function cargarEstadisticas() {
     try {
         const token = localStorage.getItem("jwtToken");
@@ -163,9 +154,6 @@ async function cargarEstadisticas() {
     }
 }
 
-// ==================================
-// GESTIÓN DE USUARIOS
-// ==================================
 async function cargarUsuarios() {
     try {
         const token = localStorage.getItem("jwtToken");
@@ -224,9 +212,6 @@ async function eliminarUsuario(userId) {
     }
 }
 
-// ==================================
-// FORMULARIO AGREGAR CÓMIC
-// ==================================
 document.getElementById('addComicForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -310,9 +295,6 @@ document.getElementById('addComicForm').addEventListener('submit', async (e) => 
     }
 });
 
-// ==================================
-// PREVISUALIZACIÓN DE ARCHIVOS
-// ==================================
 document.getElementById('comicImageUpload').addEventListener('change', function(e) {
     const file = e.target.files[0];
 

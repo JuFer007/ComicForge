@@ -1,4 +1,3 @@
-// --- Referencias principales ---
 const profilePicElement = document.getElementById('profilePic');
 const coverImg = document.getElementById('coverImg');
 const coverSelect = document.getElementById('coverSelect');
@@ -12,7 +11,6 @@ const userName = document.getElementById('username');
 const userBio = document.getElementById('userBio');
 const userId = document.getElementById('userId')?.value;
 
-// --- Modal de edición ---
 editModalEl?.addEventListener('show.bs.modal', () => {
     const newNameInput = document.getElementById('newName');
     const newBioInput = document.getElementById('newBio');
@@ -24,7 +22,6 @@ editModalEl?.addEventListener('show.bs.modal', () => {
         newBioInput.value = userBio?.textContent.trim() || '';
 });
 
-// --- Restaurar perfil desde localStorage ---
 function restaurarPerfil() {
     if (localStorage.getItem("profilePic") && profilePicElement)
         profilePicElement.src = localStorage.getItem("profilePic");
@@ -36,7 +33,6 @@ function restaurarPerfil() {
         userBio.textContent = localStorage.getItem("userBio");
 }
 
-// --- Selección de avatar ---
 document.querySelectorAll('.avatar-item').forEach(item => {
     item.addEventListener('click', () => {
         const img = item.querySelector('img');
@@ -53,12 +49,10 @@ document.querySelectorAll('.avatar-item').forEach(item => {
     });
 });
 
-// --- Selección de portada ---
 coverSelect?.addEventListener('change', () => {
     selectedCover = coverSelect.value;
 });
 
-// --- Guardar cambios de perfil ---
 document.getElementById('saveChanges')?.addEventListener('click', async () => {
     if (!userId) {
         console.error("No se encontró ID del usuario.");
@@ -101,14 +95,12 @@ document.getElementById('saveChanges')?.addEventListener('click', async () => {
     }
 });
 
-// --- Cancelar cambios ---
 document.getElementById('cancelChanges')?.addEventListener('click', () => {
     document.getElementById('editForm')?.reset();
     const editModal = bootstrap.Modal.getInstance(editModalEl);
     editModal?.hide();
 });
 
-// --- Cerrar sesión ---
 async function logout() {
     if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
         try {
@@ -147,7 +139,6 @@ async function logout() {
 document.getElementById('logoutBtn')?.addEventListener('click', logout);
 document.getElementById('btn-CerrarSesion')?.addEventListener('click', logout);
 
-// --- Agregar a favoritos ---
 async function agregarAFavoritos(comicId, buttonEl) {
     if (!userId) {
         Toast.error('Inicie sesión para agregar a favoritos');
@@ -181,7 +172,6 @@ async function agregarAFavoritos(comicId, buttonEl) {
     }
 }
 
-// --- Cargar cómics del usuario (ACTUALIZADO) ---
 async function cargarMisComics(userId) {
     if (!userId) return;
 
@@ -248,7 +238,6 @@ async function cargarMisComics(userId) {
     }
 }
 
-// --- Cargar favoritos (ACTUALIZADO) ---
 async function cargarFavoritos(userId) {
     if (!userId) return;
 
@@ -295,7 +284,6 @@ async function cargarFavoritos(userId) {
     }
 }
 
-// --- cargar la página ---
 document.addEventListener("DOMContentLoaded", () => {
     restaurarPerfil();
     cargarMisComics(userId);

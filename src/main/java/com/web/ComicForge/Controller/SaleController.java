@@ -1,6 +1,5 @@
 package com.web.ComicForge.Controller;
 import com.web.ComicForge.DTO.SaleDTO;
-import com.web.ComicForge.Model.Sale;
 import com.web.ComicForge.Service.SaleService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;

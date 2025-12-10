@@ -1,7 +1,6 @@
 package com.web.ComicForge.Util;
 import com.web.ComicForge.Security.CustomUserDetailsService;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +16,7 @@ import java.util.Collections;
 
 @Component
 @RequiredArgsConstructor
+
 public class JwtRequestFilter extends OncePerRequestFilter {
     private final JwtUtil jwtUtil;
     private final CustomUserDetailsService userDetailsService;
@@ -30,7 +30,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String username = null;
         String jwt = null;
 
-        // Extraer JWT del header
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwt = authorizationHeader.substring(7);
             try {
@@ -41,7 +40,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             }
         }
 
-        // Validar y autenticar
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             try {
                 if (jwtUtil.validateToken(jwt, username)) {
@@ -61,7 +59,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 logger.error("Error validando JWT: " + e.getMessage());
             }
         }
-
         chain.doFilter(request, response);
     }
 }

@@ -13,7 +13,6 @@ import lombok.AllArgsConstructor;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
-
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -102,7 +101,6 @@ public class SaleService {
             font.setBold(true);
             headerStyle.setFont(font);
 
-            // Header
             Row headerRow = sheet.createRow(0);
             String[] headers = {"ID Venta", "Fecha", "Usuario", "Comics", "Total"};
             for (int i = 0; i < headers.length; i++) {

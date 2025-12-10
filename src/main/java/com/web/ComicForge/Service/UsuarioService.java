@@ -13,7 +13,6 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UsuarioService {
-
     @Autowired
     private final UsuarioRepository userRepository;
     private final ComicRepository comicRepository;

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = document.getElementById("exampleInputEmail1").value.trim();
             const password = document.getElementById("exampleInputPassword1").value;
 
-            // Validaciones
             if (!email) { Toast.error("El email es obligatorio"); return; }
             if (!password) { Toast.error("La contraseña es obligatoria"); return; }
 
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // Guardar datos en localStorage
                 localStorage.setItem("jwtToken", data.token);
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("userId", data.userId);
@@ -38,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 Toast.success("Bienvenido, inicio de sesión exitoso");
 
-                // REDIRECCIÓN INMEDIATA SIN VERIFICACIONES ADICIONALES
                 setTimeout(() => {
                     if (data.role === "admin") {
                         window.location.replace("/admin");
@@ -55,9 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ========================
-// LOGOUT
-// ========================
 async function logout() {
     if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
         try {
@@ -93,22 +87,16 @@ async function logout() {
     }
 }
 
-// ========================
-// VERIFICAR SESIÓN ACTIVA - SOLO PARA PROTEGER RUTAS
-// ========================
 document.addEventListener("DOMContentLoaded", async () => {
     const currentPath = window.location.pathname;
 
-    // Lista de páginas públicas que NO requieren verificación
     const publicPages = ['/login', '/registro', '/auth/register', '/', '/index', '/personajes', '/descuentos'];
 
-    // Si estamos en una página pública, no verificar nada
     if (publicPages.some(page => currentPath === page || currentPath.startsWith(page))) {
         console.log("Página pública, no verificar sesión");
         return;
     }
 
-    // Si estamos en /admin, verificar que sea admin
     if (currentPath === '/admin' || currentPath.startsWith('/admin/')) {
         const role = localStorage.getItem("role");
         const token = localStorage.getItem("jwtToken");
@@ -120,7 +108,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // Verificar token válido
         try {
             const response = await fetch('/api/session/status', {
                 headers: { "Authorization": `Bearer ${token}` }

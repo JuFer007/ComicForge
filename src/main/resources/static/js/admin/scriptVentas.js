@@ -13,9 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // ==================================
-    // CARGAR VENTAS
-    // ==================================
     async function loadSales() {
         try {
             const response = await fetch("http://localhost:8080/sales", {
@@ -36,9 +33,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // ==================================
-    // RENDERIZAR TABLA CON FILTROS
-    // ==================================
     function renderSalesTable(salesArray) {
         salesTableBody.innerHTML = "";
 
@@ -59,9 +53,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // ==================================
-    // FILTRAR POR FECHA
-    // ==================================
     function filterSalesByDate() {
         const startDate = startDateInput.value ? new Date(startDateInput.value) : null;
         const endDate = endDateInput.value ? new Date(endDateInput.value) : null;
@@ -79,9 +70,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     startDateInput.addEventListener("change", filterSalesByDate);
     endDateInput.addEventListener("change", filterSalesByDate);
 
-    // ==================================
-    // EXPORTAR VENTAS A EXCEL
-    // ==================================
     if (exportBtn) {
         exportBtn.addEventListener("click", async () => {
             try {
@@ -108,6 +96,5 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         });
     }
-
     loadSales();
 });

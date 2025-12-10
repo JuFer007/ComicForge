@@ -11,9 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // ==================================
-    // CARGAR USUARIOS
-    // ==================================
     async function loadUsers() {
         try {
             const response = await fetch("http://localhost:8080/admin/users", {
@@ -34,11 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // ==================================
-    // RENDERIZAR TABLA DE USUARIOS
-    // ==================================
     function renderUsersTable(usersArray) {
-        usersTableBody.innerHTML = ""; // Limpiar tabla
+        usersTableBody.innerHTML = "";
 
         usersArray.forEach(user => {
             const tr = document.createElement("tr");
@@ -52,7 +46,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             usersTableBody.appendChild(tr);
         });
 
-        // Asignar eventos de eliminar
         document.querySelectorAll(".btn-delete").forEach(btn => {
             btn.addEventListener("click", async (e) => {
                 const id = e.currentTarget.dataset.id;
@@ -80,9 +73,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // ==================================
-    // FILTRAR USUARIOS POR NOMBRE O EMAIL
-    // ==================================
     searchInput.addEventListener("input", () => {
         const term = searchInput.value.toLowerCase();
         const filtered = users.filter(u =>
@@ -92,6 +82,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderUsersTable(filtered);
     });
 
-    // Cargar usuarios al inicio
     loadUsers();
 });

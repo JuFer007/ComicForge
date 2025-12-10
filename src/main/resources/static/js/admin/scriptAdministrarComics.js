@@ -96,9 +96,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.cargarComics = cargarComics;
 });
 
-// ==================================
-// MODAL PARA VER/EDITAR CÓMIC
-// ==================================
 function verComic(comicData) {
     modoEdicion = false;
     comicOriginal = { ...comicData };
@@ -231,9 +228,6 @@ function setReadOnlyMode(readonly) {
     });
 }
 
-// ==================================
-// ELIMINACIÓN CON MODAL DE CONFIRMACIÓN
-// ==================================
 function confirmarEliminarComic(comicId) {
     comicIdToDelete = comicId;
     const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));

@@ -6,7 +6,6 @@ document.getElementById("RegistroForm")?.addEventListener("submit", async (event
     const confirmPassword = document.getElementById("InputPassword2").value;
     const userName = document.getElementById("inputUser").value.trim();
 
-    // Validaciones
     if (!userName) {
         Toast.error('El nombre de usuario es obligatorio');
         return;
@@ -37,7 +36,6 @@ document.getElementById("RegistroForm")?.addEventListener("submit", async (event
         const data = await response.json();
 
         if (data.success) {
-            // Guardar JWT
             localStorage.setItem("jwtToken", data.token);
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("userId", data.userId);
