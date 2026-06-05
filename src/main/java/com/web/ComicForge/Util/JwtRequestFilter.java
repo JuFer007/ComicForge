@@ -34,7 +34,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             jwt = authorizationHeader.substring(7);
             try {
                 username = jwtUtil.extractUsername(jwt);
-                logger.info("JWT extraído para usuario: " + username); // DEBUG
+                logger.info("JWT extraído para usuario: " + username);
             } catch (Exception e) {
                 logger.error("Error al extraer usuario del JWT: " + e.getMessage());
             }
@@ -44,7 +44,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             try {
                 if (jwtUtil.validateToken(jwt, username)) {
                     String role = jwtUtil.extractRole(jwt);
-                    logger.info("Token válido - Role: " + role); // DEBUG
+                    logger.info("Token válido - Role: " + role);
 
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                             username, null, Collections.singletonList(new SimpleGrantedAuthority(role))
@@ -53,7 +53,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authToken);
 
-                    logger.info("Usuario autenticado exitosamente en Security Context"); // DEBUG
+                    logger.info("Usuario autenticado exitosamente en Security Context");
                 }
             } catch (Exception e) {
                 logger.error("Error validando JWT: " + e.getMessage());
